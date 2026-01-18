@@ -1,4 +1,4 @@
-/* assets/scss/common/_mixin.scss */
+@charset "utf-8";
 
 /* Clearfix */
 @mixin clearfix {
@@ -23,36 +23,41 @@
   }
 }
 
-/* Screen reader only (접근성) */
+/* Screen reader only */
 @mixin sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+  position: absolute !important;
+  width: 0.1rem !important;
+  height: 0.1rem !important;
+  padding: 0 !important;
+  margin: -0.1rem !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
-/* Focus outline (접근성) */
-@mixin focus-ring {
+/* Focus ring (token 기반) */
+@mixin focus-ring($w: 0.2rem, $offset: 0.3rem, $color: var(--pub-focus, rgba(47, 61, 34, 0.85))) {
   &:focus-visible {
-    outline: 2px solid #005fcc;
-    outline-offset: 2px;
+    outline: $w solid $color;
+    outline-offset: $offset;
   }
 }
 
-/* Media query */
+/* Breakpoints (rem 기준) */
 $breakpoints: (
-  sm: 768px,
-  md: 1024px,
-  lg: 1280px
+  sm: 76.8rem,  
+  md: 102.4rem,
+  lg: 128rem    
 );
 
 @mixin respond($size) {
-  @media (max-width: map-get($breakpoints, $size)) {
+  @if map-has-key($breakpoints, $size) {
+    @media (max-width: map-get($breakpoints, $size)) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: #{$size}. Use one of: #{map-keys($breakpoints)}";
     @content;
   }
 }

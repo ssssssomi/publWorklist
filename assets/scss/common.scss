@@ -1,74 +1,33 @@
 @charset "utf-8";
 
-@import "variables";
-@import "mixin";
-@import "base/reset";
-
-/* ---------------------------------------------------------
-  Tokens
---------------------------------------------------------- */
-:root {
-  --pub-canvas: #f4f2ef;
-
-  --pub-orange: rgba(255, 145, 90, 0.85);
-  --pub-coral: rgba(255, 95, 95, 0.75);
-  --pub-mint: rgba(145, 210, 190, 0.70);
-  --pub-sky: rgba(130, 190, 235, 0.70);
-
-  --pub-glass: rgba(255, 255, 255, 0.55);
-  --pub-glass-strong: rgba(255, 255, 255, 0.68);
-  --pub-glass-weak: rgba(255, 255, 255, 0.42);
-
-  --pub-stroke: rgba(40, 40, 40, 0.08);
-  --pub-stroke-strong: rgba(40, 40, 40, 0.12);
-
-  --pub-text: rgba(28, 28, 28, 0.92);
-  --pub-text-dim: rgba(28, 28, 28, 0.70);
-  --pub-text-mute: rgba(28, 28, 28, 0.52);
-
-  --pub-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
-  --pub-shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.10);
-
-  --pub-focus: rgba(255, 145, 90, 0.85);
-
-  --pub-radius-xl: 26px;
-  --pub-radius-lg: 20px;
-  --pub-radius-md: 14px;
-
-  --pub-blur: 16px;
-  --pub-blur-strong: 26px;
-
-  --pub-max: 1160px;
-  --pub-gutter: 20px;
-
-  --pub-ease: cubic-bezier(0.25, 0.8, 0.25, 1);
-}
+/* ===== Entry: common.scss (NO @import) ===== */
+@use "base/variables"; // :root tokens (CSS vars)
+@use "mixin" as *;
+@use "base/reset";
+@use "pages/guide";
+@use "pages/worklist";
 
 /* ---------------------------------------------------------
   Base
 --------------------------------------------------------- */
 body {
-  background: var(--pub-canvas);
+  background: var(--pub-bg-0);
   color: var(--pub-text);
   overflow-x: hidden;
 }
 
 /* a11y hidden */
-.a11y-hidden {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  margin: -1px !important;
-  padding: 0 !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
+.a11y-hidden { @include sr-only; }
+
+/* focus override (token 기반) */
+:focus-visible {
+  outline: 0.3rem solid var(--pub-focus);
+  outline-offset: 0.3rem;
 }
 
-/* spacing util */
-.mt-x2 { margin-top: 12px; }
-.mt-x4 { margin-top: 24px; }
+/* util */
+.mt-x2 { margin-top: 1.2rem; }
+.mt-x4 { margin-top: 2.4rem; }
 
 /* ---------------------------------------------------------
   Layout
@@ -76,17 +35,17 @@ body {
 .pub-body {
   max-width: var(--pub-max);
   margin: 0 auto;
-  padding: 32px var(--pub-gutter) 56px;
+  padding: 3.2rem var(--pub-gutter) 5.6rem;
 }
 
 .pub-wrap-in {
   background: var(--pub-glass);
   -webkit-backdrop-filter: blur(var(--pub-blur-strong));
   backdrop-filter: blur(var(--pub-blur-strong));
-  border: 1px solid var(--pub-stroke);
-  border-radius: var(--pub-radius-xl);
+  border: 0.1rem solid var(--pub-stroke);
+  border-radius: var(--pub-radius-lg);
   box-shadow: var(--pub-shadow);
-  padding: 18px;
+  padding: 1.8rem;
 }
 
 /* ---------------------------------------------------------
@@ -95,7 +54,7 @@ body {
 .pub-tab--wrap {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 1rem;
   align-items: center;
 }
 
@@ -104,14 +63,14 @@ body {
   align-items: center;
   justify-content: center;
 
-  padding: 10px 14px;
-  min-height: 40px;
+  padding: 1rem 1.4rem;
+  min-height: 4rem;
   border-radius: var(--pub-radius-md);
 
   background: var(--pub-glass-weak);
   -webkit-backdrop-filter: blur(var(--pub-blur));
   backdrop-filter: blur(var(--pub-blur));
-  border: 1px solid var(--pub-stroke);
+  border: 0.1rem solid var(--pub-stroke);
 
   font-weight: 700;
   color: var(--pub-text-dim);
@@ -127,8 +86,9 @@ body {
   &:hover {
     background: var(--pub-glass-strong);
     color: var(--pub-text);
-    transform: translateY(-1px);
+    transform: translateY(-0.1rem);
     border-color: var(--pub-stroke-strong);
+    box-shadow: var(--pub-shadow-soft);
   }
 
   &:active {
@@ -137,20 +97,13 @@ body {
   }
 
   &:focus { outline: none; }
-  &:focus-visible {
-    outline: 3px solid var(--pub-focus);
-    outline-offset: 3px;
-  }
+  @include focus-ring(0.3rem, 0.3rem);
 
   &.is-active,
   &[aria-selected="true"] {
-    background: linear-gradient(
-      135deg,
-      rgba(255, 145, 90, 0.35),
-      rgba(130, 190, 235, 0.35)
-    );
+    background: rgba(47, 61, 34, 0.18);
     color: var(--pub-text);
-    border-color: rgba(255, 145, 90, 0.35);
+    border-color: rgba(47, 61, 34, 0.30);
     box-shadow: var(--pub-shadow-soft);
   }
 
@@ -170,9 +123,9 @@ body {
   background: var(--pub-glass);
   -webkit-backdrop-filter: blur(var(--pub-blur-strong));
   backdrop-filter: blur(var(--pub-blur-strong));
-  border: 1px solid var(--pub-stroke);
-  border-radius: var(--pub-radius-xl);
-  padding: 22px;
+  border: 0.1rem solid var(--pub-stroke);
+  border-radius: var(--pub-radius-lg);
+  padding: 2.2rem;
   box-shadow: var(--pub-shadow);
 
   &[aria-hidden="true"] { display: none; }
@@ -182,21 +135,21 @@ body {
   Box / Text
 --------------------------------------------------------- */
 .pub-box {
-  background: rgba(255, 255, 255, 0.62);
-  border: 1px solid var(--pub-stroke);
-  border-radius: var(--pub-radius-lg);
-  padding: 18px;
+  background: var(--pub-glass-strong);
+  border: 0.1rem solid var(--pub-stroke);
+  border-radius: var(--pub-radius-md);
+  padding: 1.8rem;
   box-shadow: var(--pub-shadow-soft);
 }
 
 .pub-tit {
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 900;
-  margin: 0 0 12px;
+  margin: 0 0 1.2rem;
 }
 
 .pub-txt {
-  font-size: 14px;
+  font-size: 1.4rem;
   line-height: 1.6;
   margin: 0;
   color: var(--pub-text-mute);
@@ -207,34 +160,34 @@ body {
 --------------------------------------------------------- */
 .pub-tbl {
   overflow: auto;
-  border-radius: var(--pub-radius-lg);
-  border: 1px solid var(--pub-stroke);
-  background: rgba(255, 255, 255, 0.55);
+  border-radius: var(--pub-radius-md);
+  border: 0.1rem solid var(--pub-stroke);
+  background: var(--pub-glass-weak);
 
   table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 640px;
+    min-width: 64rem;
   }
 
   thead th {
     position: sticky;
     top: 0;
-    background: rgba(255, 255, 255, 0.75);
-    -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.16);
+    -webkit-backdrop-filter: blur(0.8rem);
+    backdrop-filter: blur(0.8rem);
 
     font-weight: 800;
     color: var(--pub-text);
     text-align: left;
-    padding: 14px;
-    border-bottom: 1px solid var(--pub-stroke);
+    padding: 1.4rem;
+    border-bottom: 0.1rem solid var(--pub-stroke);
   }
 
   tbody td,
   tbody th {
-    padding: 12px 14px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 1.2rem 1.4rem;
+    border-bottom: 0.1rem solid rgba(255, 255, 255, 0.14);
     color: var(--pub-text-dim);
   }
 
@@ -244,7 +197,7 @@ body {
   }
 
   tbody tr:hover {
-    background: rgba(255, 145, 90, 0.08);
+    background: rgba(47, 61, 34, 0.10);
   }
 }
 
@@ -258,16 +211,10 @@ body {
 /* ---------------------------------------------------------
   Responsive
 --------------------------------------------------------- */
-@media (max-width: 520px) {
-  :root { --pub-gutter: 14px; }
+@media (max-width: 52rem) {
+  :root { --pub-gutter: 1.4rem; }
 
-  .pub-body { padding: 22px var(--pub-gutter) 40px; }
-  .pub-wrap-in { padding: 14px; }
-  .pub-tab--pnl { padding: 16px; }
+  .pub-body { padding: 2.2rem var(--pub-gutter) 4rem; }
+  .pub-wrap-in { padding: 1.4rem; }
+  .pub-tab--pnl { padding: 1.6rem; }
 }
-
-/* ---------------------------------------------------------
-  Pages (page-specific must be last)
---------------------------------------------------------- */
-@import "pages/guide";
-@import "pages/worklist";

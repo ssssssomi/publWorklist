@@ -4,42 +4,61 @@
   isolation: isolate;
 }
 
+/* 상단 웜 오렌지 + 스카이 글로우 */
 .guide-wrap::before {
   content: "";
   position: fixed;
   top: 22%;
   left: 44%;
-  width: 520px;
-  height: 420px;
+  width: 52rem;
+  height: 42rem;
   transform: translate(-50%, -50%);
 
   background:
-    radial-gradient(circle at 30% 30%, var(--pub-orange), transparent 65%),
-    radial-gradient(circle at 70% 70%, var(--pub-sky), transparent 70%);
+    radial-gradient(
+      circle at 28% 32%,
+      rgba(255, 145, 90, 0.85),   /* pub-orange */
+      transparent 65%
+    ),
+    radial-gradient(
+      circle at 72% 68%,
+      rgba(130, 190, 235, 0.75), /* pub-sky */
+      transparent 70%
+    );
 
-  filter: blur(42px);
-  opacity: 0.95;
+  filter: blur(4.2rem);
+  opacity: 0.92;
   border-radius: 28%;
   z-index: -2;
   pointer-events: none;
 }
 
+/* 하단 코랄 + 민트 글로우 */
 .guide-wrap::after {
   content: "";
   position: fixed;
   bottom: 18%;
   right: 38%;
-  width: 520px;
-  height: 420px;
+  width: 52rem;
+  height: 42rem;
   transform: translate(50%, 50%);
 
   background:
-    radial-gradient(circle at 30% 30%, var(--pub-mint), transparent 65%),
-    radial-gradient(circle at 70% 70%, var(--pub-coral), transparent 70%);
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 95, 95, 0.78),   /* pub-coral */
+      transparent 65%
+    ),
+    radial-gradient(
+      circle at 70% 70%,
+      rgba(145, 210, 190, 0.70), /* pub-mint */
+      transparent 70%
+    );
 
-  filter: blur(42px);
-  opacity: 0.90;
+  filter: blur(4.2rem);
+  opacity: 0.88;
   border-radius: 28%;
   z-index: -2;
   pointer-events: none;
 }
+

@@ -1,13 +1,12 @@
-/* =========================================================
-  Color Tokens (Sage / Olive Glass)
-========================================================= */
+@charset "utf-8";
+
 :root {
   /* Background base */
-  --pub-bg-0: #eef1e6;   /* 바깥 배경(크림) */
-  --pub-bg-1: #cfdac0;   /* 연한 세이지 */
-  --pub-bg-2: #9bb07a;   /* 올리브 */
-  --pub-bg-3: #6f8a52;   /* 딥 올리브 */
-  --pub-bg-4: #2f3d22;   /* 딥그린(버튼/강조) */
+  --pub-bg-0: #eef1e6; /* 바깥 배경(크림) */
+  --pub-bg-1: #cfdac0; /* 연한 세이지 */
+  --pub-bg-2: #9bb07a; /* 올리브 */
+  --pub-bg-3: #6f8a52; /* 딥 올리브 */
+  --pub-bg-4: #2f3d22; /* 딥그린(버튼/강조) */
 
   /* Glass */
   --pub-glass: rgba(255, 255, 255, 0.18);
@@ -19,28 +18,31 @@
   --pub-stroke-strong: rgba(255, 255, 255, 0.36);
 
   /* Text */
-  --pub-text: rgba(18, 26, 14, 0.92);     /* 다크그린 계열 */
+  --pub-text: rgba(18, 26, 14, 0.92);
   --pub-text-dim: rgba(18, 26, 14, 0.72);
   --pub-text-mute: rgba(18, 26, 14, 0.56);
 
-  /* Shadow (소프트) */
-  --pub-shadow: 0 22px 60px rgba(34, 46, 22, 0.20);
-  --pub-shadow-soft: 0 10px 26px rgba(34, 46, 22, 0.14);
+  /* Shadow (soft) */
+  --pub-shadow: 0 2.2rem 6rem rgba(34, 46, 22, 0.20);
+  --pub-shadow-soft: 0 1rem 2.6rem rgba(34, 46, 22, 0.14);
 
   /* Accent / Focus */
-  --pub-accent: #2f3d22;                 /* 딥그린 */
-  --pub-accent-2: #ffffff;               /* 라이트 하이라이트 */
-  --pub-focus: rgba(47, 61, 34, 0.85);   /* 포커스 링도 그린 계열 */
+  --pub-accent: #2f3d22; /* 딥그린 */
+  --pub-accent-2: #ffffff;
+  --pub-focus: rgba(47, 61, 34, 0.85);
 
   /* Radius / Blur */
-  --pub-radius-lg: 22px;
-  --pub-radius-md: 16px;
-  --pub-radius-sm: 12px;
+  --pub-radius-lg: 2.2rem;
+  --pub-radius-md: 1.6rem;
+  --pub-radius-sm: 1.2rem;
 
-  --pub-blur: 18px;
-  --pub-blur-strong: 26px;
+  --pub-blur: 1.8rem;
+  --pub-blur-strong: 2.6rem;
 
   /* Layout */
-  --pub-max: 1160px;
-  --pub-gutter: 20px;
+  --pub-max: 116rem;
+  --pub-gutter: 2rem;
+
+  /* Motion */
+  --pub-ease: cubic-bezier(0.25, 0.8, 0.25, 1);
 }
