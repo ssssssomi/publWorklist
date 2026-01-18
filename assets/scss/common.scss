@@ -1,15 +1,5 @@
 @charset "utf-8";
 
-/* =========================================================
-  common.scss
-  Theme: Soft Orange × Mint Glassmorphism
-  - matches class names:
-    body.ui-content[data-page="worklist"]
-    .worklist-wrap
-    .pub-wrap-in
-    .pub-tab--wrap / .pub-tab--btn / .pub-tab--pnl
-========================================================= */
-
 @import "variables";
 @import "mixin";
 @import "base/reset";
@@ -55,17 +45,12 @@
 }
 
 /* ---------------------------------------------------------
-  Base + Page Scope
+  Base
 --------------------------------------------------------- */
 body {
   background: var(--pub-canvas);
   color: var(--pub-text);
   overflow-x: hidden;
-}
-
-/* 페이지별 스코프(필요할 때만 확장) */
-body.ui-content[data-page="worklist"] {
-  /* worklist 전용으로 추가할게 있으면 여기에 */
 }
 
 /* a11y hidden */
@@ -86,56 +71,6 @@ body.ui-content[data-page="worklist"] {
 .mt-x4 { margin-top: 24px; }
 
 /* ---------------------------------------------------------
-  Background blobs
-  - pub-wrap 대신 worklist-wrap에 붙여서 "중복 pub-wrap" 문제 제거
---------------------------------------------------------- */
-.worklist-wrap {
-  position: relative;
-  min-height: 100%;
-  isolation: isolate;
-}
-
-.worklist-wrap::before {
-  content: "";
-  position: fixed;
-  top: 22%;
-  left: 44%;
-  width: 520px;
-  height: 420px;
-  transform: translate(-50%, -50%);
-
-  background:
-    radial-gradient(circle at 30% 30%, var(--pub-orange), transparent 65%),
-    radial-gradient(circle at 70% 70%, var(--pub-sky), transparent 70%);
-
-  filter: blur(42px);
-  opacity: 0.95;
-  border-radius: 28%;
-  z-index: -2;
-  pointer-events: none;
-}
-
-.worklist-wrap::after {
-  content: "";
-  position: fixed;
-  bottom: 18%;
-  right: 38%;
-  width: 520px;
-  height: 420px;
-  transform: translate(50%, 50%);
-
-  background:
-    radial-gradient(circle at 30% 30%, var(--pub-mint), transparent 65%),
-    radial-gradient(circle at 70% 70%, var(--pub-coral), transparent 70%);
-
-  filter: blur(42px);
-  opacity: 0.90;
-  border-radius: 28%;
-  z-index: -2;
-  pointer-events: none;
-}
-
-/* ---------------------------------------------------------
   Layout
 --------------------------------------------------------- */
 .pub-body {
@@ -144,7 +79,6 @@ body.ui-content[data-page="worklist"] {
   padding: 32px var(--pub-gutter) 56px;
 }
 
-/* glass container */
 .pub-wrap-in {
   background: var(--pub-glass);
   -webkit-backdrop-filter: blur(var(--pub-blur-strong));
@@ -156,7 +90,7 @@ body.ui-content[data-page="worklist"] {
 }
 
 /* ---------------------------------------------------------
-  Tabs (match pub-tab--*)
+  Tabs
 --------------------------------------------------------- */
 .pub-tab--wrap {
   display: flex;
@@ -230,7 +164,7 @@ body.ui-content[data-page="worklist"] {
 }
 
 /* ---------------------------------------------------------
-  Panel (match pub-tab--pnl)
+  Panel
 --------------------------------------------------------- */
 .pub-tab--pnl {
   background: var(--pub-glass);
@@ -331,3 +265,9 @@ body.ui-content[data-page="worklist"] {
   .pub-wrap-in { padding: 14px; }
   .pub-tab--pnl { padding: 16px; }
 }
+
+/* ---------------------------------------------------------
+  Pages (page-specific must be last)
+--------------------------------------------------------- */
+@import "pages/guide";
+@import "pages/worklist";

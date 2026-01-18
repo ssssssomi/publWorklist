@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no, address=no, email=no">
+  <title>WORKLIST</title>
+
+  <link rel="stylesheet" type="text/css" href="./assets/css/common.css">
+
+  <!-- worklist 전용 최소 스타일(공통css에 합칠 예정이면 이동) -->
+  <style>
+    .worklist-wrap { padding: 24px; }
+    .worklist-head { display:flex; gap:12px; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; margin-bottom:16px; }
+    .worklist-title { font-size: 20px; font-weight: 700; margin: 0; }
+    .worklist-meta { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+    .worklist-meta .field { display:flex; gap:6px; align-items:center; }
+    .worklist-meta label { font-size: 14px; }
+    .worklist-meta input[type="search"], .worklist-meta select { height: 36px; padding: 0 10px; border: 1px solid #cfcfcf; border-radius: 8px; }
+    .worklist-table-wrap { overflow:auto; border: 1px solid #e6e6e6; border-radius: 12px; background:#fff; }
+    table.worklist-table { width: 100%; border-collapse: collapse; min-width: 1100px; }
+    table.worklist-table caption { padding: 12px; font-weight: 600; text-align: left; }
+    table.worklist-table th, table.worklist-table td { padding: 10px 12px; border-top: 1px solid #eee; vertical-align: top; }
+    table.worklist-table thead th { position: sticky; top: 0; background: #fafafa; border-top: none; z-index: 1; }
+    table.worklist-table th { text-align: left; font-weight: 600; }
+    table.worklist-table td small { display:block; color:#666; }
+
+    .btn-preview {
+      display:inline-flex; align-items:center; gap:6px;
+      height: 32px; padding: 0 10px;
+      border: 1px solid #cfcfcf; border-radius: 999px;
+      background: #fff; cursor: pointer;
+      font-size: 14px;
+    }
+    .btn-preview:focus-visible, .btn-close:focus-visible {
+      outline: 2px solid #1f3a56;
+      outline-offset: 2px;
+    }
+
+    .status { display:inline-flex; align-items:center; height: 26px; padding: 0 10px; border-radius: 999px; font-size: 13px; border:1px solid #ddd; background:#fff; }
+    .status[data-status="done"] { border-color:#b9d9c7; }
+    .status[data-status="progress"] { border-color:#f0d7a6; }
+    .status[data-status="todo"] { border-color:#e3e3e3; }
+
+    /* Dialog */
+    .dialog-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.55); display:none; }
+    .dialog-backdrop.is-open { display:block; }
+    .dialog { position: fixed; inset: 0; display:none; align-items:center; justify-content:center; padding: 16px; }
+    .dialog.is-open { display:flex; }
+    .dialog-panel { width: min(1100px, 100%); height: min(80vh, 720px); background:#fff; border-radius: 16px; overflow:hidden; box-shadow: 0 10px 40px rgba(0,0,0,.25); display:flex; flex-direction:column; }
+    .dialog-head { display:flex; gap:12px; align-items:center; justify-content:space-between; padding: 12px 16px; border-bottom:1px solid #eee; }
+    .dialog-title { margin:0; font-size: 16px; font-weight: 700; }
+    .btn-close { height: 36px; padding: 0 12px; border: 1px solid #cfcfcf; border-radius: 10px; background:#fff; cursor:pointer; }
+    .dialog-body { flex:1; min-height:0; }
+    .preview-frame { width:100%; height:100%; border:0; display:block; background:#fff; }
+    .dialog-note { padding: 8px 16px; border-top:1px solid #eee; font-size: 13px; color:#555; }
+  </style>
+</head>
+
+<body class="ui-content" data-page="worklist">
+  <div class="worklist-wrap">
+
+    <header class="worklist-head">
+      <h1 class="worklist-title">퍼블리싱 워크리스트</h1>
+
+      <div class="worklist-meta" role="search" aria-label="워크리스트 필터">
+        <div class="field">
+          <label for="wlSearch">검색</label>
+          <input id="wlSearch" type="search" placeholder="화면 ID, 화면명, 경로 검색" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label for="wlStatus">상태</label>
+          <select id="wlStatus">
+            <option value="all">전체</option>
+            <option value="todo">예정</option>
+            <option value="progress">진행중</option>
+            <option value="done">완료</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <div class="worklist-table-wrap" role="region" aria-label="퍼블리싱 워크리스트 표" tabindex="0">
+      <table class="worklist-table">
+        <caption>화면별 퍼블리싱 현황 및 미리보기 링크</caption>
+        <thead>
+          <tr>
+            <th scope="col" style="width:56px;">No</th>
+            <th scope="col" style="width:120px;">화면 ID</th>
+            <th scope="col" style="width:120px;">미리보기</th>
+            <th scope="col" style="width:120px;">1Depth</th>
+            <th scope="col" style="width:140px;">2Depth</th>
+            <th scope="col" style="width:220px;">화면명</th>
+            <th scope="col" style="width:260px;">경로(URL)</th>
+            <th scope="col" style="width:180px;">파일명</th>
+            <th scope="col" style="width:120px;">상태</th>
+            <th scope="col">비고</th>
+          </tr>
+        </thead>
+
+        <tbody id="wlTbody">
+          <!-- 예시 row 1 -->
+          <tr data-status="done">
+            <th scope="row">1</th>
+            <td><strong>MAIN_001</strong></td>
+            <td>
+              <button
+                type="button"
+                class="btn-preview"
+                data-preview-src="./html/main.html"
+                data-preview-title="MAIN_001 메인"
+                aria-haspopup="dialog"
+                aria-controls="previewDialog"
+              >
+                🔍 <span>보기</span>
+              </button>
+              <small>./html/main.html</small>
+            </td>
+            <td>메인</td>
+            <td>-</td>
+            <td>메인</td>
+            <td>/</td>
+            <td>main.html</td>
+            <td><span class="status" data-status="done">완료</span></td>
+            <td></td>
+          </tr>
+
+          <!-- 예시 row 2 -->
+          <tr data-status="progress">
+            <th scope="row">2</th>
+            <td><strong>CS_001</strong></td>
+            <td>
+              <button
+                type="button"
+                class="btn-preview"
+                data-preview-src="./html/cs_faq.html"
+                data-preview-title="CS_001 FAQ 목록"
+                aria-haspopup="dialog"
+                aria-controls="previewDialog"
+              >
+                🔍 <span>보기</span>
+              </button>
+              <small>./html/cs_faq.html</small>
+            </td>
+            <td>고객센터</td>
+            <td>FAQ</td>
+            <td>FAQ 목록</td>
+            <td>/cs/faq</td>
+            <td>cs_faq.html</td>
+            <td><span class="status" data-status="progress">진행중</span></td>
+            <td>검색 포함</td>
+          </tr>
+
+          <!-- 예시 row 3 -->
+          <tr data-status="todo">
+            <th scope="row">3</th>
+            <td><strong>CS_002</strong></td>
+            <td>
+              <button
+                type="button"
+                class="btn-preview"
+                data-preview-src="./html/cs_faq_view.html"
+                data-preview-title="CS_002 FAQ 상세"
+                aria-haspopup="dialog"
+                aria-controls="previewDialog"
+              >
+                🔍 <span>보기</span>
+              </button>
+              <small>./html/cs_faq_view.html</small>
+            </td>
+            <td>고객센터</td>
+            <td>FAQ</td>
+            <td>FAQ 상세</td>
+            <td>/cs/faq/view</td>
+            <td>cs_faq_view.html</td>
+            <td><span class="status" data-status="todo">예정</span></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 접근성: 다이얼로그 백드롭(클릭 시 닫기) -->
+    <div class="dialog-backdrop" id="dialogBackdrop" hidden></div>
+
+    <!-- Preview Dialog (a11y) -->
+    <section
+      class="dialog"
+      id="previewDialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="previewTitle"
+      aria-describedby="previewDesc"
+      hidden
+    >
+      <div class="dialog-panel" role="document">
+        <div class="dialog-head">
+          <h2 class="dialog-title" id="previewTitle">미리보기</h2>
+          <button type="button" class="btn-close" id="btnClosePreview">
+            닫기
+          </button>
+        </div>
+
+        <div class="dialog-body">
+          <iframe class="preview-frame" id="previewFrame" title="미리보기 프레임"></iframe>
+        </div>
+
+        <p class="dialog-note" id="previewDesc">
+          Esc 키로 닫을 수 있으며, 닫기 후 포커스는 이전 버튼으로 돌아갑니다.
+        </p>
+      </div>
+    </section>
+
+  </div><!-- //worklist-wrap -->
+
+  <script>
+    (function () {
+      const tbody = document.getElementById('wlTbody');
+      const searchEl = document.getElementById('wlSearch');
+      const statusEl = document.getElementById('wlStatus');
+
+      const dialog = document.getElementById('previewDialog');
+      const backdrop = document.getElementById('dialogBackdrop');
+      const frame = document.getElementById('previewFrame');
+      const titleEl = document.getElementById('previewTitle');
+      const closeBtn = document.getElementById('btnClosePreview');
+
+      let lastFocusEl = null;
+
+      function getFocusable(root) {
+        return Array.from(root.querySelectorAll(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        ));
+      }
+
+      function openDialog(src, title) {
+        lastFocusEl = document.activeElement;
+
+        titleEl.textContent = title || '미리보기';
+        frame.src = src || '';
+
+        // show
+        backdrop.hidden = false;
+        dialog.hidden = false;
+        backdrop.classList.add('is-open');
+        dialog.classList.add('is-open');
+
+        // body scroll lock (선택)
+        document.documentElement.style.overflow = 'hidden';
+
+        // focus
+        closeBtn.focus();
+      }
+
+      function closeDialog() {
+        // hide
+        dialog.classList.remove('is-open');
+        backdrop.classList.remove('is-open');
+        dialog.hidden = true;
+        backdrop.hidden = true;
+
+        // reset
+        frame.src = 'about:blank';
+        document.documentElement.style.overflow = '';
+
+        // restore focus
+        if (lastFocusEl && typeof lastFocusEl.focus === 'function') {
+          lastFocusEl.focus();
+        }
+      }
+
+      // event: open preview
+      tbody.addEventListener('click', (e) => {
+        const btn = e.target.closest('.btn-preview');
+        if (!btn) return;
+
+        const src = btn.getAttribute('data-preview-src');
+        const title = btn.getAttribute('data-preview-title') || '미리보기';
+        openDialog(src, title);
+      });
+
+      // close handlers
+      closeBtn.addEventListener('click', closeDialog);
+      backdrop.addEventListener('click', closeDialog);
+
+      // esc + focus trap
+      document.addEventListener('keydown', (e) => {
+        const isOpen = !dialog.hidden;
+        if (!isOpen) return;
+
+        if (e.key === 'Escape') {
+          e.preventDefault();
+          closeDialog();
+          return;
+        }
+
+        if (e.key === 'Tab') {
+          const focusables = getFocusable(dialog);
+          if (!focusables.length) return;
+
+          const first = focusables[0];
+          const last = focusables[focusables.length - 1];
+
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      });
+
+      // filter (search + status)
+      function applyFilter() {
+        const q = (searchEl.value || '').trim().toLowerCase();
+        const st = statusEl.value;
+
+        const rows = Array.from(tbody.querySelectorAll('tr'));
+        rows.forEach((row) => {
+          const rowStatus = row.getAttribute('data-status');
+          const text = row.textContent.toLowerCase();
+
+          const matchStatus = (st === 'all') ? true : rowStatus === st;
+          const matchQuery = q ? text.includes(q) : true;
+
+          row.style.display = (matchStatus && matchQuery) ? '' : 'none';
+        });
+      }
+
+      searchEl.addEventListener('input', applyFilter);
+      statusEl.addEventListener('change', applyFilter);
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+.guide-wrap {
+  position: relative;
+  min-height: 100%;
+  isolation: isolate;
+}
+
+.guide-wrap::before {
+  content: "";
+  position: fixed;
+  top: 22%;
+  left: 44%;
+  width: 520px;
+  height: 420px;
+  transform: translate(-50%, -50%);
+
+  background:
+    radial-gradient(circle at 30% 30%, var(--pub-orange), transparent 65%),
+    radial-gradient(circle at 70% 70%, var(--pub-sky), transparent 70%);
+
+  filter: blur(42px);
+  opacity: 0.95;
+  border-radius: 28%;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.guide-wrap::after {
+  content: "";
+  position: fixed;
+  bottom: 18%;
+  right: 38%;
+  width: 520px;
+  height: 420px;
+  transform: translate(50%, 50%);
+
+  background:
+    radial-gradient(circle at 30% 30%, var(--pub-mint), transparent 65%),
+    radial-gradient(circle at 70% 70%, var(--pub-coral), transparent 70%);
+
+  filter: blur(42px);
+  opacity: 0.90;
+  border-radius: 28%;
+  z-index: -2;
+  pointer-events: none;
+}
