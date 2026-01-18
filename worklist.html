@@ -1,15 +1,308 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=s, initial-scale=1.0">
-    <title>publish worklist</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no, address=no, email=no">
+  <title>WORKLIST</title>
+
+  <link rel="stylesheet" type="text/css" href="./assets/css/common.css">
 </head>
-<body>
-    <div class="ui-content">
-        <ul>
-            <li><button><span>메</span></button></li>
-        </ul>
-    </div>
+<body class="ui-content" data-page="worklist">
+  <div class="worklist-wrap">
+    <!-- 필요하면 header include 사용 -->
+    <!-- <header class="pub-header" data-id="header" data-title="Banner"></header> -->
+
+    <main class="pub-body">
+      <!-- TAB -->
+      <div class="pub-wrap" data-gap="full">
+        <div class="pub-tab">
+          <div class="pub-tab--wrap" role="tablist" aria-label="퍼블리싱 워크리스트 컴포넌트 탭">
+
+            <!-- <button type="button"
+              class="pub-tab-btn"
+              role="tab"
+              aria-controls="pnl-worklist"
+              data-tab="worklist"
+              data-id="worklist"
+              data-callback="worklist">
+              <span>worklist</span>
+            </button> -->
+
+            <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-typography"
+              data-tab="worklist" data-id="typography" data-callback="worklist">
+              <span>typography</span>
+            </button>
+
+            <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-color"
+              data-tab="worklist" data-id="color" data-callback="worklist">
+              <span>color</span>
+            </button>
+
+            <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-icon"
+              data-tab="worklist" data-id="icon" data-callback="worklist">
+              <span>icon</span>
+            </button>
+
+            <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-button"
+              data-tab="worklist" data-id="button" data-callback="worklist">
+              <span>button</span>
+            </button>
+
+            <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-form"
+              data-tab="worklist" data-id="form" data-callback="worklist">
+              <span>form</span>
+            </button>
+
+            <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-box"
+              data-tab="worklist" data-id="box" data-callback="worklist">
+              <span>box</span>
+            </button>
+
+            <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-card"
+              data-tab="worklist" data-id="card" data-callback="worklist">
+              <span>card</span>
+            </button>
+
+            <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-list"
+              data-tab="worklist" data-id="list" data-callback="worklist">
+              <span>list</span>
+            </button>
+
+            <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-table"
+              data-tab="worklist" data-id="table" data-callback="worklist">
+              <span>table</span>
+            </button>
+
+            <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-navigation"
+              data-tab="worklist" data-id="navigation" data-callback="worklist">
+              <span>navigation</span>
+            </button>
+
+            <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-popup"
+              data-tab="worklist" data-id="popup" data-callback="worklist">
+              <span>popup</span>
+            </button>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL -->
+      <div class="pub-wrap-in mt-x4">
+        <div>
+          <section class="pub-tab--pnl"
+            id="pnl-worklist"
+            role="tabpanel"
+            tabindex="0"
+            data-tab="worklist"
+            data-id="worklist"
+            aria-hidden="true">
+
+            <h1 class="a11y-hidden">퍼블리싱 워크리스트</h1>
+
+            <div class="pub-box">
+              <h2 class="pub-tit">컴포넌트 작업 현황</h2>
+
+              <div class="pub-tbl">
+                <table>
+                  <caption>컴포넌트별 퍼블리싱 진행 현황 표</caption>
+                  <colgroup>
+                    <col style="width: 18%;">
+                    <col style="width: 16%;">
+                    <col style="width: 16%;">
+                    <col style="width: 18%;">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">컴포넌트</th>
+                      <th scope="col">상태</th>
+                      <th scope="col">반응형</th>
+                      <th scope="col">접근성</th>
+                      <th scope="col">비고</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">typography</th>
+                      <td>진행중</td>
+                      <td>예</td>
+                      <td>체크중</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">color</th>
+                      <td>대기</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">icon</th>
+                      <td>대기</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">button</th>
+                      <td>진행중</td>
+                      <td>예</td>
+                      <td>체크중</td>
+                      <td>focus 스타일 점검</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p class="pub-txt mt-x2">
+                * 상태 예시: 대기 / 진행중 / 완료<br>
+                * 접근성 예시: 미체크 / 체크중 / 완료
+              </p>
+            </div>
+          </section>
+
+          <section class="pub-tab--pnl" id="pnl-typography" role="tabpanel" tabindex="0"
+            data-tab="worklist" data-id="typography" aria-hidden="true">
+            <h1 class="a11y-hidden">typography</h1>
+            async: true
+          </section>
+
+          <section class="pub-tab--pnl" id="pnl-color" role="tabpanel" tabindex="0"
+            data-tab="worklist" data-id="color" aria-hidden="true">
+            <h1 class="a11y-hidden">color</h1>
+            async: true
+          </section>
+
+          <section class="pub-tab--pnl" id="pnl-icon" role="tabpanel" tabindex="0"
+            data-tab="worklist" data-id="icon" aria-hidden="true">
+            <h1 class="a11y-hidden">icon</h1>
+            async: true
+          </section>
+
+          <section class="pub-tab--pnl" id="pnl-button" role="tabpanel" tabindex="0"
+            data-tab="worklist" data-id="button" aria-hidden="true">
+            <h1 class="a11y-hidden">button</h1>
+            async: true
+          </section>
+
+          <section class="pub-tab--pnl" id="pnl-form" role="tabpanel" tabindex="0"
+            data-tab="worklist" data-id="form" aria-hidden="true">
+            <h1 class="a11y-hidden">form</h1>
+            async: true
+          </section>
+
+          <section class="pub-tab--pnl" id="pnl-box" role="tabpanel" tabindex="0"
+            data-tab="worklist" data-id="box" aria-hidden="true">
+            <h1 class="a11y-hidden">box</h1>
+            async: true
+          </section>
+
+          <section class="pub-tab--pnl" id="pnl-card" role="tabpanel" tabindex="0"
+            data-tab="worklist" data-id="card" aria-hidden="true">
+            <h1 class="a11y-hidden">card</h1>
+            async: true
+          </section>
+
+          <section class="pub-tab--pnl" id="pnl-list" role="tabpanel" tabindex="0"
+            data-tab="worklist" data-id="list" aria-hidden="true">
+            <h1 class="a11y-hidden">list</h1>
+            async: true
+          </section>
+
+          <section class="pub-tab--pnl" id="pnl-table" role="tabpanel" tabindex="0"
+            data-tab="worklist" data-id="table" aria-hidden="true">
+            <h1 class="a11y-hidden">table</h1>
+            async: true
+          </section>
+
+          <section class="pub-tab--pnl" id="pnl-navigation" role="tabpanel" tabindex="0"
+            data-tab="worklist" data-id="navigation" aria-hidden="true">
+            <h1 class="a11y-hidden">navigation</h1>
+            async: true
+          </section>
+
+          <section class="pub-tab--pnl" id="pnl-popup" role="tabpanel" tabindex="0"
+            data-tab="worklist" data-id="popup" aria-hidden="true">
+            <h1 class="a11y-hidden">popup</h1>
+            async: true
+          </section>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script defer src="./assets/js/ui-script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabWrap = document.querySelector('.pub-tab--wrap');
+      if (!tabWrap) return;
+
+      const panels = document.querySelectorAll('.pub-tab--pnl[data-tab="worklist"]');
+
+      const setActive = (id) => {
+        // 버튼 상태
+        tabWrap.querySelectorAll('.pub-tab--btn').forEach(btn => {
+          const isOn = btn.dataset.id === id;
+          btn.classList.toggle('is-active', isOn);
+          btn.setAttribute('aria-selected', String(isOn));
+          btn.setAttribute('tabindex', isOn ? '0' : '-1');
+        });
+
+        // 패널 상태
+        panels.forEach(pnl => {
+          const isOn = pnl.dataset.id === id;
+          pnl.setAttribute('aria-hidden', String(!isOn));
+          if (isOn) pnl.focus({ preventScroll: true });
+        });
+      };
+
+      const loadPanel = async (id) => {
+        const pnl = document.querySelector('.pub-tab--pnl[data-id="' + id + '"]');
+        if (!pnl) return;
+
+        const link = './component/' + id + '.html';
+
+        try {
+          const res = await fetch(link, { cache: 'no-cache' });
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+
+          const html = await res.text();
+          pnl.innerHTML = html;
+
+          // 필요 시 추가 init
+          if (id === 'form' || id === 'button') {
+            if (window.OcareUI?.form && typeof OcareUI.form.init === 'function') {
+              OcareUI.form.init();
+            }
+          }
+        } catch (e) {
+          pnl.innerHTML =
+            '<p role="alert">콘텐츠를 불러오지 못했습니다.<br>' +
+            '<strong>경로:</strong> ' + link + '</p>';
+          console.error('[worklist] fetch failed:', link, e);
+        }
+      };
+
+      // 클릭 처리 (이벤트 위임)
+      tabWrap.addEventListener('click', async (e) => {
+        const btn = e.target.closest('.pub-tab--btn');
+        if (!btn) return;
+
+        const id = btn.dataset.id; // typography, color, popup...
+        if (!id) return;
+
+        setActive(id);
+        await loadPanel(id);
+      });
+
+      // 초기 진입: typography 로드
+      const initial = 'typography';
+      setActive(initial);
+      loadPanel(initial);
+    });
+  </script>
 </body>
 </html>

@@ -1,17 +1,333 @@
-/* assets/scss/common/_common.scss */
-@use "reset" as *;
-@use "variables" as *;
-@use "mixin" as *;
+@charset "utf-8";
 
-/* Base style */
-html {font-size: 100%;}
-body {
-  font-family: $font-base;
-  font-size: $font-size-base;
-  color: $color-gray-600;
-  background-color: $color-white;
+/* =========================================================
+  common.scss
+  Theme: Soft Orange × Mint Glassmorphism
+  - matches class names:
+    body.ui-content[data-page="worklist"]
+    .worklist-wrap
+    .pub-wrap-in
+    .pub-tab--wrap / .pub-tab--btn / .pub-tab--pnl
+========================================================= */
+
+@import "variables";
+@import "mixin";
+@import "base/reset";
+
+/* ---------------------------------------------------------
+  Tokens
+--------------------------------------------------------- */
+:root {
+  --pub-canvas: #f4f2ef;
+
+  --pub-orange: rgba(255, 145, 90, 0.85);
+  --pub-coral: rgba(255, 95, 95, 0.75);
+  --pub-mint: rgba(145, 210, 190, 0.70);
+  --pub-sky: rgba(130, 190, 235, 0.70);
+
+  --pub-glass: rgba(255, 255, 255, 0.55);
+  --pub-glass-strong: rgba(255, 255, 255, 0.68);
+  --pub-glass-weak: rgba(255, 255, 255, 0.42);
+
+  --pub-stroke: rgba(40, 40, 40, 0.08);
+  --pub-stroke-strong: rgba(40, 40, 40, 0.12);
+
+  --pub-text: rgba(28, 28, 28, 0.92);
+  --pub-text-dim: rgba(28, 28, 28, 0.70);
+  --pub-text-mute: rgba(28, 28, 28, 0.52);
+
+  --pub-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
+  --pub-shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.10);
+
+  --pub-focus: rgba(255, 145, 90, 0.85);
+
+  --pub-radius-xl: 26px;
+  --pub-radius-lg: 20px;
+  --pub-radius-md: 14px;
+
+  --pub-blur: 16px;
+  --pub-blur-strong: 26px;
+
+  --pub-max: 1160px;
+  --pub-gutter: 20px;
+
+  --pub-ease: cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Common utility */
-.hidden {display: none !important;}
-.sr-only {@include sr-only;}
+/* ---------------------------------------------------------
+  Base + Page Scope
+--------------------------------------------------------- */
+body {
+  background: var(--pub-canvas);
+  color: var(--pub-text);
+  overflow-x: hidden;
+}
+
+/* 페이지별 스코프(필요할 때만 확장) */
+body.ui-content[data-page="worklist"] {
+  /* worklist 전용으로 추가할게 있으면 여기에 */
+}
+
+/* a11y hidden */
+.a11y-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* spacing util */
+.mt-x2 { margin-top: 12px; }
+.mt-x4 { margin-top: 24px; }
+
+/* ---------------------------------------------------------
+  Background blobs
+  - pub-wrap 대신 worklist-wrap에 붙여서 "중복 pub-wrap" 문제 제거
+--------------------------------------------------------- */
+.worklist-wrap {
+  position: relative;
+  min-height: 100%;
+  isolation: isolate;
+}
+
+.worklist-wrap::before {
+  content: "";
+  position: fixed;
+  top: 22%;
+  left: 44%;
+  width: 520px;
+  height: 420px;
+  transform: translate(-50%, -50%);
+
+  background:
+    radial-gradient(circle at 30% 30%, var(--pub-orange), transparent 65%),
+    radial-gradient(circle at 70% 70%, var(--pub-sky), transparent 70%);
+
+  filter: blur(42px);
+  opacity: 0.95;
+  border-radius: 28%;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.worklist-wrap::after {
+  content: "";
+  position: fixed;
+  bottom: 18%;
+  right: 38%;
+  width: 520px;
+  height: 420px;
+  transform: translate(50%, 50%);
+
+  background:
+    radial-gradient(circle at 30% 30%, var(--pub-mint), transparent 65%),
+    radial-gradient(circle at 70% 70%, var(--pub-coral), transparent 70%);
+
+  filter: blur(42px);
+  opacity: 0.90;
+  border-radius: 28%;
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------
+  Layout
+--------------------------------------------------------- */
+.pub-body {
+  max-width: var(--pub-max);
+  margin: 0 auto;
+  padding: 32px var(--pub-gutter) 56px;
+}
+
+/* glass container */
+.pub-wrap-in {
+  background: var(--pub-glass);
+  -webkit-backdrop-filter: blur(var(--pub-blur-strong));
+  backdrop-filter: blur(var(--pub-blur-strong));
+  border: 1px solid var(--pub-stroke);
+  border-radius: var(--pub-radius-xl);
+  box-shadow: var(--pub-shadow);
+  padding: 18px;
+}
+
+/* ---------------------------------------------------------
+  Tabs (match pub-tab--*)
+--------------------------------------------------------- */
+.pub-tab--wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.pub-tab--btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 14px;
+  min-height: 40px;
+  border-radius: var(--pub-radius-md);
+
+  background: var(--pub-glass-weak);
+  -webkit-backdrop-filter: blur(var(--pub-blur));
+  backdrop-filter: blur(var(--pub-blur));
+  border: 1px solid var(--pub-stroke);
+
+  font-weight: 700;
+  color: var(--pub-text-dim);
+  cursor: pointer;
+
+  transition:
+    transform 160ms var(--pub-ease),
+    background 160ms var(--pub-ease),
+    border-color 160ms var(--pub-ease),
+    color 160ms var(--pub-ease),
+    box-shadow 160ms var(--pub-ease);
+
+  &:hover {
+    background: var(--pub-glass-strong);
+    color: var(--pub-text);
+    transform: translateY(-1px);
+    border-color: var(--pub-stroke-strong);
+  }
+
+  &:active {
+    transform: translateY(0);
+    background: var(--pub-glass);
+  }
+
+  &:focus { outline: none; }
+  &:focus-visible {
+    outline: 3px solid var(--pub-focus);
+    outline-offset: 3px;
+  }
+
+  &.is-active,
+  &[aria-selected="true"] {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 145, 90, 0.35),
+      rgba(130, 190, 235, 0.35)
+    );
+    color: var(--pub-text);
+    border-color: rgba(255, 145, 90, 0.35);
+    box-shadow: var(--pub-shadow-soft);
+  }
+
+  &[disabled],
+  &.is-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* ---------------------------------------------------------
+  Panel (match pub-tab--pnl)
+--------------------------------------------------------- */
+.pub-tab--pnl {
+  background: var(--pub-glass);
+  -webkit-backdrop-filter: blur(var(--pub-blur-strong));
+  backdrop-filter: blur(var(--pub-blur-strong));
+  border: 1px solid var(--pub-stroke);
+  border-radius: var(--pub-radius-xl);
+  padding: 22px;
+  box-shadow: var(--pub-shadow);
+
+  &[aria-hidden="true"] { display: none; }
+}
+
+/* ---------------------------------------------------------
+  Box / Text
+--------------------------------------------------------- */
+.pub-box {
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid var(--pub-stroke);
+  border-radius: var(--pub-radius-lg);
+  padding: 18px;
+  box-shadow: var(--pub-shadow-soft);
+}
+
+.pub-tit {
+  font-size: 18px;
+  font-weight: 900;
+  margin: 0 0 12px;
+}
+
+.pub-txt {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  color: var(--pub-text-mute);
+}
+
+/* ---------------------------------------------------------
+  Table
+--------------------------------------------------------- */
+.pub-tbl {
+  overflow: auto;
+  border-radius: var(--pub-radius-lg);
+  border: 1px solid var(--pub-stroke);
+  background: rgba(255, 255, 255, 0.55);
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+  }
+
+  thead th {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.75);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+
+    font-weight: 800;
+    color: var(--pub-text);
+    text-align: left;
+    padding: 14px;
+    border-bottom: 1px solid var(--pub-stroke);
+  }
+
+  tbody td,
+  tbody th {
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    color: var(--pub-text-dim);
+  }
+
+  tbody th {
+    color: var(--pub-text);
+    font-weight: 800;
+  }
+
+  tbody tr:hover {
+    background: rgba(255, 145, 90, 0.08);
+  }
+}
+
+/* ---------------------------------------------------------
+  Reduced Motion
+--------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+/* ---------------------------------------------------------
+  Responsive
+--------------------------------------------------------- */
+@media (max-width: 520px) {
+  :root { --pub-gutter: 14px; }
+
+  .pub-body { padding: 22px var(--pub-gutter) 40px; }
+  .pub-wrap-in { padding: 14px; }
+  .pub-tab--pnl { padding: 16px; }
+}

@@ -1,0 +1,46 @@
+/* =========================================================
+  Color Tokens (Sage / Olive Glass)
+========================================================= */
+:root {
+  /* Background base */
+  --pub-bg-0: #eef1e6;   /* 바깥 배경(크림) */
+  --pub-bg-1: #cfdac0;   /* 연한 세이지 */
+  --pub-bg-2: #9bb07a;   /* 올리브 */
+  --pub-bg-3: #6f8a52;   /* 딥 올리브 */
+  --pub-bg-4: #2f3d22;   /* 딥그린(버튼/강조) */
+
+  /* Glass */
+  --pub-glass: rgba(255, 255, 255, 0.18);
+  --pub-glass-strong: rgba(255, 255, 255, 0.26);
+  --pub-glass-weak: rgba(255, 255, 255, 0.12);
+
+  /* Stroke */
+  --pub-stroke: rgba(255, 255, 255, 0.26);
+  --pub-stroke-strong: rgba(255, 255, 255, 0.36);
+
+  /* Text */
+  --pub-text: rgba(18, 26, 14, 0.92);     /* 다크그린 계열 */
+  --pub-text-dim: rgba(18, 26, 14, 0.72);
+  --pub-text-mute: rgba(18, 26, 14, 0.56);
+
+  /* Shadow (소프트) */
+  --pub-shadow: 0 22px 60px rgba(34, 46, 22, 0.20);
+  --pub-shadow-soft: 0 10px 26px rgba(34, 46, 22, 0.14);
+
+  /* Accent / Focus */
+  --pub-accent: #2f3d22;                 /* 딥그린 */
+  --pub-accent-2: #ffffff;               /* 라이트 하이라이트 */
+  --pub-focus: rgba(47, 61, 34, 0.85);   /* 포커스 링도 그린 계열 */
+
+  /* Radius / Blur */
+  --pub-radius-lg: 22px;
+  --pub-radius-md: 16px;
+  --pub-radius-sm: 12px;
+
+  --pub-blur: 18px;
+  --pub-blur-strong: 26px;
+
+  /* Layout */
+  --pub-max: 1160px;
+  --pub-gutter: 20px;
+}

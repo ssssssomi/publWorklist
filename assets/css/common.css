@@ -1,76 +1,13 @@
 @charset "UTF-8";
-/* assets/scss/common/_common.scss */
-/* assets/scss/common/_reset.scss */
-/* Box sizing */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Remove default margin */
-html, body,
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
-dl, dd,
-ol, ul,
-figure {
-  margin: 0;
-  padding: 0;
-}
-
-/* Base body */
-body {
-  min-height: 100vh;
-  line-height: 1.5;
-  text-rendering: optimizeLegibility;
-  -webkit-text-size-adjust: 100%;
-}
-
-/* List reset */
-ol, ul {
-  list-style: none;
-}
-
-/* Anchor reset (접근성 고려) */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Image reset */
-img,
-picture {
-  max-width: 100%;
-  display: block;
-}
-
-/* Form elements */
-button,
-input,
-select,
-textarea {
-  font: inherit;
-  color: inherit;
-}
-
-button {
-  background: none;
-  border: 0;
-  cursor: pointer;
-}
-
-/* Table reset */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-/* Hidden */
-[hidden] {
-  display: none !important;
-}
-
+/* =========================================================
+  common.scss
+  Theme: Soft Orange × Mint Glassmorphism
+  - matches class names:
+    body.ui-content[data-page="worklist"]
+    .worklist-wrap
+    .pub-wrap-in
+    .pub-tab--wrap / .pub-tab--btn / .pub-tab--pnl
+========================================================= */
 /* assets/scss/common/_variables.scss */
 /* Color */
 /* Typography */
@@ -83,31 +20,402 @@ table {
 /* Screen reader only (접근성) */
 /* Focus outline (접근성) */
 /* Media query */
-/* Base style */
+/* =========================================================
+  Reset (Base)
+  - minimal + safe reset
+  - a11y focus-visible 유지
+========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
-  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+       text-size-adjust: 100%;
+  height: 100%;
 }
 
 body {
-  font-family: "Malgun Gothic", "맑은 고딕", Arial, sans-serif;
-  font-size: 14px;
-  color: #333;
-  background-color: #fff;
+  margin: 0;
+  min-height: 100%;
+  line-height: 1.5;
+  font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", Roboto, Arial, sans-serif;
+  word-break: keep-all;
 }
 
-/* Common utility */
-.hidden {
-  display: none !important;
+/* 기본 마진 제거 */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+dl, dd, ol, ul,
+figure {
+  margin: 0;
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
+/* 리스트 스타일 초기화 (가이드용이라 기본 off 추천) */
+ol, ul {
   padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
+  list-style: none;
+}
+
+/* 링크 */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 미디어 */
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+/* 폼 요소: 폰트 상속 + 기본 스타일 보정 */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
   border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  margin: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* 테이블 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* hr */
+hr {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  margin: 0;
+}
+
+/* 접근성: 포커스 링은 유지 (커스텀은 common.scss에서) */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(82, 193, 255, 0.95);
+  outline-offset: 3px;
+}
+
+/* 스크린리더 전용 텍스트 클래스는 common.scss에서 정의 */
+/* ---------------------------------------------------------
+  Tokens
+--------------------------------------------------------- */
+:root {
+  --pub-canvas: #f4f2ef;
+  --pub-orange: rgba(255, 145, 90, 0.85);
+  --pub-coral: rgba(255, 95, 95, 0.75);
+  --pub-mint: rgba(145, 210, 190, 0.70);
+  --pub-sky: rgba(130, 190, 235, 0.70);
+  --pub-glass: rgba(255, 255, 255, 0.55);
+  --pub-glass-strong: rgba(255, 255, 255, 0.68);
+  --pub-glass-weak: rgba(255, 255, 255, 0.42);
+  --pub-stroke: rgba(40, 40, 40, 0.08);
+  --pub-stroke-strong: rgba(40, 40, 40, 0.12);
+  --pub-text: rgba(28, 28, 28, 0.92);
+  --pub-text-dim: rgba(28, 28, 28, 0.70);
+  --pub-text-mute: rgba(28, 28, 28, 0.52);
+  --pub-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
+  --pub-shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.10);
+  --pub-focus: rgba(255, 145, 90, 0.85);
+  --pub-radius-xl: 26px;
+  --pub-radius-lg: 20px;
+  --pub-radius-md: 14px;
+  --pub-blur: 16px;
+  --pub-blur-strong: 26px;
+  --pub-max: 1160px;
+  --pub-gutter: 20px;
+  --pub-ease: cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ---------------------------------------------------------
+  Base + Page Scope
+--------------------------------------------------------- */
+body {
+  background: var(--pub-canvas);
+  color: var(--pub-text);
+  overflow-x: hidden;
+}
+
+/* 페이지별 스코프(필요할 때만 확장) */
+body.ui-content[data-page=worklist] {
+  /* worklist 전용으로 추가할게 있으면 여기에 */
+}
+
+/* a11y hidden */
+.a11y-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* spacing util */
+.mt-x2 {
+  margin-top: 12px;
+}
+
+.mt-x4 {
+  margin-top: 24px;
+}
+
+/* ---------------------------------------------------------
+  Background blobs
+  - pub-wrap 대신 worklist-wrap에 붙여서 "중복 pub-wrap" 문제 제거
+--------------------------------------------------------- */
+.worklist-wrap {
+  position: relative;
+  min-height: 100%;
+  isolation: isolate;
+}
+
+.worklist-wrap::before {
+  content: "";
+  position: fixed;
+  top: 22%;
+  left: 44%;
+  width: 520px;
+  height: 420px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at 30% 30%, var(--pub-orange), transparent 65%), radial-gradient(circle at 70% 70%, var(--pub-sky), transparent 70%);
+  filter: blur(42px);
+  opacity: 0.95;
+  border-radius: 28%;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.worklist-wrap::after {
+  content: "";
+  position: fixed;
+  bottom: 18%;
+  right: 38%;
+  width: 520px;
+  height: 420px;
+  transform: translate(50%, 50%);
+  background: radial-gradient(circle at 30% 30%, var(--pub-mint), transparent 65%), radial-gradient(circle at 70% 70%, var(--pub-coral), transparent 70%);
+  filter: blur(42px);
+  opacity: 0.9;
+  border-radius: 28%;
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------
+  Layout
+--------------------------------------------------------- */
+.pub-body {
+  max-width: var(--pub-max);
+  margin: 0 auto;
+  padding: 32px var(--pub-gutter) 56px;
+}
+
+/* glass container */
+.pub-wrap-in {
+  background: var(--pub-glass);
+  -webkit-backdrop-filter: blur(var(--pub-blur-strong));
+  backdrop-filter: blur(var(--pub-blur-strong));
+  border: 1px solid var(--pub-stroke);
+  border-radius: var(--pub-radius-xl);
+  box-shadow: var(--pub-shadow);
+  padding: 18px;
+}
+
+/* ---------------------------------------------------------
+  Tabs (match pub-tab--*)
+--------------------------------------------------------- */
+.pub-tab--wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.pub-tab--btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  min-height: 40px;
+  border-radius: var(--pub-radius-md);
+  background: var(--pub-glass-weak);
+  -webkit-backdrop-filter: blur(var(--pub-blur));
+  backdrop-filter: blur(var(--pub-blur));
+  border: 1px solid var(--pub-stroke);
+  font-weight: 700;
+  color: var(--pub-text-dim);
+  cursor: pointer;
+  transition: transform 160ms var(--pub-ease), background 160ms var(--pub-ease), border-color 160ms var(--pub-ease), color 160ms var(--pub-ease), box-shadow 160ms var(--pub-ease);
+}
+.pub-tab--btn:hover {
+  background: var(--pub-glass-strong);
+  color: var(--pub-text);
+  transform: translateY(-1px);
+  border-color: var(--pub-stroke-strong);
+}
+.pub-tab--btn:active {
+  transform: translateY(0);
+  background: var(--pub-glass);
+}
+.pub-tab--btn:focus {
+  outline: none;
+}
+.pub-tab--btn:focus-visible {
+  outline: 3px solid var(--pub-focus);
+  outline-offset: 3px;
+}
+.pub-tab--btn.is-active, .pub-tab--btn[aria-selected=true] {
+  background: linear-gradient(135deg, rgba(255, 145, 90, 0.35), rgba(130, 190, 235, 0.35));
+  color: var(--pub-text);
+  border-color: rgba(255, 145, 90, 0.35);
+  box-shadow: var(--pub-shadow-soft);
+}
+.pub-tab--btn[disabled], .pub-tab--btn.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ---------------------------------------------------------
+  Panel (match pub-tab--pnl)
+--------------------------------------------------------- */
+.pub-tab--pnl {
+  background: var(--pub-glass);
+  -webkit-backdrop-filter: blur(var(--pub-blur-strong));
+  backdrop-filter: blur(var(--pub-blur-strong));
+  border: 1px solid var(--pub-stroke);
+  border-radius: var(--pub-radius-xl);
+  padding: 22px;
+  box-shadow: var(--pub-shadow);
+}
+.pub-tab--pnl[aria-hidden=true] {
+  display: none;
+}
+
+/* ---------------------------------------------------------
+  Box / Text
+--------------------------------------------------------- */
+.pub-box {
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid var(--pub-stroke);
+  border-radius: var(--pub-radius-lg);
+  padding: 18px;
+  box-shadow: var(--pub-shadow-soft);
+}
+
+.pub-tit {
+  font-size: 18px;
+  font-weight: 900;
+  margin: 0 0 12px;
+}
+
+.pub-txt {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  color: var(--pub-text-mute);
+}
+
+/* ---------------------------------------------------------
+  Table
+--------------------------------------------------------- */
+.pub-tbl {
+  overflow: auto;
+  border-radius: var(--pub-radius-lg);
+  border: 1px solid var(--pub-stroke);
+  background: rgba(255, 255, 255, 0.55);
+}
+.pub-tbl table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+.pub-tbl thead th {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.75);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  font-weight: 800;
+  color: var(--pub-text);
+  text-align: left;
+  padding: 14px;
+  border-bottom: 1px solid var(--pub-stroke);
+}
+.pub-tbl tbody td,
+.pub-tbl tbody th {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  color: var(--pub-text-dim);
+}
+.pub-tbl tbody th {
+  color: var(--pub-text);
+  font-weight: 800;
+}
+.pub-tbl tbody tr:hover {
+  background: rgba(255, 145, 90, 0.08);
+}
+
+/* ---------------------------------------------------------
+  Reduced Motion
+--------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
+/* ---------------------------------------------------------
+  Responsive
+--------------------------------------------------------- */
+@media (max-width: 520px) {
+  :root {
+    --pub-gutter: 14px;
+  }
+  .pub-body {
+    padding: 22px var(--pub-gutter) 40px;
+  }
+  .pub-wrap-in {
+    padding: 14px;
+  }
+  .pub-tab--pnl {
+    padding: 16px;
+  }
 }
