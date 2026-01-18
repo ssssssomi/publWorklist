@@ -1,0 +1,17 @@
+/* assets/scss/common/_common.scss */
+@use "reset" as *;
+@use "variables" as *;
+@use "mixin" as *;
+
+/* Base style */
+html {font-size: 100%;}
+body {
+  font-family: $font-base;
+  font-size: $font-size-base;
+  color: $color-gray-600;
+  background-color: $color-white;
+}
+
+/* Common utility */
+.hidden {display: none !important;}
+.sr-only {@include sr-only;}

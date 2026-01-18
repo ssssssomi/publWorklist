@@ -1,0 +1,113 @@
+@charset "UTF-8";
+/* assets/scss/common/_common.scss */
+/* assets/scss/common/_reset.scss */
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+html, body,
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+dl, dd,
+ol, ul,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+/* Base body */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* List reset */
+ol, ul {
+  list-style: none;
+}
+
+/* Anchor reset (접근성 고려) */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Image reset */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Form elements */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+/* Table reset */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Hidden */
+[hidden] {
+  display: none !important;
+}
+
+/* assets/scss/common/_variables.scss */
+/* Color */
+/* Typography */
+/* Layout */
+/* Border */
+/* Z-index */
+/* assets/scss/common/_mixin.scss */
+/* Clearfix */
+/* Ellipsis */
+/* Screen reader only (접근성) */
+/* Focus outline (접근성) */
+/* Media query */
+/* Base style */
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: "Malgun Gothic", "맑은 고딕", Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+}
+
+/* Common utility */
+.hidden {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
