@@ -1,9 +1,11 @@
 @charset "utf-8";
 
-/* ===== Entry: common.scss (NO @import) ===== */
-@use "base/variables"; // :root tokens (CSS vars)
+@use "base/variables";
 @use "mixin" as *;
 @use "base/reset";
+
+@use "components/typography";
+
 @use "pages/guide";
 @use "pages/worklist";
 
@@ -11,8 +13,19 @@
   Base
 --------------------------------------------------------- */
 body {
+  margin: 0;
   background: var(--pub-bg-0);
   color: var(--pub-text);
+  font-family:
+    "Pretendard",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Apple SD Gothic Neo",
+    "Noto Sans KR",
+    Arial,
+    sans-serif;
   overflow-x: hidden;
 }
 
@@ -38,7 +51,7 @@ body {
   padding: 3.2rem var(--pub-gutter) 5.6rem;
 }
 
-.pub-wrap-in {
+.pub-wrap--in {
   background: var(--pub-glass);
   -webkit-backdrop-filter: blur(var(--pub-blur-strong));
   backdrop-filter: blur(var(--pub-blur-strong));
@@ -215,6 +228,6 @@ body {
   :root { --pub-gutter: 1.4rem; }
 
   .pub-body { padding: 2.2rem var(--pub-gutter) 4rem; }
-  .pub-wrap-in { padding: 1.4rem; }
+  .pub-wrap--in { padding: 1.4rem; }
   .pub-tab--pnl { padding: 1.6rem; }
 }

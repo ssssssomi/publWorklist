@@ -1,64 +1,155 @@
-.guide-wrap {
+@charset "utf-8";
+
+/* =========================================================
+  Guide (publ-guide) only
+========================================================= */
+body.ui-content[data-page="publ-guide"] {
+  background:
+    radial-gradient(60rem 42rem at 50% 18%, rgba(249, 56, 34, 0.12), transparent 70%),
+    radial-gradient(74rem 56rem at 54% 70%, rgba(255, 154, 110, 0.16), transparent 72%),
+    radial-gradient(60rem 44rem at 78% 28%, rgba(255, 189, 110, 0.10), transparent 68%),
+    linear-gradient(180deg, #fbf2ec 0%, #f7efe9 55%, #f6eee7 100%);
+  color: var(--pub-text);
+}
+
+body.ui-content[data-page="publ-guide"] .guide-wrap {
   position: relative;
-  min-height: 100%;
+  min-height: 100vh;
   isolation: isolate;
 }
 
-/* 상단 웜 오렌지 + 스카이 글로우 */
-.guide-wrap::before {
+/* glow */
+body.ui-content[data-page="publ-guide"] .guide-wrap::before {
   content: "";
   position: fixed;
-  top: 22%;
-  left: 44%;
-  width: 52rem;
-  height: 42rem;
+  top: 18%;
+  left: 55%;
+  width: 58rem;
+  height: 46rem;
   transform: translate(-50%, -50%);
-
   background:
-    radial-gradient(
-      circle at 28% 32%,
-      rgba(255, 145, 90, 0.85),   /* pub-orange */
-      transparent 65%
-    ),
-    radial-gradient(
-      circle at 72% 68%,
-      rgba(130, 190, 235, 0.75), /* pub-sky */
-      transparent 70%
-    );
-
-  filter: blur(4.2rem);
-  opacity: 0.92;
+    radial-gradient(circle at 30% 30%, rgba(255, 154, 110, 0.80), transparent 65%),
+    radial-gradient(circle at 75% 65%, rgba(249, 56, 34, 0.64), transparent 72%),
+    radial-gradient(circle at 60% 40%, rgba(255, 189, 110, 0.56), transparent 70%);
+  filter: blur(4.6rem);
+  opacity: 0.95;
   border-radius: 28%;
   z-index: -2;
   pointer-events: none;
 }
 
-/* 하단 코랄 + 민트 글로우 */
-.guide-wrap::after {
+body.ui-content[data-page="publ-guide"] .guide-wrap::after {
   content: "";
   position: fixed;
-  bottom: 18%;
-  right: 38%;
-  width: 52rem;
-  height: 42rem;
-  transform: translate(50%, 50%);
-
+  bottom: 10%;
+  left: 52%;
+  width: 66rem;
+  height: 52rem;
+  transform: translate(-50%, 50%);
   background:
-    radial-gradient(
-      circle at 30% 30%,
-      rgba(255, 95, 95, 0.78),   /* pub-coral */
-      transparent 65%
-    ),
-    radial-gradient(
-      circle at 70% 70%,
-      rgba(145, 210, 190, 0.70), /* pub-mint */
-      transparent 70%
-    );
-
-  filter: blur(4.2rem);
-  opacity: 0.88;
+    radial-gradient(circle at 30% 30%, rgba(255, 92, 92, 0.55), transparent 64%),
+    radial-gradient(circle at 70% 70%, rgba(255, 154, 110, 0.62), transparent 72%),
+    radial-gradient(circle at 55% 45%, rgba(255, 189, 110, 0.40), transparent 70%);
+  filter: blur(5.2rem);
+  opacity: 0.90;
   border-radius: 28%;
   z-index: -2;
   pointer-events: none;
 }
 
+/* layout */
+body.ui-content[data-page="publ-guide"] .pub-body {
+  max-width: var(--pub-max);
+  margin: 0 auto;
+  padding: 3.2rem var(--pub-gutter) 5.6rem;
+}
+
+body.ui-content[data-page="publ-guide"] .pub-wrap[data-gap="full"] {
+  padding: 0 var(--pub-gutter);
+}
+
+body.ui-content[data-page="publ-guide"] .pub-wrap--in {
+  margin-top: 2.4rem;
+  background: var(--pub-glass);
+  -webkit-backdrop-filter: blur(var(--pub-blur-strong));
+  backdrop-filter: blur(var(--pub-blur-strong));
+  border: 0.1rem solid var(--pub-stroke);
+  border-radius: var(--pub-radius-xl);
+  box-shadow: var(--pub-shadow);
+  padding: 2.0rem;
+}
+
+/* tabs */
+body.ui-content[data-page="publ-guide"] .pub-tab--wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.0rem;
+  align-items: center;
+}
+
+body.ui-content[data-page="publ-guide"] .pub-tab--btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1.0rem 1.6rem;
+  min-height: 4.2rem;
+  border-radius: 1.6rem;
+
+  background: rgba(255, 248, 240, 0.70);
+  -webkit-backdrop-filter: blur(var(--pub-blur));
+  backdrop-filter: blur(var(--pub-blur));
+  border: 0.1rem solid rgba(249, 56, 34, 0.14);
+
+  font-weight: 700;
+  color: rgba(30, 30, 30, 0.72);
+  cursor: pointer;
+
+  transition:
+    transform 160ms var(--pub-ease),
+    background 160ms var(--pub-ease),
+    border-color 160ms var(--pub-ease),
+    color 160ms var(--pub-ease),
+    box-shadow 160ms var(--pub-ease);
+}
+
+body.ui-content[data-page="publ-guide"] .pub-tab--btn:hover {
+  background: rgba(255, 248, 240, 0.92);
+  border-color: rgba(249, 56, 34, 0.22);
+  color: var(--pub-text);
+  transform: translateY(-0.1rem);
+  box-shadow: var(--pub-shadow-soft);
+}
+
+body.ui-content[data-page="publ-guide"] .pub-tab--btn.is-active,
+body.ui-content[data-page="publ-guide"] .pub-tab--btn[aria-selected="true"] {
+  background: linear-gradient(
+    135deg,
+    rgba(249, 56, 34, 0.18),
+    rgba(255, 154, 110, 0.18),
+    rgba(255, 189, 110, 0.14)
+  );
+  border-color: rgba(249, 56, 34, 0.30);
+  color: var(--pub-text);
+  box-shadow: var(--pub-shadow-soft);
+}
+
+/* panel */
+body.ui-content[data-page="publ-guide"] .pub-tab--pnl {
+  background: var(--pub-glass);
+  -webkit-backdrop-filter: blur(var(--pub-blur-strong));
+  backdrop-filter: blur(var(--pub-blur-strong));
+  border: 0.1rem solid var(--pub-stroke);
+  border-radius: var(--pub-radius-xl);
+  padding: 2.4rem;
+  box-shadow: var(--pub-shadow);
+}
+body.ui-content[data-page="publ-guide"] .pub-tab--pnl[aria-hidden="true"] { display: none; }
+
+/* responsive */
+@media (max-width: 52rem) {
+  :root { --pub-gutter: 1.6rem; }
+  body.ui-content[data-page="publ-guide"] .pub-body { padding: 2.2rem var(--pub-gutter) 4.0rem; }
+  body.ui-content[data-page="publ-guide"] .pub-wrap--in { padding: 1.6rem; }
+  body.ui-content[data-page="publ-guide"] .pub-tab--pnl { padding: 1.8rem; }
+}

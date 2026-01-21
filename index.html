@@ -7,6 +7,8 @@
   <title>WORKLIST</title>
 
   <link rel="stylesheet" type="text/css" href="./assets/css/common.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
 </head>
 
 <body class="ui-content" data-page="worklist" data-theme="light">
@@ -30,7 +32,7 @@
           <div class="field">
             <label for="wlStatusNative">상태</label>
 
-            <select id="wlStatusNative" class="wl-native-select">
+            <select id="wlStatusNative" class="wl-native--select">
               <option value="all" selected>전체</option>
               <option value="todo">예정</option>
               <option value="progress">진행중</option>
@@ -40,35 +42,35 @@
             <div class="wl-select" data-select>
               <button
                 type="button"
-                class="wl-select__btn"
+                class="wl-select--btn"
                 id="wlStatusBtn"
                 aria-haspopup="listbox"
                 aria-expanded="false"
                 aria-controls="wlStatusList"
               >
-                <span class="wl-select__value" data-value-text>전체</span>
-                <span class="wl-select__chev" aria-hidden="true">▾</span>
+                <span class="wl-select--value" data-value-text>전체</span>
+                <span class="wl-select--chev" aria-hidden="true">▾</span>
               </button>
 
               <ul
-                class="wl-select__list"
+                class="wl-select--list"
                 id="wlStatusList"
                 role="listbox"
                 tabindex="-1"
                 aria-label="상태 선택"
                 hidden
               >
-                <li class="wl-select__opt" role="option" tabindex="-1" data-value="all" aria-selected="true">
-                  <span class="wl-select__check" aria-hidden="true">✓</span> 전체
+                <li class="wl-select--opt" role="option" tabindex="-1" data-value="all" aria-selected="true">
+                  <span class="wl-select--check" aria-hidden="true">✓</span> 전체
                 </li>
-                <li class="wl-select__opt" role="option" tabindex="-1" data-value="todo" aria-selected="false">
-                  <span class="wl-select__check" aria-hidden="true">✓</span> 예정
+                <li class="wl-select--opt" role="option" tabindex="-1" data-value="todo" aria-selected="false">
+                  <span class="wl-select--check" aria-hidden="true">✓</span> 예정
                 </li>
-                <li class="wl-select__opt" role="option" tabindex="-1" data-value="progress" aria-selected="false">
-                  <span class="wl-select__check" aria-hidden="true">✓</span> 진행중
+                <li class="wl-select--opt" role="option" tabindex="-1" data-value="progress" aria-selected="false">
+                  <span class="wl-select--check" aria-hidden="true">✓</span> 진행중
                 </li>
-                <li class="wl-select__opt" role="option" tabindex="-1" data-value="done" aria-selected="false">
-                  <span class="wl-select__check" aria-hidden="true">✓</span> 완료
+                <li class="wl-select--opt" role="option" tabindex="-1" data-value="done" aria-selected="false">
+                  <span class="wl-select--check" aria-hidden="true">✓</span> 완료
                 </li>
               </ul>
             </div>
@@ -84,8 +86,8 @@
             aria-label="다크 모드로 전환"
             title="테마 전환"
           >
-            <span class="btn-theme__icon" aria-hidden="true">🌙</span>
-            <span class="btn-theme__text">Dark</span>
+            <span class="btn-theme--icon" aria-hidden="true">🌙</span>
+            <span class="btn-theme--text">Dark</span>
           </button>
         </div>
       </div>
@@ -99,7 +101,7 @@
       <span class="summary-item">예정 <strong id="countTodo">0</strong></span>
     </div>
 
-    <div class="worklist-table-wrap" role="region" aria-label="퍼블리싱 워크리스트 표" tabindex="0">
+    <div class="worklist-table--wrap" role="region" aria-label="퍼블리싱 워크리스트 표" tabindex="0">
       <table class="worklist-table">
         <caption>화면별 퍼블리싱 현황 및 미리보기</caption>
         <thead>
@@ -131,8 +133,8 @@
                 aria-haspopup="dialog"
                 aria-controls="previewDialog"
               >
-                <span class="btn-preview__icon" aria-hidden="true">🔍</span>
-                <span class="btn-preview__text">보기</span>
+                <span class="btn-preview--icon" aria-hidden="true">🔍</span>
+                <span class="btn-preview--text">보기</span>
               </button>
             </td>
             <td class="col-new">
@@ -159,8 +161,8 @@
                 aria-haspopup="dialog"
                 aria-controls="previewDialog"
               >
-                <span class="btn-preview__icon" aria-hidden="true">🔍</span>
-                <span class="btn-preview__text">보기</span>
+                <span class="btn-preview--icon" aria-hidden="true">🔍</span>
+                <span class="btn-preview--text">보기</span>
               </button>
             </td>
             <td class="col-new">
@@ -182,17 +184,17 @@
               <button
                 type="button"
                 class="btn-preview"
-                data-preview-src="./html//CS_002.html"
+                data-preview-src="./html/CS_002.html"
                 data-preview-title="CS_002 FAQ 상세"
                 aria-haspopup="dialog"
                 aria-controls="previewDialog"
               >
-                <span class="btn-preview__icon" aria-hidden="true">🔍</span>
-                <span class="btn-preview__text">보기</span>
+                <span class="btn-preview--icon" aria-hidden="true">🔍</span>
+                <span class="btn-preview--text">보기</span>
               </button>
             </td>
             <td class="col-new">
-              <a class="btn-newtab" href="./html//CS_002.html" target="_blank" rel="noopener">새창</a>
+              <a class="btn-newtab" href="./html/CS_002.html" target="_blank" rel="noopener">새창</a>
             </td>
             <td class="col-d1">고객센터</td>
             <td class="col-d2">FAQ</td>
@@ -262,7 +264,7 @@
       const statusBtn = document.getElementById('wlStatusBtn');
       const statusList = document.getElementById('wlStatusList');
       const statusValueText = statusSelect ? statusSelect.querySelector('[data-value-text]') : null;
-      const statusOptions = statusList ? Array.from(statusList.querySelectorAll('.wl-select__opt')) : [];
+      const statusOptions = statusList ? Array.from(statusList.querySelectorAll('.wl-select--opt')) : [];
 
       const countAllEl = document.getElementById('countAll');
       const countVisibleEl = document.getElementById('countVisible');
@@ -290,8 +292,8 @@
           themeBtn.setAttribute('aria-pressed', String(isDark));
           themeBtn.setAttribute('aria-label', isDark ? '라이트 모드로 전환' : '다크 모드로 전환');
 
-          const icon = themeBtn.querySelector('.btn-theme__icon');
-          const text = themeBtn.querySelector('.btn-theme__text');
+          const icon = themeBtn.querySelector('.btn-theme--icon');
+          const text = themeBtn.querySelector('.btn-theme--text');
           if (icon) icon.textContent = isDark ? '☀️' : '🌙';
           if (text) text.textContent = isDark ? 'Light' : 'Dark';
         }
@@ -443,7 +445,7 @@
         });
 
         statusList.addEventListener('click', (e) => {
-          const opt = e.target.closest('.wl-select__opt');
+          const opt = e.target.closest('.wl-select--opt');
           if (!opt) return;
           setStatusValue(opt.dataset.value);
           closeSelect(true);
@@ -458,7 +460,7 @@
           if (e.key === 'End') { e.preventDefault(); statusOptions[statusOptions.length - 1]?.focus(); return; }
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            const opt = document.activeElement && document.activeElement.closest('.wl-select__opt');
+            const opt = document.activeElement && document.activeElement.closest('.wl-select--opt');
             if (!opt) return;
             setStatusValue(opt.dataset.value);
             closeSelect(true);

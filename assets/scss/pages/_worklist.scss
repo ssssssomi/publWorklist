@@ -207,7 +207,7 @@ body[data-page="worklist"] {
 }
 
 /* ===== Worklist Custom Select (Toss-like) ===== */
-.wl-native-select {
+.wl-native--select {
   position: absolute;
   width: 0.1rem;
   height: 0.1rem;
@@ -222,7 +222,7 @@ body[data-page="worklist"] {
   position: relative;
 }
 
-.wl-select__btn {
+.wl-select--btn {
   @include ctrl();
   min-width: 14rem;
   height: var(--ctrl-h);
@@ -236,23 +236,23 @@ body[data-page="worklist"] {
   border-color: rgba(0, 0, 0, 0.08);
 }
 
-body[data-page="worklist"][data-theme="dark"] .wl-select__btn {
+body[data-page="worklist"][data-theme="dark"] .wl-select--btn {
   border-color: rgba(255, 255, 255, 0.12);
 }
 
-.wl-select__value {
+.wl-select--value {
   font-size: var(--font-md);
   font-weight: 800;
   letter-spacing: -0.01em;
 }
 
-.wl-select__chev {
+.wl-select--chev {
   font-size: 1.2rem;
   opacity: 0.7;
   transform: translateY(-0.1rem);
 }
 
-.wl-select__list {
+.wl-select--list {
   position: absolute;
   top: calc(100% + 1rem);
   left: 0;
@@ -272,13 +272,13 @@ body[data-page="worklist"][data-theme="dark"] .wl-select__btn {
   z-index: 50;
 }
 
-body[data-page="worklist"][data-theme="dark"] .wl-select__list {
+body[data-page="worklist"][data-theme="dark"] .wl-select--list {
   box-shadow:
     1.8rem 1.8rem 4.2rem rgba(0, 0, 0, 0.55),
     -1rem -1rem 2.6rem rgba(255, 255, 255, 0.06);
 }
 
-.wl-select__opt {
+.wl-select--opt {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -294,32 +294,32 @@ body[data-page="worklist"][data-theme="dark"] .wl-select__list {
   color: var(--text);
 }
 
-.wl-select__check {
+.wl-select--check {
   width: 1.8rem;
   display: inline-flex;
   justify-content: center;
   opacity: 0;
 }
 
-.wl-select__opt[aria-selected="true"] .wl-select__check {
+.wl-select--opt[aria-selected="true"] .wl-select--check {
   opacity: 1;
   color: var(--primary);
 }
 
-.wl-select__opt:hover {
+.wl-select--opt:hover {
   background: rgba(49, 130, 246, 0.08);
 }
 
-body[data-page="worklist"][data-theme="dark"] .wl-select__opt:hover {
+body[data-page="worklist"][data-theme="dark"] .wl-select--opt:hover {
   background: rgba(106, 166, 255, 0.14);
 }
 
-.wl-select__opt:focus-visible {
+.wl-select--opt:focus-visible {
   outline: var(--focus-w) solid var(--focus);
   outline-offset: 0.2rem;
 }
 
-.wl-select.is-open .wl-select__btn {
+.wl-select.is-open .wl-select--btn {
   box-shadow:
     inset 0.6rem 0.6rem 1.2rem var(--shadow-dark),
     inset -0.6rem -0.6rem 1.2rem var(--shadow-light);
@@ -348,7 +348,7 @@ body[data-page="worklist"][data-theme="dark"] .wl-select__opt:hover {
   transform: translateY(0.1rem);
 }
 
-.btn-theme__text {
+.btn-theme--text {
   font-size: var(--font-md);
   font-weight: 700;
 }
@@ -374,7 +374,7 @@ body[data-page="worklist"][data-theme="dark"] .wl-select__opt:hover {
 }
 
 /* ---------- TABLE ---------- */
-.worklist-table-wrap {
+.worklist-table--wrap {
   @include neu(var(--radius-lg), false);
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -467,7 +467,7 @@ body[data-page="worklist"][data-theme="dark"] .wl-select__opt:hover {
     inset -0.6rem -0.6rem 1.2rem var(--shadow-light);
 }
 
-.btn-preview__text {
+.btn-preview--text {
   font-size: var(--font-md);
 }
 

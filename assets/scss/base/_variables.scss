@@ -1,48 +1,39 @@
-@charset "utf-8";
-
 :root {
-  /* Background base */
-  --pub-bg-0: #eef1e6; /* 바깥 배경(크림) */
-  --pub-bg-1: #cfdac0; /* 연한 세이지 */
-  --pub-bg-2: #9bb07a; /* 올리브 */
-  --pub-bg-3: #6f8a52; /* 딥 올리브 */
-  --pub-bg-4: #2f3d22; /* 딥그린(버튼/강조) */
+  --pub-canvas: #f9efe8;
 
-  /* Glass */
-  --pub-glass: rgba(255, 255, 255, 0.18);
-  --pub-glass-strong: rgba(255, 255, 255, 0.26);
-  --pub-glass-weak: rgba(255, 255, 255, 0.12);
+  /* Accent system */
+  --pub-accent: rgba(249, 56, 34, 0.88);
+  --pub-peach:  rgba(255, 154, 110, 0.72);
+  --pub-coral:  rgba(255, 92, 92, 0.58);
+  --pub-amber:  rgba(255, 189, 110, 0.60);
 
-  /* Stroke */
-  --pub-stroke: rgba(255, 255, 255, 0.26);
-  --pub-stroke-strong: rgba(255, 255, 255, 0.36);
+  /* Glass (warm) */
+  --pub-glass:        rgba(255, 246, 238, 0.58);
+  --pub-glass-strong: rgba(255, 248, 240, 0.72);
+  --pub-glass-weak:   rgba(255, 242, 232, 0.45);
 
-  /* Text */
-  --pub-text: rgba(18, 26, 14, 0.92);
-  --pub-text-dim: rgba(18, 26, 14, 0.72);
-  --pub-text-mute: rgba(18, 26, 14, 0.56);
+  --pub-stroke: rgba(40, 40, 40, 0.08);
+  --pub-stroke-strong: rgba(40, 40, 40, 0.12);
 
-  /* Shadow (soft) */
-  --pub-shadow: 0 2.2rem 6rem rgba(34, 46, 22, 0.20);
-  --pub-shadow-soft: 0 1rem 2.6rem rgba(34, 46, 22, 0.14);
+  --pub-text: rgba(28, 28, 28, 0.92);
+  --pub-text-dim: rgba(28, 28, 28, 0.70);
+  --pub-text-mute: rgba(28, 28, 28, 0.52);
 
-  /* Accent / Focus */
-  --pub-accent: #2f3d22; /* 딥그린 */
-  --pub-accent-2: #ffffff;
-  --pub-focus: rgba(47, 61, 34, 0.85);
+  --pub-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
+  --pub-shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.10);
 
-  /* Radius / Blur */
-  --pub-radius-lg: 2.2rem;
-  --pub-radius-md: 1.6rem;
+  --pub-focus: rgba(249, 56, 34, 0.85);
+
+  --pub-radius-xl: 2.6rem;
+  --pub-radius-lg: 2rem;
+  --pub-radius-md: 1.4rem;
   --pub-radius-sm: 1.2rem;
 
-  --pub-blur: 1.8rem;
+  --pub-blur: 1.6rem;
   --pub-blur-strong: 2.6rem;
 
-  /* Layout */
   --pub-max: 116rem;
   --pub-gutter: 2rem;
 
-  /* Motion */
   --pub-ease: cubic-bezier(0.25, 0.8, 0.25, 1);
 }

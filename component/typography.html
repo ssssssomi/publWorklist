@@ -1,1 +1,184 @@
-aaaaaa
+<section class="pub-box">
+  <h2 class="pub-tit">Typography</h2>
+  <p class="pub-txt">
+    프로젝트 공통 타이포 가이드입니다. 제목/본문/보조문구/링크/리스트/코드 등 기본 텍스트 요소를
+    일관된 규칙으로 제공합니다.
+  </p>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="typo-sec-title">1. Heading Scale</h3>
+  <p class="typo-desc">
+    문서 구조는 <strong>시맨틱 태그(h1~h6)</strong>를 우선 사용하고, 디자인 크기 조절은 클래스(옵션)로 보조합니다.
+  </p>
+
+  <div class="typo-scale">
+    <div class="typo-row">
+      <div class="typo-meta">
+        <strong class="typo-label">H1</strong>
+        <span class="typo-spec">2.8rem / 900 / 1.2</span>
+      </div>
+      <div class="typo-sample">
+        <h1 class="typo-h1">H1. 페이지 대표 타이틀</h1>
+      </div>
+    </div>
+
+    <div class="typo-row">
+      <div class="typo-meta">
+        <strong class="typo-label">H2</strong>
+        <span class="typo-spec">2.4rem / 900 / 1.25</span>
+      </div>
+      <div class="typo-sample">
+        <h2 class="typo-h2">H2. 섹션 타이틀</h2>
+      </div>
+    </div>
+
+    <div class="typo-row">
+      <div class="typo-meta">
+        <strong class="typo-label">H3</strong>
+        <span class="typo-spec">2.0rem / 800 / 1.3</span>
+      </div>
+      <div class="typo-sample">
+        <h3 class="typo-h3">H3. 서브 섹션 타이틀</h3>
+      </div>
+    </div>
+
+    <div class="typo-row">
+      <div class="typo-meta">
+        <strong class="typo-label">H4</strong>
+        <span class="typo-spec">1.8rem / 800 / 1.35</span>
+      </div>
+      <div class="typo-sample">
+        <h4 class="typo-h4">H4. 그룹 타이틀</h4>
+      </div>
+    </div>
+
+    <div class="typo-row">
+      <div class="typo-meta">
+        <strong class="typo-label">H5</strong>
+        <span class="typo-spec">1.6rem / 700 / 1.4</span>
+      </div>
+      <div class="typo-sample">
+        <h5 class="typo-h5">H5. 소제목</h5>
+      </div>
+    </div>
+
+    <div class="typo-row">
+      <div class="typo-meta">
+        <strong class="typo-label">H6</strong>
+        <span class="typo-spec">1.4rem / 700 / 1.45</span>
+      </div>
+      <div class="typo-sample">
+        <h6 class="typo-h6">H6. 캡션/보조 제목</h6>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="typo-sec-title">2. Body / Helper Text</h3>
+
+  <div class="typo-grid">
+    <div class="typo-card">
+      <p class="typo-label2">Body (Default)</p>
+      <p class="typo-body">
+        기본 본문 텍스트입니다. 가독성을 위해 line-height를 확보하고, 문장 길이가 길어져도
+        읽기 편한 대비로 유지합니다.
+      </p>
+    </div>
+
+    <div class="typo-card">
+      <p class="typo-label2">Body Small</p>
+      <p class="typo-body-sm">
+        작은 본문/설명 문구에 사용합니다. 너무 연한 색상은 피하고 대비를 확보합니다.
+      </p>
+    </div>
+
+    <div class="typo-card">
+      <p class="typo-label2">Helper / Hint</p>
+      <p class="typo-helper" id="typoHint">
+        입력 가이드/힌트는 보조 텍스트로 분류합니다. 정보 전달이 목적이면 색만 연하게 하지 말고
+        문구도 명확하게 작성합니다.
+      </p>
+    </div>
+
+    <div class="typo-card">
+      <p class="typo-label2">Caption</p>
+      <p class="typo-caption">
+        캡션은 표/이미지/부가 설명에 사용합니다. (예: “* 단위: 원, VAT 포함”)
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="typo-sec-title">3. Inline Text Elements</h3>
+
+  <div class="typo-inline">
+    <p class="typo-body">
+      이 문장에는 <strong>강조(strong)</strong>, <em>기울임(em)</em>,
+      <span class="typo-mark">하이라이트</span>, 그리고
+      <a href="#none" class="typo-link">기본 링크</a>가 포함되어 있습니다.
+    </p>
+
+    <p class="typo-body">
+      약어는 <abbr title="Web Content Accessibility Guidelines">WCAG</abbr>처럼
+      <code class="typo-code-inline">abbr</code>에 <code class="typo-code-inline">title</code>을 제공합니다.
+    </p>
+  </div>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="typo-sec-title">4. Lists</h3>
+
+  <div class="typo-grid">
+    <div class="typo-card">
+      <p class="typo-label2">Unordered List</p>
+      <ul class="typo-list">
+        <li>리스트 항목 1</li>
+        <li>리스트 항목 2</li>
+        <li>리스트 항목 3</li>
+      </ul>
+    </div>
+
+    <div class="typo-card">
+      <p class="typo-label2">Ordered List</p>
+      <ol class="typo-olist">
+        <li>순서 항목 1</li>
+        <li>순서 항목 2</li>
+        <li>순서 항목 3</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="typo-sec-title">5. Quote / Code Block</h3>
+
+  <blockquote class="typo-quote" aria-label="인용문 예시">
+    <p>
+      “접근성은 옵션이 아니라 기본값이다. 키보드/스크린리더 사용자를 포함한 모두가 동일하게 정보를 얻을 수 있어야 한다.”
+    </p>
+    <cite>— Publishing Guide</cite>
+  </blockquote>
+
+  <div class="typo-codeblock" role="region" aria-label="코드 예시" tabindex="0">
+<pre><code>// 예: 접근성 라벨
+&lt;button type="button" aria-label="닫기"&gt;닫기&lt;/button&gt;</code></pre>
+  </div>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="typo-sec-title">6. Utility Classes (Optional)</h3>
+  <p class="typo-desc">
+    “시맨틱 우선” 원칙을 지키되, 디자인에서 크기만 조절해야 하는 경우에만 유틸리티를 사용합니다.
+  </p>
+
+  <div class="typo-utilities" aria-label="타이포 유틸리티 예시">
+    <p class="txt-xl">.txt-xl — 큰 텍스트</p>
+    <p class="txt-lg">.txt-lg — 강조 본문</p>
+    <p class="txt-md">.txt-md — 기본 본문</p>
+    <p class="txt-sm">.txt-sm — 보조 본문</p>
+    <p class="txt-xs">.txt-xs — 캡션</p>
+  </div>
+</section>

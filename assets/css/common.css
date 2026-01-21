@@ -1,40 +1,31 @@
 @charset "UTF-8";
-/* ===== Entry: common.scss (NO @import) ===== */
 :root {
-  /* Background base */
-  --pub-bg-0: #eef1e6; /* 바깥 배경(크림) */
-  --pub-bg-1: #cfdac0; /* 연한 세이지 */
-  --pub-bg-2: #9bb07a; /* 올리브 */
-  --pub-bg-3: #6f8a52; /* 딥 올리브 */
-  --pub-bg-4: #2f3d22; /* 딥그린(버튼/강조) */
-  /* Glass */
-  --pub-glass: rgba(255, 255, 255, 0.18);
-  --pub-glass-strong: rgba(255, 255, 255, 0.26);
-  --pub-glass-weak: rgba(255, 255, 255, 0.12);
-  /* Stroke */
-  --pub-stroke: rgba(255, 255, 255, 0.26);
-  --pub-stroke-strong: rgba(255, 255, 255, 0.36);
-  /* Text */
-  --pub-text: rgba(18, 26, 14, 0.92);
-  --pub-text-dim: rgba(18, 26, 14, 0.72);
-  --pub-text-mute: rgba(18, 26, 14, 0.56);
-  /* Shadow (soft) */
-  --pub-shadow: 0 2.2rem 6rem rgba(34, 46, 22, 0.20);
-  --pub-shadow-soft: 0 1rem 2.6rem rgba(34, 46, 22, 0.14);
-  /* Accent / Focus */
-  --pub-accent: #2f3d22; /* 딥그린 */
-  --pub-accent-2: #ffffff;
-  --pub-focus: rgba(47, 61, 34, 0.85);
-  /* Radius / Blur */
-  --pub-radius-lg: 2.2rem;
-  --pub-radius-md: 1.6rem;
+  --pub-canvas: #f9efe8;
+  /* Accent system */
+  --pub-accent: rgba(249, 56, 34, 0.88);
+  --pub-peach: rgba(255, 154, 110, 0.72);
+  --pub-coral: rgba(255, 92, 92, 0.58);
+  --pub-amber: rgba(255, 189, 110, 0.60);
+  /* Glass (warm) */
+  --pub-glass: rgba(255, 246, 238, 0.58);
+  --pub-glass-strong: rgba(255, 248, 240, 0.72);
+  --pub-glass-weak: rgba(255, 242, 232, 0.45);
+  --pub-stroke: rgba(40, 40, 40, 0.08);
+  --pub-stroke-strong: rgba(40, 40, 40, 0.12);
+  --pub-text: rgba(28, 28, 28, 0.92);
+  --pub-text-dim: rgba(28, 28, 28, 0.70);
+  --pub-text-mute: rgba(28, 28, 28, 0.52);
+  --pub-shadow: 0 24px 60px rgba(0, 0, 0, 0.14);
+  --pub-shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.10);
+  --pub-focus: rgba(249, 56, 34, 0.85);
+  --pub-radius-xl: 2.6rem;
+  --pub-radius-lg: 2rem;
+  --pub-radius-md: 1.4rem;
   --pub-radius-sm: 1.2rem;
-  --pub-blur: 1.8rem;
+  --pub-blur: 1.6rem;
   --pub-blur-strong: 2.6rem;
-  /* Layout */
   --pub-max: 116rem;
   --pub-gutter: 2rem;
-  /* Motion */
   --pub-ease: cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
@@ -185,46 +176,449 @@ hr {
 }
 
 /* 스크린리더 전용 텍스트 클래스는 common.scss에서 정의 */
-.guide-wrap {
+/* assets/scss/components/_typography.scss */
+:root {
+  /* type scale (필요 시 프로젝트에 맞게 조정) */
+  --fs-h1: 2.8rem;
+  --fs-h2: 2.4rem;
+  --fs-h3: 2.0rem;
+  --fs-h4: 1.8rem;
+  --fs-h5: 1.6rem;
+  --fs-h6: 1.4rem;
+  --lh-head: 1.25;
+  --lh-body: 1.6;
+  --fs-body: 1.5rem;
+  --fs-body-sm: 1.3rem;
+  --fs-caption: 1.2rem;
+  --fw-black: 900;
+  --fw-bold: 800;
+  --fw-semi: 700;
+}
+
+/* ---------------------------------------
+  Base typography (공통)
+--------------------------------------- */
+body {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--pub-text);
+}
+
+/* semantic heading 기본값 (공통) */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  color: var(--pub-text);
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: var(--fs-h1);
+  line-height: 1.2;
+  font-weight: var(--fw-black);
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  line-height: 1.25;
+  font-weight: var(--fw-black);
+}
+
+h3 {
+  font-size: var(--fs-h3);
+  line-height: 1.3;
+  font-weight: var(--fw-bold);
+}
+
+h4 {
+  font-size: var(--fs-h4);
+  line-height: 1.35;
+  font-weight: var(--fw-bold);
+}
+
+h5 {
+  font-size: var(--fs-h5);
+  line-height: 1.4;
+  font-weight: var(--fw-semi);
+}
+
+h6 {
+  font-size: var(--fs-h6);
+  line-height: 1.45;
+  font-weight: var(--fw-semi);
+}
+
+p {
+  margin: 0;
+}
+
+/* link (공통) */
+a {
+  color: inherit;
+  text-underline-offset: 0.22em;
+}
+
+a:focus-visible {
+  outline: 0.2rem solid var(--pub-focus);
+  outline-offset: 0.2rem;
+  border-radius: 0.6rem;
+}
+
+/* inline code (공통) */
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+/* ---------------------------------------
+  Typography guide UI (가이드 내 샘플 레이아웃)
+--------------------------------------- */
+.typo-sec-title {
+  font-size: 1.6rem;
+  font-weight: 900;
+  margin: 0 0 1.2rem;
+}
+
+.typo-desc {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: var(--pub-text-mute);
+  margin: 0 0 1.6rem;
+}
+
+.typo-scale {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.typo-row {
+  display: grid;
+  grid-template-columns: 22rem 1fr;
+  gap: 1.2rem;
+  padding: 1.4rem;
+  border: 0.1rem solid var(--pub-stroke);
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 1.6rem;
+}
+
+.typo-meta {
+  display: grid;
+  gap: 0.6rem;
+  align-content: start;
+}
+
+.typo-label {
+  font-weight: 900;
+  font-size: 1.3rem;
+  color: var(--pub-text);
+}
+
+.typo-spec {
+  font-size: 1.2rem;
+  color: var(--pub-text-mute);
+}
+
+.typo-sample :where(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+}
+
+/* body examples */
+.typo-grid {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 720px) {
+  .typo-row {
+    grid-template-columns: 1fr;
+  }
+  .typo-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.typo-card {
+  padding: 1.4rem;
+  border: 0.1rem solid var(--pub-stroke);
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 1.6rem;
+}
+
+.typo-label2 {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--pub-text-dim);
+  margin: 0 0 0.8rem;
+}
+
+.typo-body {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--pub-text);
+}
+
+.typo-body-sm {
+  font-size: var(--fs-body-sm);
+  line-height: 1.65;
+  color: var(--pub-text-dim);
+}
+
+.typo-helper {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: var(--pub-text-mute);
+}
+
+.typo-caption {
+  font-size: var(--fs-caption);
+  line-height: 1.55;
+  color: var(--pub-text-mute);
+}
+
+/* inline */
+.typo-mark {
+  padding: 0.1em 0.35em;
+  border-radius: 0.6rem;
+  background: var(--pub-accent-weak);
+}
+
+.typo-link {
+  color: var(--pub-accent);
+  font-weight: 800;
+}
+
+.typo-code-inline {
+  display: inline-block;
+  padding: 0.15em 0.45em;
+  border-radius: 0.6rem;
+  border: 0.1rem solid var(--pub-stroke);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* list */
+.typo-list,
+.typo-olist {
+  margin: 0;
+  padding-left: 1.6rem;
+  color: var(--pub-text);
+  line-height: 1.7;
+}
+
+.typo-list li,
+.typo-olist li {
+  margin: 0.4rem 0;
+}
+
+/* quote */
+.typo-quote {
+  margin: 1.2rem 0 0;
+  padding: 1.4rem 1.6rem;
+  border-left: 0.4rem solid var(--pub-accent);
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 1.2rem;
+}
+
+.typo-quote p {
+  color: var(--pub-text);
+  line-height: 1.7;
+}
+
+.typo-quote cite {
+  display: inline-block;
+  margin-top: 0.8rem;
+  font-style: normal;
+  font-size: 1.2rem;
+  color: var(--pub-text-mute);
+}
+
+/* code block */
+.typo-codeblock {
+  margin-top: 1.2rem;
+  border: 0.1rem solid var(--pub-stroke);
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 1.2rem;
+  overflow: auto;
+}
+
+.typo-codeblock:focus-visible {
+  outline: 0.2rem solid var(--pub-focus);
+  outline-offset: 0.2rem;
+}
+
+.typo-codeblock pre {
+  margin: 0;
+  padding: 1.2rem 1.4rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--pub-text);
+}
+
+/* utilities (옵션) */
+.txt-xl {
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
+.txt-lg {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.txt-md {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.txt-sm {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--pub-text-dim);
+}
+
+.txt-xs {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--pub-text-mute);
+}
+
+/* =========================================================
+  Guide (publ-guide) only
+========================================================= */
+body.ui-content[data-page=publ-guide] {
+  background: radial-gradient(60rem 42rem at 50% 18%, rgba(249, 56, 34, 0.12), transparent 70%), radial-gradient(74rem 56rem at 54% 70%, rgba(255, 154, 110, 0.16), transparent 72%), radial-gradient(60rem 44rem at 78% 28%, rgba(255, 189, 110, 0.1), transparent 68%), linear-gradient(180deg, #fbf2ec 0%, #f7efe9 55%, #f6eee7 100%);
+  color: var(--pub-text);
+}
+
+body.ui-content[data-page=publ-guide] .guide-wrap {
   position: relative;
-  min-height: 100%;
+  min-height: 100vh;
   isolation: isolate;
 }
 
-/* 상단 웜 오렌지 + 스카이 글로우 */
-.guide-wrap::before {
+/* glow */
+body.ui-content[data-page=publ-guide] .guide-wrap::before {
   content: "";
   position: fixed;
-  top: 22%;
-  left: 44%;
-  width: 52rem;
-  height: 42rem;
+  top: 18%;
+  left: 55%;
+  width: 58rem;
+  height: 46rem;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle at 28% 32%, rgba(255, 145, 90, 0.85), transparent 65%), radial-gradient(circle at 72% 68%, rgba(130, 190, 235, 0.75), transparent 70%);
-  filter: blur(4.2rem);
-  opacity: 0.92;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 154, 110, 0.8), transparent 65%), radial-gradient(circle at 75% 65%, rgba(249, 56, 34, 0.64), transparent 72%), radial-gradient(circle at 60% 40%, rgba(255, 189, 110, 0.56), transparent 70%);
+  filter: blur(4.6rem);
+  opacity: 0.95;
   border-radius: 28%;
   z-index: -2;
   pointer-events: none;
 }
 
-/* 하단 코랄 + 민트 글로우 */
-.guide-wrap::after {
+body.ui-content[data-page=publ-guide] .guide-wrap::after {
   content: "";
   position: fixed;
-  bottom: 18%;
-  right: 38%;
-  width: 52rem;
-  height: 42rem;
-  transform: translate(50%, 50%);
-  background: radial-gradient(circle at 30% 30%, rgba(255, 95, 95, 0.78), transparent 65%), radial-gradient(circle at 70% 70%, rgba(145, 210, 190, 0.7), transparent 70%);
-  filter: blur(4.2rem);
-  opacity: 0.88;
+  bottom: 10%;
+  left: 52%;
+  width: 66rem;
+  height: 52rem;
+  transform: translate(-50%, 50%);
+  background: radial-gradient(circle at 30% 30%, rgba(255, 92, 92, 0.55), transparent 64%), radial-gradient(circle at 70% 70%, rgba(255, 154, 110, 0.62), transparent 72%), radial-gradient(circle at 55% 45%, rgba(255, 189, 110, 0.4), transparent 70%);
+  filter: blur(5.2rem);
+  opacity: 0.9;
   border-radius: 28%;
   z-index: -2;
   pointer-events: none;
 }
 
+/* layout */
+body.ui-content[data-page=publ-guide] .pub-body {
+  max-width: var(--pub-max);
+  margin: 0 auto;
+  padding: 3.2rem var(--pub-gutter) 5.6rem;
+}
+
+body.ui-content[data-page=publ-guide] .pub-wrap[data-gap=full] {
+  padding: 0 var(--pub-gutter);
+}
+
+body.ui-content[data-page=publ-guide] .pub-wrap--in {
+  margin-top: 2.4rem;
+  background: var(--pub-glass);
+  -webkit-backdrop-filter: blur(var(--pub-blur-strong));
+  backdrop-filter: blur(var(--pub-blur-strong));
+  border: 0.1rem solid var(--pub-stroke);
+  border-radius: var(--pub-radius-xl);
+  box-shadow: var(--pub-shadow);
+  padding: 2rem;
+}
+
+/* tabs */
+body.ui-content[data-page=publ-guide] .pub-tab--wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+body.ui-content[data-page=publ-guide] .pub-tab--btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.6rem;
+  min-height: 4.2rem;
+  border-radius: 1.6rem;
+  background: rgba(255, 248, 240, 0.7);
+  -webkit-backdrop-filter: blur(var(--pub-blur));
+  backdrop-filter: blur(var(--pub-blur));
+  border: 0.1rem solid rgba(249, 56, 34, 0.14);
+  font-weight: 700;
+  color: rgba(30, 30, 30, 0.72);
+  cursor: pointer;
+  transition: transform 160ms var(--pub-ease), background 160ms var(--pub-ease), border-color 160ms var(--pub-ease), color 160ms var(--pub-ease), box-shadow 160ms var(--pub-ease);
+}
+
+body.ui-content[data-page=publ-guide] .pub-tab--btn:hover {
+  background: rgba(255, 248, 240, 0.92);
+  border-color: rgba(249, 56, 34, 0.22);
+  color: var(--pub-text);
+  transform: translateY(-0.1rem);
+  box-shadow: var(--pub-shadow-soft);
+}
+
+body.ui-content[data-page=publ-guide] .pub-tab--btn.is-active,
+body.ui-content[data-page=publ-guide] .pub-tab--btn[aria-selected=true] {
+  background: linear-gradient(135deg, rgba(249, 56, 34, 0.18), rgba(255, 154, 110, 0.18), rgba(255, 189, 110, 0.14));
+  border-color: rgba(249, 56, 34, 0.3);
+  color: var(--pub-text);
+  box-shadow: var(--pub-shadow-soft);
+}
+
+/* panel */
+body.ui-content[data-page=publ-guide] .pub-tab--pnl {
+  background: var(--pub-glass);
+  -webkit-backdrop-filter: blur(var(--pub-blur-strong));
+  backdrop-filter: blur(var(--pub-blur-strong));
+  border: 0.1rem solid var(--pub-stroke);
+  border-radius: var(--pub-radius-xl);
+  padding: 2.4rem;
+  box-shadow: var(--pub-shadow);
+}
+
+body.ui-content[data-page=publ-guide] .pub-tab--pnl[aria-hidden=true] {
+  display: none;
+}
+
+/* responsive */
+@media (max-width: 52rem) {
+  :root {
+    --pub-gutter: 1.6rem;
+  }
+  body.ui-content[data-page=publ-guide] .pub-body {
+    padding: 2.2rem var(--pub-gutter) 4rem;
+  }
+  body.ui-content[data-page=publ-guide] .pub-wrap--in {
+    padding: 1.6rem;
+  }
+  body.ui-content[data-page=publ-guide] .pub-tab--pnl {
+    padding: 1.8rem;
+  }
+}
 /* =========================================
   WORKLIST (Neumorphism + Light/Dark, Toss-like)
   - body[data-page="worklist"][data-theme="light|dark"]
@@ -381,7 +775,7 @@ body[data-page=worklist] {
 }
 
 /* ===== Worklist Custom Select (Toss-like) ===== */
-.wl-native-select {
+.wl-native--select {
   position: absolute;
   width: 0.1rem;
   height: 0.1rem;
@@ -396,7 +790,7 @@ body[data-page=worklist] {
   position: relative;
 }
 
-.wl-select__btn {
+.wl-select--btn {
   height: var(--ctrl-h);
   padding: 0 1.2rem;
   border-radius: var(--radius-sm);
@@ -417,23 +811,23 @@ body[data-page=worklist] {
   border-color: rgba(0, 0, 0, 0.08);
 }
 
-body[data-page=worklist][data-theme=dark] .wl-select__btn {
+body[data-page=worklist][data-theme=dark] .wl-select--btn {
   border-color: rgba(255, 255, 255, 0.12);
 }
 
-.wl-select__value {
+.wl-select--value {
   font-size: var(--font-md);
   font-weight: 800;
   letter-spacing: -0.01em;
 }
 
-.wl-select__chev {
+.wl-select--chev {
   font-size: 1.2rem;
   opacity: 0.7;
   transform: translateY(-0.1rem);
 }
 
-.wl-select__list {
+.wl-select--list {
   position: absolute;
   top: calc(100% + 1rem);
   left: 0;
@@ -448,11 +842,11 @@ body[data-page=worklist][data-theme=dark] .wl-select__btn {
   z-index: 50;
 }
 
-body[data-page=worklist][data-theme=dark] .wl-select__list {
+body[data-page=worklist][data-theme=dark] .wl-select--list {
   box-shadow: 1.8rem 1.8rem 4.2rem rgba(0, 0, 0, 0.55), -1rem -1rem 2.6rem rgba(255, 255, 255, 0.06);
 }
 
-.wl-select__opt {
+.wl-select--opt {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -465,32 +859,32 @@ body[data-page=worklist][data-theme=dark] .wl-select__list {
   color: var(--text);
 }
 
-.wl-select__check {
+.wl-select--check {
   width: 1.8rem;
   display: inline-flex;
   justify-content: center;
   opacity: 0;
 }
 
-.wl-select__opt[aria-selected=true] .wl-select__check {
+.wl-select--opt[aria-selected=true] .wl-select--check {
   opacity: 1;
   color: var(--primary);
 }
 
-.wl-select__opt:hover {
+.wl-select--opt:hover {
   background: rgba(49, 130, 246, 0.08);
 }
 
-body[data-page=worklist][data-theme=dark] .wl-select__opt:hover {
+body[data-page=worklist][data-theme=dark] .wl-select--opt:hover {
   background: rgba(106, 166, 255, 0.14);
 }
 
-.wl-select__opt:focus-visible {
+.wl-select--opt:focus-visible {
   outline: var(--focus-w) solid var(--focus);
   outline-offset: 0.2rem;
 }
 
-.wl-select.is-open .wl-select__btn {
+.wl-select.is-open .wl-select--btn {
   box-shadow: inset 0.6rem 0.6rem 1.2rem var(--shadow-dark), inset -0.6rem -0.6rem 1.2rem var(--shadow-light);
   border-color: rgba(49, 130, 246, 0.25);
 }
@@ -528,7 +922,7 @@ body[data-page=worklist][data-theme=dark] .wl-select__opt:hover {
   transform: translateY(0.1rem);
 }
 
-.btn-theme__text {
+.btn-theme--text {
   font-size: var(--font-md);
   font-weight: 700;
 }
@@ -556,7 +950,7 @@ body[data-page=worklist][data-theme=dark] .wl-select__opt:hover {
 }
 
 /* ---------- TABLE ---------- */
-.worklist-table-wrap {
+.worklist-table--wrap {
   border-radius: var(--radius-lg);
   background: var(--surface);
   border: var(--line) solid var(--border);
@@ -686,7 +1080,7 @@ body[data-page=worklist][data-theme=dark] .wl-select__opt:hover {
   box-shadow: inset 0.6rem 0.6rem 1.2rem var(--shadow-dark), inset -0.6rem -0.6rem 1.2rem var(--shadow-light);
 }
 
-.btn-preview__text {
+.btn-preview--text {
   font-size: var(--font-md);
 }
 
@@ -892,8 +1286,10 @@ body[data-page=worklist][data-theme=dark] .wl-select__opt:hover {
   Base
 --------------------------------------------------------- */
 body {
+  margin: 0;
   background: var(--pub-bg-0);
   color: var(--pub-text);
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Apple SD Gothic Neo", "Noto Sans KR", Arial, sans-serif;
   overflow-x: hidden;
 }
 
@@ -934,7 +1330,7 @@ body {
   padding: 3.2rem var(--pub-gutter) 5.6rem;
 }
 
-.pub-wrap-in {
+.pub-wrap--in {
   background: var(--pub-glass);
   -webkit-backdrop-filter: blur(var(--pub-blur-strong));
   backdrop-filter: blur(var(--pub-blur-strong));
@@ -1099,7 +1495,7 @@ body {
   .pub-body {
     padding: 2.2rem var(--pub-gutter) 4rem;
   }
-  .pub-wrap-in {
+  .pub-wrap--in {
     padding: 1.4rem;
   }
   .pub-tab--pnl {
