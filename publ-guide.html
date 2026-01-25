@@ -1,29 +1,105 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
-  <meta name="format-detection" content="telephone=no, address=no, email=no" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no, address=no, email=no">
   <title>Publish Guide</title>
-  <link rel="stylesheet" type="text/css" href="./assets/css/common.css" />
-</head>
 
+  <link rel="stylesheet" type="text/css" href="./assets/css/common.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+</head>
 <body class="ui-content" data-page="publ-guide">
   <div class="guide-wrap">
+    <!-- 필요하면 header include 사용 -->
+    <!-- <header class="pub-header" data-id="header" data-title="Banner"></header> -->
+
     <main class="pub-body">
       <!-- TAB -->
       <div class="pub-wrap" data-gap="full">
         <div class="pub-tab">
           <div class="pub-tab--wrap" role="tablist" aria-label="퍼블리싱 가이드 컴포넌트 탭">
+
+            <!-- <button type="button"
+              class="pub-tab-btn"
+              role="tab"
+              aria-controls="pnl-guide"
+              data-tab="guide"
+              data-id="guide"
+              data-callback="guide">
+              <span>guide</span>
+            </button> -->
+
+            <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-header"
+              data-tab="guide" data-id="header" data-callback="guide">
+              <span>header</span>
+            </button>
+
+            <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-footer"
+              data-tab="guide" data-id="footer" data-callback="guide">
+              <span>footer</span>
+            </button>
+
+            <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-typography"
+              data-tab="guide" data-id="typography" data-callback="guide">
+              <span>typography</span>
+            </button>
+
+            <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-color"
+              data-tab="guide" data-id="color" data-callback="guide">
+              <span>color</span>
+            </button>
+
+            <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-icon"
+              data-tab="guide" data-id="icon" data-callback="guide">
+              <span>icon</span>
+            </button>
+
+            <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-button"
+              data-tab="guide" data-id="button" data-callback="guide">
+              <span>button</span>
+            </button>
+
+            <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-form"
+              data-tab="guide" data-id="form" data-callback="guide">
+              <span>form</span>
+            </button>
+
+            <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-box"
+              data-tab="guide" data-id="box" data-callback="guide">
+              <span>box</span>
+            </button>
+
+            <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-card"
+              data-tab="guide" data-id="card" data-callback="guide">
+              <span>card</span>
+            </button>
+
+            <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-list"
+              data-tab="guide" data-id="list" data-callback="guide">
+              <span>list</span>
+            </button>
+
+            <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-table"
+              data-tab="guide" data-id="table" data-callback="guide">
+              <span>table</span>
+            </button>
+
+            <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-navigation"
+              data-tab="guide" data-id="navigation" data-callback="guide">
+              <span>navigation</span>
+            </button>
+
             <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-popup"
-              data-tab="guide" data-id="popup">
+              data-tab="guide" data-id="popup" data-callback="guide">
               <span>popup</span>
             </button>
 
             <button type="button" class="pub-tab--btn" role="tab" aria-controls="pnl-swiper"
-              data-tab="guide" data-id="swiper">
+              data-tab="guide" data-id="swiper" data-callback="guide">
               <span>swiper</span>
             </button>
+
           </div>
         </div>
       </div>
@@ -31,6 +107,150 @@
       <!-- PANEL -->
       <div class="pub-wrap--in mt-x4">
         <div>
+          <section class="pub-tab--pnl"
+            id="pnl-guide"
+            role="tabpanel"
+            tabindex="0"
+            data-tab="guide"
+            data-id="guide"
+            aria-hidden="true">
+
+            <h1 class="a11y-hidden">퍼블리싱 가이드</h1>
+
+            <div class="pub-box">
+              <h2 class="pub-tit">컴포넌트 작업 현황</h2>
+
+              <div class="pub-tbl">
+                <table>
+                  <caption>컴포넌트별 퍼블리싱 진행 현황 표</caption>
+                  <colgroup>
+                    <col style="width: 18%;">
+                    <col style="width: 16%;">
+                    <col style="width: 16%;">
+                    <col style="width: 18%;">
+                    <col>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">컴포넌트</th>
+                      <th scope="col">상태</th>
+                      <th scope="col">반응형</th>
+                      <th scope="col">접근성</th>
+                      <th scope="col">비고</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">typography</th>
+                      <td>진행중</td>
+                      <td>예</td>
+                      <td>체크중</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">color</th>
+                      <td>대기</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">icon</th>
+                      <td>대기</td>
+                      <td>-</td>
+                      <td>-</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">button</th>
+                      <td>진행중</td>
+                      <td>예</td>
+                      <td>체크중</td>
+                      <td>focus 스타일 점검</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <p class="pub-txt mt-x2">
+                * 상태 예시: 대기 / 진행중 / 완료<br>
+                * 접근성 예시: 미체크 / 체크중 / 완료
+              </p>
+            </div>
+          </section>
+
+          <section class="pub-tab--pnl" id="pnl-header" role="tabpanel" tabindex="0"
+            data-tab="guide" data-id="header" aria-hidden="true">
+            <h1 class="a11y-hidden">header</h1>
+            async: true
+          </section>
+
+            <section class="pub-tab--pnl" id="pnl-footer" role="tabpanel" tabindex="0"
+            data-tab="guide" data-id="footer" aria-hidden="true">
+            <h1 class="a11y-hidden">footer</h1>
+            async: true
+          </section>
+
+          <section class="pub-tab--pnl" id="pnl-typography" role="tabpanel" tabindex="0"
+            data-tab="guide" data-id="typography" aria-hidden="true">
+            <h1 class="a11y-hidden">typography</h1>
+            async: true
+          </section>
+
+          <section class="pub-tab--pnl" id="pnl-color" role="tabpanel" tabindex="0"
+            data-tab="guide" data-id="color" aria-hidden="true">
+            <h1 class="a11y-hidden">color</h1>
+            async: true
+          </section>
+
+          <section class="pub-tab--pnl" id="pnl-icon" role="tabpanel" tabindex="0"
+            data-tab="guide" data-id="icon" aria-hidden="true">
+            <h1 class="a11y-hidden">icon</h1>
+            async: true
+          </section>
+
+          <section class="pub-tab--pnl" id="pnl-button" role="tabpanel" tabindex="0"
+            data-tab="guide" data-id="button" aria-hidden="true">
+            <h1 class="a11y-hidden">button</h1>
+            async: true
+          </section>
+
+          <section class="pub-tab--pnl" id="pnl-form" role="tabpanel" tabindex="0"
+            data-tab="guide" data-id="form" aria-hidden="true">
+            <h1 class="a11y-hidden">form</h1>
+            async: true
+          </section>
+
+          <section class="pub-tab--pnl" id="pnl-box" role="tabpanel" tabindex="0"
+            data-tab="guide" data-id="box" aria-hidden="true">
+            <h1 class="a11y-hidden">box</h1>
+            async: true
+          </section>
+
+          <section class="pub-tab--pnl" id="pnl-card" role="tabpanel" tabindex="0"
+            data-tab="guide" data-id="card" aria-hidden="true">
+            <h1 class="a11y-hidden">card</h1>
+            async: true
+          </section>
+
+          <section class="pub-tab--pnl" id="pnl-list" role="tabpanel" tabindex="0"
+            data-tab="guide" data-id="list" aria-hidden="true">
+            <h1 class="a11y-hidden">list</h1>
+            async: true
+          </section>
+
+          <section class="pub-tab--pnl" id="pnl-table" role="tabpanel" tabindex="0"
+            data-tab="guide" data-id="table" aria-hidden="true">
+            <h1 class="a11y-hidden">table</h1>
+            async: true
+          </section>
+
+          <section class="pub-tab--pnl" id="pnl-navigation" role="tabpanel" tabindex="0"
+            data-tab="guide" data-id="navigation" aria-hidden="true">
+            <h1 class="a11y-hidden">navigation</h1>
+            async: true
+          </section>
+
           <section class="pub-tab--pnl" id="pnl-popup" role="tabpanel" tabindex="0"
             data-tab="guide" data-id="popup" aria-hidden="true">
             <h1 class="a11y-hidden">popup</h1>
@@ -42,6 +262,7 @@
             <h1 class="a11y-hidden">swiper</h1>
             async: true
           </section>
+
         </div>
       </div>
     </main>
@@ -56,6 +277,7 @@
       const panels = document.querySelectorAll('.pub-tab--pnl[data-tab="guide"]');
 
       const setActive = (id) => {
+        // 버튼 상태
         tabWrap.querySelectorAll('.pub-tab--btn').forEach(btn => {
           const isOn = btn.dataset.id === id;
           btn.classList.toggle('is-active', isOn);
@@ -63,6 +285,7 @@
           btn.setAttribute('tabindex', isOn ? '0' : '-1');
         });
 
+        // 패널 상태
         panels.forEach(pnl => {
           const isOn = pnl.dataset.id === id;
           pnl.setAttribute('aria-hidden', String(!isOn));
@@ -83,14 +306,11 @@
           const html = await res.text();
           pnl.innerHTML = html;
 
-          // ✅ 여기서 "해당 탭 콘텐츠가 DOM에 붙은 다음" init
-          if (id === 'popup') {
-            uiScript.popup.init();
-          }
-
-          // swiper도 같은 방식으로 붙이면 됨
-          if (id === 'swiper') {
-            // uiScript.swiper.init(); // swiper 모듈 만들면 여기서 호출
+          // 필요 시 추가 init
+          if (id === 'form' || id === 'button') {
+            if (window.OcareUI?.form && typeof OcareUI.form.init === 'function') {
+              OcareUI.form.init();
+            }
           }
         } catch (e) {
           pnl.innerHTML =
@@ -100,19 +320,20 @@
         }
       };
 
+      // 클릭 처리 (이벤트 위임)
       tabWrap.addEventListener('click', async (e) => {
         const btn = e.target.closest('.pub-tab--btn');
         if (!btn) return;
 
-        const id = btn.dataset.id;
+        const id = btn.dataset.id; // typography, color, popup...
         if (!id) return;
 
         setActive(id);
         await loadPanel(id);
       });
 
-      // 초기 진입
-      const initial = 'popup';
+      // 초기 진입: typography 로드
+      const initial = 'header';
       setActive(initial);
       loadPanel(initial);
     });
