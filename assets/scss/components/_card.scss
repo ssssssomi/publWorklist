@@ -1,0 +1,212 @@
+@charset "utf-8";
+
+/* =========================================================
+  Card (component)
+  - 토큰 기반(프로젝트 투입 시 값만 교체)
+  - 기본/미디어/클릭/그리드/배지/칩 포함
+========================================================= */
+
+:root {
+  --pub-card-radius: var(--pub-radius-lg, 1.6rem);
+  --pub-card-pad: 1.6rem;
+  --pub-card-gap: 1.2rem;
+
+  --pub-card-bg: var(--pub-glass, rgba(255,255,255,0.72));
+  --pub-card-bg-strong: var(--pub-glass-strong, rgba(255,255,255,0.86));
+  --pub-card-stroke: var(--pub-stroke, rgba(0,0,0,0.12));
+  --pub-card-shadow: var(--pub-shadow, 0 14px 30px rgba(0,0,0,0.12));
+  --pub-card-shadow-soft: var(--pub-shadow-soft, 0 8px 18px rgba(0,0,0,0.08));
+}
+
+/* -------------------------
+  Base card
+------------------------- */
+.pub-card {
+  display: grid;
+  gap: var(--pub-card-gap);
+  padding: var(--pub-card-pad);
+  border-radius: var(--pub-card-radius);
+  border: 0.1rem solid var(--pub-card-stroke);
+  background: var(--pub-card-bg);
+  box-shadow: var(--pub-card-shadow-soft);
+  color: var(--pub-text, rgba(0,0,0,0.92));
+  text-decoration: none;
+}
+
+.pub-card__head {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.pub-card__eyebrow {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--pub-text-mute, rgba(0,0,0,0.55));
+  letter-spacing: -0.01em;
+}
+
+.pub-card__title {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--pub-text, rgba(0,0,0,0.92));
+}
+
+.pub-card__body {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.pub-card__desc {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: var(--pub-text-dim, rgba(0,0,0,0.70));
+}
+
+.pub-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pub-card__time {
+  font-size: 1.2rem;
+  color: var(--pub-text-mute, rgba(0,0,0,0.55));
+}
+
+/* -------------------------
+  Clickable card (a)
+  - focus-visible 제공
+------------------------- */
+.pub-card--click {
+  cursor: pointer;
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease, background-color 140ms ease;
+}
+
+.pub-card--click:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--pub-card-shadow);
+  border-color: color-mix(in srgb, var(--pub-accent, #1e62ff) 30%, var(--pub-card-stroke));
+}
+
+.pub-card--click:active {
+  transform: translateY(0);
+}
+
+.pub-card--click:focus-visible {
+  outline: 0.2rem solid var(--pub-focus, var(--pub-accent, #1e62ff));
+  outline-offset: 0.3rem;
+}
+
+/* -------------------------
+  Media card
+------------------------- */
+.pub-card--media {
+  padding: 0;
+  overflow: hidden;
+}
+
+.pub-card--media .pub-card__media {
+  height: 16rem;
+  background: linear-gradient(
+    135deg,
+    var(--pub-accent-soft, rgba(30,98,255,0.16)),
+    var(--pub-accent-weak, rgba(30,98,255,0.10))
+  );
+  border-bottom: 0.1rem solid var(--pub-card-stroke);
+  display: grid;
+  place-items: center;
+}
+
+.pub-card--media .pub-card__mediaText {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--pub-text-dim);
+}
+
+.pub-card--media .pub-card__body,
+.pub-card--media .pub-card__meta {
+  padding: var(--pub-card-pad);
+  padding-top: 0;
+}
+
+.pub-card--media .pub-card__body {
+  padding-top: var(--pub-card-pad);
+}
+
+/* -------------------------
+  Actions (footer)
+------------------------- */
+.pub-card__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.0rem;
+  flex-wrap: wrap;
+}
+
+/* -------------------------
+  Chip / Badge (공통으로도 재사용 가능)
+------------------------- */
+.pub-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 2.4rem;
+  padding: 0 0.9rem;
+  border-radius: 999px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--pub-text);
+  background: var(--pub-glass-strong, rgba(255,255,255,0.86));
+  border: 0.1rem solid var(--pub-card-stroke);
+}
+
+.pub-chip--soft {
+  background: var(--pub-accent-soft, rgba(30,98,255,0.14));
+  border-color: color-mix(in srgb, var(--pub-accent, #1e62ff) 25%, transparent);
+  color: var(--pub-text);
+}
+
+.pub-badge {
+  display: inline-flex;
+  align-items: center;
+  height: 2.2rem;
+  padding: 0 0.8rem;
+  border-radius: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  border: 0.1rem solid transparent;
+  width: fit-content;
+}
+
+.pub-badge[data-variant="accent"] {
+  background: var(--pub-accent, #1e62ff);
+  color: var(--pub-on-accent, #fff);
+}
+
+/* -------------------------
+  Grid
+------------------------- */
+.pub-card-grid {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 960px) {
+  .pub-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .pub-card-grid {
+    grid-template-columns: 1fr;
+  }
+}

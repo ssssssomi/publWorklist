@@ -1,0 +1,148 @@
+@charset "utf-8";
+
+/* =========================================================
+  Color Guide (component)
+  - 토큰 기반(값 교체만으로 재사용)
+========================================================= */
+
+.pub-color {
+  .pub-guide-head {
+    margin-bottom: 1.6rem;
+  }
+
+  .pub-callout {
+    background: var(--pub-glass-strong);
+    border: 0.1rem solid var(--pub-stroke);
+    border-radius: var(--pub-radius-lg);
+    padding: 1.4rem 1.6rem;
+    margin: 1.2rem 0 2.0rem;
+    box-shadow: var(--pub-shadow);
+  }
+
+  .pub-color-grid {
+    display: grid;
+    gap: 1.6rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pub-color-card {
+    background: var(--pub-glass);
+    border: 0.1rem solid var(--pub-stroke);
+    border-radius: var(--pub-radius-lg);
+    padding: 1.4rem;
+    box-shadow: var(--pub-shadow);
+  }
+
+  .pub-color-group {
+    margin: 0 0 1.2rem;
+    font-size: 1.6rem;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+  }
+
+  .pub-color-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1.2rem;
+  }
+
+  .pub-color-item {
+    display: grid;
+    grid-template-columns: 5.6rem 1fr;
+    gap: 1.2rem;
+    align-items: center;
+  }
+
+  .pub-color-swatch {
+    width: 5.6rem;
+    height: 5.6rem;
+    border-radius: 1.6rem;
+    border: 0.1rem solid var(--pub-stroke);
+    background: var(--swatch, var(--pub-bg-0));
+    display: grid;
+    place-items: center;
+    box-shadow: var(--pub-shadow-soft);
+    position: relative;
+    overflow: hidden;
+
+    .pub-color-sample {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--swatch-text, var(--pub-text));
+      letter-spacing: -0.01em;
+      text-transform: none;
+      user-select: none;
+    }
+  }
+
+  /* 투명/글라스 토큰은 체크 배경으로 투명감이 보이게 */
+  .pub-color-swatch--checker {
+    background:
+      linear-gradient(45deg, rgba(0,0,0,0.04) 25%, transparent 25%) 0 0 / 1.2rem 1.2rem,
+      linear-gradient(-45deg, rgba(0,0,0,0.04) 25%, transparent 25%) 0 0 / 1.2rem 1.2rem,
+      linear-gradient(45deg, transparent 75%, rgba(0,0,0,0.04) 75%) 0 0 / 1.2rem 1.2rem,
+      linear-gradient(-45deg, transparent 75%, rgba(0,0,0,0.04) 75%) 0 0 / 1.2rem 1.2rem,
+      var(--swatch, rgba(255,255,255,0.6));
+  }
+
+  .pub-color-meta {
+    min-width: 0;
+  }
+
+  .pub-color-name {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--pub-text);
+    margin-bottom: 0.4rem;
+  }
+
+  .pub-color-token {
+    display: inline-block;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.8rem;
+    background: var(--pub-glass-strong);
+    border: 0.1rem solid var(--pub-stroke);
+    color: var(--pub-text-dim);
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .pub-color-desc {
+    margin: 0.6rem 0 0;
+    font-size: 1.3rem;
+    line-height: 1.45;
+    color: var(--pub-text-dim);
+  }
+
+  .pub-codebox {
+    margin-top: 1.2rem;
+    background: var(--pub-glass);
+    border: 0.1rem solid var(--pub-stroke);
+    border-radius: var(--pub-radius-lg);
+    padding: 1.2rem 1.4rem;
+    overflow: auto;
+
+    pre {
+      margin: 0;
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: var(--pub-text);
+    }
+  }
+
+  /* responsive */
+  @media (max-width: 768px) {
+    .pub-color-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

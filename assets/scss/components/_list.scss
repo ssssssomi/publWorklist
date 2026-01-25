@@ -1,0 +1,106 @@
+@charset "utf-8";
+
+/* =========================================================
+  List (component)
+  - ul / li 시맨틱 유지
+  - data-type="bul | num | dash"
+  - 토큰 기반 색상/간격
+========================================================= */
+
+:root {
+  --pub-list-gap: 0.6rem;
+  --pub-list-indent: 1.6rem;
+  --pub-list-marker-size: 0.5rem;
+}
+
+/* base */
+.pub-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--pub-list-gap);
+  color: var(--pub-text, rgba(0,0,0,0.92));
+  line-height: 1.6;
+}
+
+/* muted */
+.pub-list.is-muted {
+  color: var(--pub-text-mute, rgba(0,0,0,0.55));
+}
+
+/* list item */
+.pub-list > li {
+  position: relative;
+  padding-left: var(--pub-list-indent);
+  font-size: 1.4rem;
+}
+
+/* =========================
+  Bullet
+========================= */
+.pub-list[data-type="bul"] > li::before {
+  content: "";
+  position: absolute;
+  top: 0.9em;
+  left: 0.4rem;
+  width: var(--pub-list-marker-size);
+  height: var(--pub-list-marker-size);
+  border-radius: 50%;
+  background: currentColor;
+  transform: translateY(-50%);
+}
+
+/* =========================
+  Dash
+========================= */
+.pub-list[data-type="dash"] > li::before {
+  content: "–";
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: 700;
+  color: currentColor;
+}
+
+/* =========================
+  Number
+========================= */
+.pub-list[data-type="num"] {
+  counter-reset: pubList;
+}
+
+.pub-list[data-type="num"] > li {
+  counter-increment: pubList;
+}
+
+.pub-list[data-type="num"] > li::before {
+  content: counter(pubList) ".";
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: 800;
+  color: currentColor;
+}
+
+/* =========================
+  Nested list
+========================= */
+.pub-list .pub-list {
+  margin-top: 0.6rem;
+  padding-left: 0.8rem;
+}
+
+/* =========================
+  Accessibility helpers
+========================= */
+.pub-list a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+.pub-list a:focus-visible {
+  outline: 0.2rem solid var(--pub-focus, var(--pub-accent, #1e62ff));
+  outline-offset: 0.2rem;
+  border-radius: 0.4rem;
+}

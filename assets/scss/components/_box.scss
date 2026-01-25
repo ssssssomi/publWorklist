@@ -1,0 +1,88 @@
+@charset "utf-8";
+
+/* =========================================================
+  Box (component)
+  - 레이아웃 / 정보 컨테이너
+  - 카드와 구분 (비클릭)
+========================================================= */
+
+:root {
+  --pub-box-radius: var(--pub-radius-lg, 1.6rem);
+  --pub-box-pad: 1.6rem;
+
+  --pub-box-bg: var(--pub-glass, rgba(255,255,255,0.72));
+  --pub-box-bg-strong: var(--pub-glass-strong, rgba(255,255,255,0.86));
+  --pub-box-stroke: var(--pub-stroke, rgba(0,0,0,0.12));
+  --pub-box-shadow: var(--pub-shadow-soft, 0 8px 18px rgba(0,0,0,0.08));
+}
+
+/* -------------------------
+  Base
+------------------------- */
+.pub-ui-box {
+  display: grid;
+  gap: 0.8rem;
+  padding: var(--pub-box-pad);
+  border-radius: var(--pub-box-radius);
+  border: 0.1rem solid var(--pub-box-stroke);
+  background: var(--pub-box-bg);
+  box-shadow: var(--pub-box-shadow);
+  color: var(--pub-text, rgba(0,0,0,0.92));
+}
+
+.pub-ui-box__head {
+  margin-bottom: 0.4rem;
+}
+
+.pub-ui-box__title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+.pub-ui-box__txt {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: var(--pub-text-dim, rgba(0,0,0,0.70));
+}
+
+/* -------------------------
+  Variants
+------------------------- */
+.pub-ui-box[data-variant="info"] {
+  background: var(--pub-accent-soft, rgba(30,98,255,0.14));
+  border-color: color-mix(in srgb, var(--pub-accent, #1e62ff) 35%, transparent);
+}
+
+.pub-ui-box[data-variant="warning"] {
+  background: color-mix(in srgb, var(--pub-amber, #f6c343) 22%, #fff);
+  border-color: color-mix(in srgb, var(--pub-amber, #f6c343) 55%, transparent);
+}
+
+.pub-ui-box[data-variant="danger"] {
+  background: color-mix(in srgb, var(--pub-danger, #e23b3b) 14%, #fff);
+  border-color: color-mix(in srgb, var(--pub-danger, #e23b3b) 45%, transparent);
+}
+
+.pub-ui-box[data-variant="emphasis"] {
+  background: var(--pub-box-bg-strong);
+  border-color: var(--pub-accent, #1e62ff);
+  box-shadow: var(--pub-shadow, 0 14px 30px rgba(0,0,0,0.14));
+}
+
+/* label */
+.pub-ui-box__label {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: var(--pub-text);
+}
+
+/* -------------------------
+  Group
+------------------------- */
+.pub-ui-box-group {
+  display: grid;
+  gap: 1.2rem;
+}

@@ -4,6 +4,19 @@
 @use "mixin" as *;
 @use "base/reset";
 
+@use "layout/header";
+@use "layout/footer";
+
+@use "components/box";
+@use "components/button";
+@use "components/card";
+@use "components/color";
+@use "components/form";
+@use "components/list";
+@use "components/navigation";
+@use "components/popup";
+@use "components/swiper";
+@use "components/table";
 @use "components/typography";
 
 @use "pages/guide";

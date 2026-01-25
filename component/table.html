@@ -1,0 +1,133 @@
+<!-- component/table.html -->
+<section class="pub-box">
+  <h2 class="pub-tit">Table</h2>
+  <p class="pub-txt">
+    테이블은 <strong>데이터 구조 표현</strong>을 목적으로 사용합니다.
+    레이아웃 목적의 테이블 사용은 지양하며, 모든 테이블은
+    <code>&lt;caption&gt;</code>을 포함합니다.
+  </p>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">1. Default table</h3>
+
+  <div class="pub-tbl-wrap" role="region" aria-label="기본 테이블 예시" tabindex="0">
+    <table class="pub-table" data-type="default">
+      <caption>회원 정보 목록</caption>
+      <thead>
+        <tr>
+          <th scope="col">이름</th>
+          <th scope="col">이메일</th>
+          <th scope="col">상태</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">홍길동</th>
+          <td>hong@test.com</td>
+          <td>활성</td>
+        </tr>
+        <tr>
+          <th scope="row">김영희</th>
+          <td>kim@test.com</td>
+          <td>대기</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">2. Border table (data-type="border")</h3>
+
+  <div class="pub-tbl-wrap" role="region" aria-label="보더 테이블 예시" tabindex="0">
+    <table class="pub-table" data-type="border">
+      <caption>결제 내역</caption>
+      <thead>
+        <tr>
+          <th scope="col">날짜</th>
+          <th scope="col">상품명</th>
+          <th scope="col">금액</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2026-01-01</td>
+          <td>구독 서비스</td>
+          <td>₩9,900</td>
+        </tr>
+        <tr>
+          <td>2026-01-10</td>
+          <td>프리미엄 업그레이드</td>
+          <td>₩19,900</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">3. Line table (data-type="line")</h3>
+
+  <div class="pub-tbl-wrap" role="region" aria-label="라인 테이블 예시" tabindex="0">
+    <table class="pub-table" data-type="line">
+      <caption>공지사항</caption>
+      <thead>
+        <tr>
+          <th scope="col">번호</th>
+          <th scope="col">제목</th>
+          <th scope="col">등록일</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>3</td>
+          <td>시스템 점검 안내</td>
+          <td>2026-01-15</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>이용약관 변경</td>
+          <td>2026-01-10</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">4. Zebra table (data-type="zebra")</h3>
+
+  <div class="pub-tbl-wrap" role="region" aria-label="줄무늬 테이블 예시" tabindex="0">
+    <table class="pub-table" data-type="zebra">
+      <caption>접속 기록</caption>
+      <thead>
+        <tr>
+          <th scope="col">일시</th>
+          <th scope="col">IP</th>
+          <th scope="col">디바이스</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2026-01-20 09:30</td>
+          <td>192.168.0.1</td>
+          <td>Desktop</td>
+        </tr>
+        <tr>
+          <td>2026-01-20 12:15</td>
+          <td>192.168.0.2</td>
+          <td>Mobile</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">5. Empty state</h3>
+
+  <div class="pub-tbl-empty" role="status">
+    데이터가 없습니다.
+  </div>
+</section>

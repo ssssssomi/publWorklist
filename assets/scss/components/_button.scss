@@ -1,0 +1,221 @@
+@charset "utf-8";
+
+/* =========================================================
+  Button (component)
+  - 토큰 기반: 프로젝트 투입 시 variables 값만 교체
+  - 접근성 기본값: focus-visible, 최소 타깃, disabled, loading
+========================================================= */
+
+/* fallback (토큰이 없을 때도 깨지지 않게) */
+:root {
+  --pub-radius-md: 1.2rem;
+  --pub-radius-lg: 1.6rem;
+
+  --pub-btn-h-sm: 3.6rem;
+  --pub-btn-h-md: 4.4rem;
+  --pub-btn-h-lg: 5.2rem;
+
+  --pub-btn-px-sm: 1.2rem;
+  --pub-btn-px-md: 1.6rem;
+  --pub-btn-px-lg: 2.0rem;
+
+  --pub-btn-fw: 700;
+  --pub-btn-gap: 0.8rem;
+
+  --pub-btn-shadow: var(--pub-shadow-soft, 0 6px 18px rgba(0,0,0,0.08));
+}
+
+/* 공통 버튼 베이스 */
+.pub-btn {
+  -webkit-tap-highlight-color: transparent;
+  appearance: none;
+  border: 0.1rem solid transparent;
+  border-radius: var(--pub-radius-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--pub-btn-gap);
+  user-select: none;
+  text-decoration: none;
+
+  min-height: var(--pub-btn-h-md);
+  padding: 0  var(--pub-btn-px-md);
+
+  font-weight: var(--pub-btn-fw);
+  font-size: 1.4rem;
+  line-height: 1;
+  letter-spacing: -0.01em;
+
+  color: var(--pub-text, rgba(0,0,0,0.92));
+  background: var(--pub-glass, rgba(255,255,255,0.72));
+
+  box-shadow: var(--pub-btn-shadow);
+  cursor: pointer;
+  transition: transform 120ms ease, background-color 120ms ease, border-color 120ms ease, box-shadow 120ms ease, color 120ms ease;
+}
+
+.pub-btn:hover {
+  transform: translateY(-1px);
+}
+
+.pub-btn:active {
+  transform: translateY(0);
+}
+
+.pub-btn:focus-visible {
+  outline: 0.2rem solid var(--pub-focus, var(--pub-accent, #1e62ff));
+  outline-offset: 0.2rem;
+}
+
+/* 비활성 */
+.pub-btn[disabled],
+.pub-btn[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+  transform: none;
+}
+
+/* 아이콘 영역 */
+.pub-btn__ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  flex: 0 0 auto;
+}
+
+.pub-btn__txt {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* 아이콘 전용 버튼 */
+.pub-btn--icon {
+  width: var(--pub-btn-h-md);
+  padding: 0;
+}
+
+/* sizes */
+.pub-btn--sm {
+  min-height: var(--pub-btn-h-sm);
+  padding: 0 var(--pub-btn-px-sm);
+  font-size: 1.3rem;
+}
+
+.pub-btn--lg {
+  min-height: var(--pub-btn-h-lg);
+  padding: 0 var(--pub-btn-px-lg);
+  font-size: 1.5rem;
+  border-radius: var(--pub-radius-lg);
+}
+
+.pub-btn--icon.pub-btn--sm { width: var(--pub-btn-h-sm); }
+.pub-btn--icon.pub-btn--lg { width: var(--pub-btn-h-lg); }
+
+/* =========================================================
+  Variants (토큰 기반)
+========================================================= */
+
+/* Primary */
+.pub-btn--primary {
+  background: var(--pub-accent, #1e62ff);
+  color: var(--pub-on-accent, #fff);
+  border-color: transparent;
+}
+
+.pub-btn--primary:hover {
+  box-shadow: var(--pub-shadow, 0 10px 26px rgba(0,0,0,0.12));
+}
+
+/* Secondary (중립 버튼) */
+.pub-btn--secondary {
+  background: var(--pub-glass-strong, rgba(255,255,255,0.86));
+  border-color: var(--pub-stroke, rgba(0,0,0,0.12));
+  color: var(--pub-text, rgba(0,0,0,0.92));
+}
+
+/* Outline */
+.pub-btn--outline {
+  background: transparent;
+  border-color: var(--pub-stroke-strong, var(--pub-stroke, rgba(0,0,0,0.12)));
+  color: var(--pub-text, rgba(0,0,0,0.92));
+}
+
+/* Ghost */
+.pub-btn--ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--pub-accent, #1e62ff);
+  box-shadow: none;
+}
+
+.pub-btn--ghost:hover {
+  background: var(--pub-accent-soft, rgba(30, 98, 255, 0.14));
+}
+
+/* Danger */
+.pub-btn--danger {
+  background: var(--pub-danger, #e23b3b);
+  color: var(--pub-on-danger, #fff);
+  border-color: transparent;
+}
+
+/* =========================================================
+  Loading
+========================================================= */
+.pub-btn.is-loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.pub-btn__spinner {
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  border: 0.2rem solid rgba(255,255,255,0.45);
+  border-top-color: rgba(255,255,255,0.95);
+  animation: pubSpin 700ms linear infinite;
+}
+
+.pub-btn--outline .pub-btn__spinner,
+.pub-btn--secondary .pub-btn__spinner,
+.pub-btn--ghost .pub-btn__spinner {
+  border-color: rgba(0,0,0,0.18);
+  border-top-color: rgba(0,0,0,0.62);
+}
+
+@keyframes pubSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* =========================================================
+  Group
+========================================================= */
+.pub-btn-group {
+  display: inline-flex;
+  gap: 1.0rem;
+  flex-wrap: wrap;
+}
+
+/* =========================================================
+  Guide demo helpers (가이드 화면에서만)
+  - 다른 프로젝트에 복붙해도 무해하도록 pub- 접두어 사용
+========================================================= */
+.pub-demo {
+  margin-top: 1.2rem;
+}
+
+.pub-demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.0rem;
+  align-items: center;
+}
+
+.pub-tip {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: var(--pub-text-mute, rgba(0,0,0,0.55));
+}

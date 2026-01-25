@@ -1,0 +1,112 @@
+@charset "utf-8";
+
+/* =========================================================
+  Popup / Modal
+========================================================= */
+
+:root {
+  --pub-modal-w: 32rem;
+  --pub-modal-w-lg: 56rem;
+}
+
+/* ✅ hidden 속성 강제 (충돌 방지 핵심) */
+[hidden] {
+  display: none !important;
+}
+
+.pub-popup-dim{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:900;}
+.pub-popup{position:fixed;inset:0;display:grid;place-items:center;z-index:1000;}
+.pub-popup--wrap{background:#fff;border-radius:16px;padding:20px;min-width:320px;}
+
+
+/* backdrop */
+.pub-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 900;
+}
+
+/* modal wrapper */
+.pub-modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 1000;
+}
+
+/* panel */
+.pub-modal__panel {
+  width: 100%;
+  max-width: var(--pub-modal-w);
+  background: var(--pub-glass-strong);
+  border-radius: var(--pub-radius-lg, 1.6rem);
+  padding: 2.0rem;
+  box-shadow: var(--pub-shadow, 0 20px 40px rgba(0,0,0,0.25));
+  color: var(--pub-text);
+}
+
+/* size */
+.pub-modal--lg .pub-modal__panel {
+  max-width: var(--pub-modal-w-lg);
+}
+
+/* title / desc */
+.pub-modal__title {
+  margin: 0 0 0.8rem;
+  font-size: 1.8rem;
+  font-weight: 900;
+}
+
+.pub-modal__desc {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: var(--pub-text-dim);
+}
+
+/* header */
+.pub-modal__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+}
+
+.pub-modal__close {
+  appearance: none;
+  border: none;
+  background: transparent;
+  font-size: 2.0rem;
+  cursor: pointer;
+  color: var(--pub-text);
+}
+
+.pub-modal__close:focus-visible {
+  outline: 0.2rem solid var(--pub-focus);
+  outline-offset: 0.2rem;
+  border-radius: 0.4rem;
+}
+
+/* body */
+.pub-modal__body {
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+/* actions */
+.pub-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.0rem;
+  margin-top: 2.0rem;
+}
+
+/* responsive */
+@media (max-width: 480px) {
+  .pub-modal__panel {
+    margin: 0 1.6rem;
+    padding: 1.6rem;
+  }
+}

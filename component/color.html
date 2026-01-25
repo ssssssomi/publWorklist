@@ -1,0 +1,272 @@
+<section class="pub-guide-sec pub-color" aria-label="Color guide">
+  <header class="pub-guide-head">
+    <h2 class="pub-tit">Color</h2>
+    <p class="pub-txt">
+      프로젝트에 투입될 때는 <strong>색상 토큰(CSS 변수)</strong>만 교체해서 사용합니다.
+      컴포넌트에서는 <code>var(--token)</code>만 사용하고, HEX/rgba 하드코딩은 지양합니다.
+    </p>
+  </header>
+
+  <div class="pub-callout" role="note" aria-label="Color usage note">
+    <ul class="pub-list">
+      <li><strong>색상 변경은 한 곳에서:</strong> <code>assets/scss/base/_variables.scss</code>의 <code>:root</code> 토큰만 수정</li>
+      <li><strong>용도 우선:</strong> “예쁜 색”이 아니라 “역할(배경/텍스트/강조/테두리/글라스)” 기준으로 사용</li>
+      <li><strong>접근성:</strong> 텍스트/배경 조합은 명도 대비(WCAG) 충족을 전제로 선택</li>
+    </ul>
+  </div>
+
+  <!-- Core Tokens -->
+  <section class="pub-guide-subsec" aria-labelledby="color-core">
+    <h3 class="pub-subtit" id="color-core">Core tokens</h3>
+
+    <div class="pub-color-grid" role="list">
+      <!-- Background -->
+      <article class="pub-color-card" role="listitem">
+        <h4 class="pub-color-group">Background</h4>
+
+        <ul class="pub-color-list" aria-label="Background tokens">
+          <li class="pub-color-item">
+            <div class="pub-color-swatch" style="--swatch: var(--pub-bg-0); --swatch-text: var(--pub-text);">
+              <span class="pub-color-sample">BG</span>
+            </div>
+            <div class="pub-color-meta">
+              <strong class="pub-color-name">Canvas</strong>
+              <code class="pub-color-token">--pub-bg-0</code>
+              <p class="pub-color-desc">전체 배경(최하위 캔버스)</p>
+            </div>
+          </li>
+        </ul>
+      </article>
+
+      <!-- Accent -->
+      <article class="pub-color-card" role="listitem">
+        <h4 class="pub-color-group">Accent</h4>
+
+        <ul class="pub-color-list" aria-label="Accent tokens">
+          <li class="pub-color-item">
+            <div class="pub-color-swatch" style="--swatch: var(--pub-accent); --swatch-text: #fff;">
+              <span class="pub-color-sample">Aa</span>
+            </div>
+            <div class="pub-color-meta">
+              <strong class="pub-color-name">Accent</strong>
+              <code class="pub-color-token">--pub-accent</code>
+              <p class="pub-color-desc">핵심 강조(버튼, 링크, 포커스)</p>
+            </div>
+          </li>
+
+          <li class="pub-color-item">
+            <div class="pub-color-swatch" style="--swatch: var(--pub-accent-soft); --swatch-text: var(--pub-text);">
+              <span class="pub-color-sample">Soft</span>
+            </div>
+            <div class="pub-color-meta">
+              <strong class="pub-color-name">Accent soft</strong>
+              <code class="pub-color-token">--pub-accent-soft</code>
+              <p class="pub-color-desc">배경 하이라이트, hover 배경, 배지</p>
+            </div>
+          </li>
+
+          <li class="pub-color-item">
+            <div class="pub-color-swatch" style="--swatch: var(--pub-accent-weak); --swatch-text: var(--pub-text);">
+              <span class="pub-color-sample">Weak</span>
+            </div>
+            <div class="pub-color-meta">
+              <strong class="pub-color-name">Accent weak</strong>
+              <code class="pub-color-token">--pub-accent-weak</code>
+              <p class="pub-color-desc">아주 약한 강조(그래프/분할/광원)</p>
+            </div>
+          </li>
+
+          <li class="pub-color-item">
+            <div class="pub-color-swatch" style="--swatch: var(--pub-peach); --swatch-text: var(--pub-text);">
+              <span class="pub-color-sample">Peach</span>
+            </div>
+            <div class="pub-color-meta">
+              <strong class="pub-color-name">Peach</strong>
+              <code class="pub-color-token">--pub-peach</code>
+              <p class="pub-color-desc">보조 포인트(그라데이션/배경 톤)</p>
+            </div>
+          </li>
+
+          <li class="pub-color-item">
+            <div class="pub-color-swatch" style="--swatch: var(--pub-coral); --swatch-text: var(--pub-text);">
+              <span class="pub-color-sample">Coral</span>
+            </div>
+            <div class="pub-color-meta">
+              <strong class="pub-color-name">Coral</strong>
+              <code class="pub-color-token">--pub-coral</code>
+              <p class="pub-color-desc">보조 포인트(상태/강조 영역)</p>
+            </div>
+          </li>
+
+          <li class="pub-color-item">
+            <div class="pub-color-swatch" style="--swatch: var(--pub-amber); --swatch-text: var(--pub-text);">
+              <span class="pub-color-sample">Amber</span>
+            </div>
+            <div class="pub-color-meta">
+              <strong class="pub-color-name">Amber</strong>
+              <code class="pub-color-token">--pub-amber</code>
+              <p class="pub-color-desc">보조 포인트(주의/하이라이트)</p>
+            </div>
+          </li>
+        </ul>
+      </article>
+
+      <!-- Glass -->
+      <article class="pub-color-card" role="listitem">
+        <h4 class="pub-color-group">Glass</h4>
+
+        <ul class="pub-color-list" aria-label="Glass tokens">
+          <li class="pub-color-item">
+            <div class="pub-color-swatch pub-color-swatch--checker" style="--swatch: var(--pub-glass); --swatch-text: var(--pub-text);">
+              <span class="pub-color-sample">Glass</span>
+            </div>
+            <div class="pub-color-meta">
+              <strong class="pub-color-name">Glass</strong>
+              <code class="pub-color-token">--pub-glass</code>
+              <p class="pub-color-desc">기본 글래스 배경(카드/패널)</p>
+            </div>
+          </li>
+
+          <li class="pub-color-item">
+            <div class="pub-color-swatch pub-color-swatch--checker" style="--swatch: var(--pub-glass-strong); --swatch-text: var(--pub-text);">
+              <span class="pub-color-sample">Strong</span>
+            </div>
+            <div class="pub-color-meta">
+              <strong class="pub-color-name">Glass strong</strong>
+              <code class="pub-color-token">--pub-glass-strong</code>
+              <p class="pub-color-desc">명확한 카드 배경(가독성 우선)</p>
+            </div>
+          </li>
+
+          <li class="pub-color-item">
+            <div class="pub-color-swatch pub-color-swatch--checker" style="--swatch: var(--pub-glass-weak); --swatch-text: var(--pub-text);">
+              <span class="pub-color-sample">Weak</span>
+            </div>
+            <div class="pub-color-meta">
+              <strong class="pub-color-name">Glass weak</strong>
+              <code class="pub-color-token">--pub-glass-weak</code>
+              <p class="pub-color-desc">아주 약한 영역(서브 패널)</p>
+            </div>
+          </li>
+        </ul>
+      </article>
+
+      <!-- Stroke -->
+      <article class="pub-color-card" role="listitem">
+        <h4 class="pub-color-group">Stroke</h4>
+
+        <ul class="pub-color-list" aria-label="Stroke tokens">
+          <li class="pub-color-item">
+            <div class="pub-color-swatch" style="--swatch: var(--pub-stroke); --swatch-text: var(--pub-text);">
+              <span class="pub-color-sample">Stroke</span>
+            </div>
+            <div class="pub-color-meta">
+              <strong class="pub-color-name">Stroke</strong>
+              <code class="pub-color-token">--pub-stroke</code>
+              <p class="pub-color-desc">기본 테두리(카드/구분선)</p>
+            </div>
+          </li>
+
+          <li class="pub-color-item">
+            <div class="pub-color-swatch" style="--swatch: var(--pub-stroke-strong); --swatch-text: var(--pub-text);">
+              <span class="pub-color-sample">Strong</span>
+            </div>
+            <div class="pub-color-meta">
+              <strong class="pub-color-name">Stroke strong</strong>
+              <code class="pub-color-token">--pub-stroke-strong</code>
+              <p class="pub-color-desc">강조 테두리(활성/선택)</p>
+            </div>
+          </li>
+        </ul>
+      </article>
+
+      <!-- Text -->
+      <article class="pub-color-card" role="listitem">
+        <h4 class="pub-color-group">Text</h4>
+
+        <ul class="pub-color-list" aria-label="Text tokens">
+          <li class="pub-color-item">
+            <div class="pub-color-swatch" style="--swatch: var(--pub-text); --swatch-text: var(--pub-bg-0);">
+              <span class="pub-color-sample">Text</span>
+            </div>
+            <div class="pub-color-meta">
+              <strong class="pub-color-name">Text</strong>
+              <code class="pub-color-token">--pub-text</code>
+              <p class="pub-color-desc">본문 기본 텍스트</p>
+            </div>
+          </li>
+
+          <li class="pub-color-item">
+            <div class="pub-color-swatch" style="--swatch: var(--pub-text-dim); --swatch-text: var(--pub-bg-0);">
+              <span class="pub-color-sample">Dim</span>
+            </div>
+            <div class="pub-color-meta">
+              <strong class="pub-color-name">Text dim</strong>
+              <code class="pub-color-token">--pub-text-dim</code>
+              <p class="pub-color-desc">서브 텍스트(설명/보조)</p>
+            </div>
+          </li>
+
+          <li class="pub-color-item">
+            <div class="pub-color-swatch" style="--swatch: var(--pub-text-mute); --swatch-text: var(--pub-bg-0);">
+              <span class="pub-color-sample">Mute</span>
+            </div>
+            <div class="pub-color-meta">
+              <strong class="pub-color-name">Text mute</strong>
+              <code class="pub-color-token">--pub-text-mute</code>
+              <p class="pub-color-desc">비활성/메타(주의: 대비 체크)</p>
+            </div>
+          </li>
+        </ul>
+      </article>
+
+      <!-- Focus -->
+      <article class="pub-color-card" role="listitem">
+        <h4 class="pub-color-group">Focus</h4>
+
+        <ul class="pub-color-list" aria-label="Focus token">
+          <li class="pub-color-item">
+            <div class="pub-color-swatch" style="--swatch: var(--pub-focus); --swatch-text: #fff;">
+              <span class="pub-color-sample">Focus</span>
+            </div>
+            <div class="pub-color-meta">
+              <strong class="pub-color-name">Focus</strong>
+              <code class="pub-color-token">--pub-focus</code>
+              <p class="pub-color-desc">키보드 포커스 링(삭제 금지)</p>
+            </div>
+          </li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="pub-guide-subsec" aria-labelledby="color-howto">
+    <h3 class="pub-subtit" id="color-howto">프로젝트에 적용하는 방법</h3>
+
+    <ol class="pub-ol">
+      <li><strong>토큰 파일만 바꾼다</strong> — <code>assets/scss/base/_variables.scss</code>의 값 교체</li>
+      <li><strong>컴포넌트는 토큰만 사용</strong> — <code>color: var(--pub-text)</code> 형태로만 작성</li>
+      <li><strong>브랜드 컬러가 달라도 구조 유지</strong> — 토큰 이름(역할)은 그대로 두고 값만 변경</li>
+    </ol>
+
+    <div class="pub-codebox" role="region" aria-label="Example variables snippet">
+      <pre><code>:root {
+  --pub-bg-0: #ffffff;
+
+  --pub-accent: #1e62ff;
+  --pub-accent-soft: rgba(30, 98, 255, 0.18);
+  --pub-accent-weak: rgba(30, 98, 255, 0.10);
+
+  --pub-glass: rgba(255, 255, 255, 0.72);
+
+  --pub-stroke: rgba(0, 0, 0, 0.12);
+
+  --pub-text: rgba(0, 0, 0, 0.92);
+  --pub-text-dim: rgba(0, 0, 0, 0.70);
+  --pub-text-mute: rgba(0, 0, 0, 0.52);
+
+  --pub-focus: #1e62ff;
+}</code></pre>
+    </div>
+  </section>
+</section>

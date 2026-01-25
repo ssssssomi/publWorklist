@@ -1,0 +1,81 @@
+<!-- component/list.html -->
+<section class="pub-box">
+  <h2 class="pub-tit">List</h2>
+  <p class="pub-txt">
+    리스트는 <strong>시맨틱 태그(ul / ol / li)</strong>를 유지하고,
+    표현 방식은 <code>data-type</code> 속성으로 제어합니다.
+    색상/간격은 토큰 기반으로 관리합니다.
+  </p>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">1. Bullet list (data-type="bul")</h3>
+
+  <ul class="pub-list" data-type="bul">
+    <li>기본 불릿 리스트 항목</li>
+    <li>두 번째 항목입니다</li>
+    <li>세 번째 항목입니다</li>
+  </ul>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">2. Number list (data-type="num")</h3>
+
+  <ul class="pub-list" data-type="num">
+    <li>첫 번째 단계</li>
+    <li>두 번째 단계</li>
+    <li>세 번째 단계</li>
+  </ul>
+
+  <p class="pub-tip mt-x2">
+    * 숫자 순서가 중요한 경우에만 사용합니다.
+  </p>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">3. Dash list (data-type="dash")</h3>
+
+  <ul class="pub-list" data-type="dash">
+    <li>대시(-) 형태의 설명 리스트</li>
+    <li>주의사항, 보조 설명에 적합</li>
+    <li>문장이 길어져도 가독성을 유지</li>
+  </ul>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">4. Mixed content</h3>
+
+  <ul class="pub-list" data-type="bul">
+    <li>
+      항목 안에 <strong>강조 텍스트</strong>나
+      <a href="#none" class="typo-link">링크</a>를 포함할 수 있습니다.
+    </li>
+    <li>
+      <span class="txt-sm">보조 설명 텍스트</span>도 자연스럽게 들어갑니다.
+    </li>
+  </ul>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">5. Nested list</h3>
+
+  <ul class="pub-list" data-type="num">
+    <li>
+      상위 항목
+      <ul class="pub-list mt-x1" data-type="dash">
+        <li>하위 항목 1</li>
+        <li>하위 항목 2</li>
+      </ul>
+    </li>
+    <li>다음 상위 항목</li>
+  </ul>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">6. Disabled / muted list</h3>
+
+  <ul class="pub-list is-muted" data-type="bul">
+    <li>비활성/안내용 리스트</li>
+    <li>회색 톤으로 정보만 전달</li>
+  </ul>
+</section>

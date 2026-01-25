@@ -1,0 +1,130 @@
+<!-- component/card.html -->
+<section class="pub-box">
+  <h2 class="pub-tit">Card</h2>
+  <p class="pub-txt">
+    카드(Card)는 콘텐츠를 묶어 보여주는 컨테이너입니다.
+    배경/테두리/그림자/텍스트 색상은 <code>var(--token)</code> 기반으로 설계하여
+    프로젝트 투입 시 토큰 값만 교체하면 동일 구조로 재사용 가능합니다.
+  </p>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">1. Basic card</h3>
+
+  <div class="pub-card" role="group" aria-label="기본 카드 예시">
+    <div class="pub-card__head">
+      <p class="pub-card__eyebrow">Category</p>
+      <h4 class="pub-card__title">기본 카드 타이틀</h4>
+    </div>
+
+    <div class="pub-card__body">
+      <p class="pub-card__desc">
+        카드 본문 텍스트입니다. 카드 내부 콘텐츠는 제목/설명/메타/액션으로 구성할 수 있습니다.
+      </p>
+    </div>
+
+    <div class="pub-card__meta">
+      <span class="pub-chip">Tag</span>
+      <span class="pub-card__time">2026-01-22</span>
+    </div>
+  </div>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">2. Media card</h3>
+
+  <article class="pub-card pub-card--media" aria-label="미디어 카드 예시">
+    <div class="pub-card__media" aria-hidden="true">
+      <span class="pub-card__mediaText">Image</span>
+    </div>
+
+    <div class="pub-card__body">
+      <h4 class="pub-card__title">미디어 카드 타이틀</h4>
+      <p class="pub-card__desc">
+        썸네일/배너/상품 이미지가 들어가는 카드 패턴입니다. 이미지에는 실제 사용 시 반드시 alt를 제공하세요.
+      </p>
+    </div>
+
+    <div class="pub-card__meta">
+      <span class="pub-chip pub-chip--soft">Feature</span>
+      <span class="pub-card__time">Updated</span>
+    </div>
+  </article>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">3. Card with actions</h3>
+
+  <div class="pub-card" role="group" aria-label="액션 포함 카드 예시">
+    <div class="pub-card__head">
+      <h4 class="pub-card__title">액션 포함 카드</h4>
+      <p class="pub-card__desc">footer에 버튼/링크 등 액션을 배치합니다.</p>
+    </div>
+
+    <div class="pub-card__actions" role="group" aria-label="카드 액션">
+      <button type="button" class="pub-btn pub-btn--outline">취소</button>
+      <button type="button" class="pub-btn pub-btn--primary">확인</button>
+    </div>
+  </div>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">4. Clickable card (link)</h3>
+
+  <!-- ✅ 카드 전체가 클릭 가능한 링크: a로 감싸기 -->
+  <a class="pub-card pub-card--click" href="#none" aria-label="공지사항 상세로 이동">
+    <div class="pub-card__head">
+      <span class="pub-badge" data-variant="accent">NEW</span>
+      <h4 class="pub-card__title">클릭 가능한 카드</h4>
+    </div>
+
+    <div class="pub-card__body">
+      <p class="pub-card__desc">
+        링크 이동 목적이면 <strong>&lt;a&gt;</strong>로 구현합니다.
+        키보드 포커스 및 hover 상태는 카드에서 제공됩니다.
+      </p>
+    </div>
+
+    <div class="pub-card__meta">
+      <span class="pub-chip">Notice</span>
+      <span class="pub-card__time">방금 전</span>
+    </div>
+  </a>
+
+  <p class="pub-tip mt-x2">
+    * “동작 실행”이면 <code>&lt;button&gt;</code> 기반으로, “페이지 이동”이면 <code>&lt;a&gt;</code> 기반으로 구성하세요.
+  </p>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">5. Card grid</h3>
+
+  <div class="pub-card-grid" role="list" aria-label="카드 그리드 예시">
+    <div class="pub-card" role="listitem">
+      <div class="pub-card__head">
+        <h4 class="pub-card__title">Grid item 1</h4>
+      </div>
+      <div class="pub-card__body">
+        <p class="pub-card__desc">반응형 그리드 카드 예시입니다.</p>
+      </div>
+    </div>
+
+    <div class="pub-card" role="listitem">
+      <div class="pub-card__head">
+        <h4 class="pub-card__title">Grid item 2</h4>
+      </div>
+      <div class="pub-card__body">
+        <p class="pub-card__desc">카드 레이아웃은 공통으로 재사용됩니다.</p>
+      </div>
+    </div>
+
+    <div class="pub-card" role="listitem">
+      <div class="pub-card__head">
+        <h4 class="pub-card__title">Grid item 3</h4>
+      </div>
+      <div class="pub-card__body">
+        <p class="pub-card__desc">토큰만 바꾸면 톤이 자동 반영됩니다.</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,124 @@
+<!-- component/navigation.html -->
+<section class="pub-box">
+  <h2 class="pub-tit">Navigation</h2>
+  <p class="pub-txt">
+    내비게이션은 <strong>nav landmark</strong>를 사용하고, 현재 위치는
+    <code>aria-current</code>로 표시합니다. 스타일은 토큰 기반이며
+    프로젝트 투입 시 색상 토큰 값만 교체하면 됩니다.
+  </p>
+</section>
+
+<!-- =========================
+  0) Skip link (권장)
+========================= -->
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">0. Skip link</h3>
+  <a class="pub-skip" href="#mainContent">본문 바로가기</a>
+
+  <div class="pub-callout mt-x2" role="note">
+    <p class="pub-txt">
+      * 실제 프로젝트에서는 페이지 최상단에 넣고, 메인 콘텐츠 영역에 <code>id="mainContent"</code>를 부여합니다.
+    </p>
+  </div>
+</section>
+
+<!-- =========================
+  1) GNB (Top navigation)
+========================= -->
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">1. GNB (Top navigation)</h3>
+
+  <header class="pub-gnb" role="banner" aria-label="상단 영역 예시">
+    <div class="pub-gnb__inner">
+      <a href="#none" class="pub-gnb__brand" aria-label="홈으로 이동">
+        <span class="pub-gnb__logo" aria-hidden="true">◎</span>
+        <span class="pub-gnb__name">Project</span>
+      </a>
+
+      <!-- 모바일 토글(옵션) -->
+      <button
+        type="button"
+        class="pub-gnb__toggle"
+        aria-controls="demoGnbMenu"
+        aria-expanded="false"
+      >
+        <span class="a11y-hidden">메뉴 열기</span>
+        <span aria-hidden="true">☰</span>
+      </button>
+
+      <nav class="pub-gnb__nav" aria-label="주요 메뉴">
+        <ul class="pub-nav" id="demoGnbMenu">
+          <li><a class="pub-nav__link" href="#none" aria-current="page">Home</a></li>
+          <li><a class="pub-nav__link" href="#none">Guide</a></li>
+          <li><a class="pub-nav__link" href="#none">Community</a></li>
+          <li><a class="pub-nav__link" href="#none">Store</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <p class="pub-tip mt-x2">
+    * <code>aria-current="page"</code>는 현재 페이지 메뉴에만 적용합니다.
+  </p>
+</section>
+
+<!-- =========================
+  2) Breadcrumb
+========================= -->
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">2. Breadcrumb</h3>
+
+  <nav class="pub-bc" aria-label="현재 위치">
+    <ol class="pub-bc__list">
+      <li class="pub-bc__item"><a class="pub-bc__link" href="#none">Home</a></li>
+      <li class="pub-bc__item"><a class="pub-bc__link" href="#none">Guide</a></li>
+      <li class="pub-bc__item" aria-current="page"><span class="pub-bc__current">Navigation</span></li>
+    </ol>
+  </nav>
+</section>
+
+<!-- =========================
+  3) Tabs navigation
+========================= -->
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">3. Tabs navigation</h3>
+
+  <nav class="pub-tabs" aria-label="콘텐츠 탭">
+    <ul class="pub-tabs__list">
+      <li><a class="pub-tabs__btn is-active" href="#none" aria-current="page">전체</a></li>
+      <li><a class="pub-tabs__btn" href="#none">초보자</a></li>
+      <li><a class="pub-tabs__btn" href="#none">홈트</a></li>
+      <li><a class="pub-tabs__btn" href="#none">혈당관리</a></li>
+      <li><a class="pub-tabs__btn" href="#none">전문가</a></li>
+    </ul>
+  </nav>
+
+  <p class="pub-tip mt-x2">
+    * 실제 “탭 UI”는 <code>role="tablist"</code> 패턴(현재 guide 상단 탭처럼)을 권장하고,
+    단순 필터/카테고리 이동이면 위처럼 링크 내비로도 충분합니다.
+  </p>
+</section>
+
+<!-- =========================
+  4) Pagination
+========================= -->
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">4. Pagination</h3>
+
+  <nav class="pub-paging" aria-label="페이지 이동">
+    <a class="pub-paging__btn" href="#none" aria-label="이전 페이지">‹</a>
+
+    <ol class="pub-paging__list" aria-label="페이지 번호">
+      <li><a class="pub-paging__num" href="#none">1</a></li>
+      <li><a class="pub-paging__num is-active" href="#none" aria-current="page">2</a></li>
+      <li><a class="pub-paging__num" href="#none">3</a></li>
+      <li><span class="pub-paging__dots" aria-hidden="true">…</span></li>
+      <li><a class="pub-paging__num" href="#none">10</a></li>
+    </ol>
+
+    <a class="pub-paging__btn" href="#none" aria-label="다음 페이지">›</a>
+  </nav>
+</section>
+
+<!-- dummy main content target for skip link demo -->
+<div id="mainContent" class="a11y-hidden">본문 영역 시작</div>

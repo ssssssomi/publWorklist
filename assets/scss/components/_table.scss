@@ -1,0 +1,112 @@
+@charset "utf-8";
+
+/* =========================================================
+  Table (component)
+  - 시맨틱 유지
+  - data-type 기반 스타일
+  - 토큰 기반 컬러/라인
+========================================================= */
+
+:root {
+  --pub-tbl-th-bg: var(--pub-glass-strong, rgba(255,255,255,0.86));
+  --pub-tbl-td-bg: var(--pub-glass, rgba(255,255,255,0.72));
+  --pub-tbl-line: var(--pub-stroke, rgba(0,0,0,0.12));
+  --pub-tbl-zebra: rgba(0,0,0,0.04);
+
+  --pub-tbl-py: 1.2rem;
+  --pub-tbl-px: 1.4rem;
+}
+
+/* wrapper (스크롤 + 포커스) */
+.pub-tbl-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.pub-tbl-wrap:focus-visible {
+  outline: 0.2rem solid var(--pub-focus, var(--pub-accent, #1e62ff));
+  outline-offset: 0.2rem;
+}
+
+/* base table */
+.pub-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 1.4rem;
+  color: var(--pub-text);
+}
+
+.pub-table caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+}
+
+/* cell */
+.pub-table th,
+.pub-table td {
+  padding: var(--pub-tbl-py) var(--pub-tbl-px);
+  vertical-align: middle;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.pub-table thead th {
+  background: var(--pub-tbl-th-bg);
+  font-weight: 800;
+}
+
+/* =========================
+  Type: default
+========================= */
+.pub-table[data-type="default"] tbody td,
+.pub-table[data-type="default"] tbody th {
+  background: var(--pub-tbl-td-bg);
+  border-bottom: 0.1rem solid var(--pub-tbl-line);
+}
+
+/* =========================
+  Type: border
+========================= */
+.pub-table[data-type="border"] th,
+.pub-table[data-type="border"] td {
+  border: 0.1rem solid var(--pub-tbl-line);
+}
+
+/* =========================
+  Type: line
+========================= */
+.pub-table[data-type="line"] th,
+.pub-table[data-type="line"] td {
+  border-bottom: 0.1rem solid var(--pub-tbl-line);
+}
+
+.pub-table[data-type="line"] thead th {
+  border-bottom-width: 0.2rem;
+}
+
+/* =========================
+  Type: zebra
+========================= */
+.pub-table[data-type="zebra"] tbody tr:nth-child(even) td,
+.pub-table[data-type="zebra"] tbody tr:nth-child(even) th {
+  background: var(--pub-tbl-zebra);
+}
+
+/* =========================
+  Empty state
+========================= */
+.pub-tbl-empty {
+  padding: 3.2rem 1.6rem;
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--pub-text-mute);
+  border: 0.1rem dashed var(--pub-stroke);
+  border-radius: var(--pub-radius-lg, 1.6rem);
+  background: var(--pub-glass, rgba(255,255,255,0.72));
+}

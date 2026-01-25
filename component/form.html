@@ -1,0 +1,199 @@
+<!-- component/form.html -->
+<section class="pub-box">
+  <h2 class="pub-tit">Form</h2>
+  <p class="pub-txt">
+    폼 요소는 <strong>native input</strong>을 기본으로 사용하며, 모든 상태(기본/포커스/에러/비활성)는
+    <code>var(--token)</code> 기반으로 설계합니다. 프로젝트 투입 시 <code>_variables.scss</code>의 토큰 값만 변경하세요.
+  </p>
+</section>
+
+<section class="pub-box mt-x3 pub-form" aria-label="Form guide examples">
+  <h3 class="pub-subtit">1. 기본 입력</h3>
+
+  <form class="pub-form__wrap" action="#none">
+    <div class="pub-field">
+      <label class="pub-label" for="f-name">이름 <span class="pub-req" aria-hidden="true">*</span></label>
+      <input
+        class="pub-control"
+        type="text"
+        id="f-name"
+        name="name"
+        placeholder="이름을 입력하세요"
+        required
+        aria-describedby="f-name-help"
+      />
+      <p class="pub-help" id="f-name-help">실명 기준으로 입력해주세요.</p>
+    </div>
+
+    <div class="pub-field">
+      <label class="pub-label" for="f-search">검색</label>
+      <input
+        class="pub-control"
+        type="search"
+        id="f-search"
+        name="search"
+        placeholder="키워드를 입력하세요"
+        autocomplete="off"
+      />
+    </div>
+
+    <div class="pub-field">
+      <label class="pub-label" for="f-pass">비밀번호</label>
+      <input
+        class="pub-control"
+        type="password"
+        id="f-pass"
+        name="password"
+        placeholder="8자 이상"
+        aria-describedby="f-pass-help"
+      />
+      <p class="pub-help" id="f-pass-help">영문/숫자 조합을 권장합니다.</p>
+    </div>
+
+    <div class="pub-field">
+      <label class="pub-label" for="f-msg">메모</label>
+      <textarea
+        class="pub-control"
+        id="f-msg"
+        name="memo"
+        rows="4"
+        placeholder="내용을 입력하세요"
+      ></textarea>
+    </div>
+  </form>
+</section>
+
+<section class="pub-box mt-x3 pub-form">
+  <h3 class="pub-subtit">2. Select (Native)</h3>
+
+  <div class="pub-field">
+    <label class="pub-label" for="f-select">카테고리</label>
+    <select class="pub-control" id="f-select" name="category">
+      <option value="" selected>선택하세요</option>
+      <option value="a">옵션 A</option>
+      <option value="b">옵션 B</option>
+      <option value="c">옵션 C</option>
+    </select>
+    <p class="pub-help">커스텀 셀렉트가 필요하면 native select를 숨기지 말고 fallback 구조를 유지하세요.</p>
+  </div>
+</section>
+
+<section class="pub-box mt-x3 pub-form">
+  <h3 class="pub-subtit">3. 상태: Error / Success / Disabled</h3>
+
+  <div class="pub-field is-error">
+    <label class="pub-label" for="f-email">이메일</label>
+    <input
+      class="pub-control"
+      type="email"
+      id="f-email"
+      name="email"
+      placeholder="example@email.com"
+      aria-invalid="true"
+      aria-describedby="f-email-err"
+    />
+    <p class="pub-msg pub-msg--error" id="f-email-err" role="alert">이메일 형식을 확인해주세요.</p>
+  </div>
+
+  <div class="pub-field is-success">
+    <label class="pub-label" for="f-code">인증코드</label>
+    <input
+      class="pub-control"
+      type="text"
+      id="f-code"
+      name="code"
+      value="123456"
+      aria-describedby="f-code-ok"
+    />
+    <p class="pub-msg pub-msg--success" id="f-code-ok">인증이 완료되었습니다.</p>
+  </div>
+
+  <div class="pub-field">
+    <label class="pub-label" for="f-disabled">비활성 입력</label>
+    <input class="pub-control" type="text" id="f-disabled" value="Disabled" disabled />
+    <p class="pub-help">disabled는 키보드 포커스에서 제외됩니다.</p>
+  </div>
+</section>
+
+<section class="pub-box mt-x3 pub-form">
+  <h3 class="pub-subtit">4. Checkbox / Radio</h3>
+
+  <fieldset class="pub-fieldset">
+    <legend class="pub-legend">관심 항목</legend>
+
+    <div class="pub-check">
+      <input class="pub-check__inp" type="checkbox" id="c1" name="interest" value="health" />
+      <label class="pub-check__lab" for="c1">헬스케어</label>
+    </div>
+
+    <div class="pub-check">
+      <input class="pub-check__inp" type="checkbox" id="c2" name="interest" value="finance" />
+      <label class="pub-check__lab" for="c2">금융</label>
+    </div>
+
+    <div class="pub-check">
+      <input class="pub-check__inp" type="checkbox" id="c3" name="interest" value="community" disabled />
+      <label class="pub-check__lab" for="c3">커뮤니티(비활성)</label>
+    </div>
+  </fieldset>
+
+  <fieldset class="pub-fieldset mt-x2">
+    <legend class="pub-legend">상환 방식</legend>
+
+    <div class="pub-radio">
+      <input class="pub-radio__inp" type="radio" id="r1" name="repay" value="lump" checked />
+      <label class="pub-radio__lab" for="r1">원금일시상환</label>
+    </div>
+
+    <div class="pub-radio">
+      <input class="pub-radio__inp" type="radio" id="r2" name="repay" value="equal" />
+      <label class="pub-radio__lab" for="r2">원금균등분할상환</label>
+    </div>
+
+    <div class="pub-radio">
+      <input class="pub-radio__inp" type="radio" id="r3" name="repay" value="annuity" />
+      <label class="pub-radio__lab" for="r3">원리금균등분할상환</label>
+    </div>
+  </fieldset>
+</section>
+
+<section class="pub-box mt-x3 pub-form">
+  <h3 class="pub-subtit">5. Switch (Toggle)</h3>
+
+  <div class="pub-field">
+    <div class="pub-switch">
+      <input class="pub-switch__inp" type="checkbox" id="sw1" />
+      <label class="pub-switch__lab" for="sw1">
+        <span class="pub-switch__txt">알림 받기</span>
+        <span class="pub-switch__ui" aria-hidden="true"></span>
+      </label>
+      <p class="pub-help" id="sw1-help">설정 변경은 즉시 반영됩니다.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pub-box mt-x3 pub-form">
+  <h3 class="pub-subtit">6. Inline layout</h3>
+
+  <div class="pub-form__row" role="group" aria-label="전화번호 입력">
+    <div class="pub-field">
+      <label class="pub-label" for="f-phone1">통신사</label>
+      <select class="pub-control" id="f-phone1" name="telCarrier">
+        <option>SKT</option>
+        <option>KT</option>
+        <option>LGU+</option>
+        <option>알뜰폰</option>
+      </select>
+    </div>
+
+    <div class="pub-field">
+      <label class="pub-label" for="f-phone2">전화번호</label>
+      <input class="pub-control" type="tel" id="f-phone2" name="tel" placeholder="01012345678" />
+    </div>
+
+    <div class="pub-field pub-field--btn">
+      <span class="pub-label" aria-hidden="true">인증</span>
+      <button type="button" class="pub-btn pub-btn--primary">인증요청</button>
+    </div>
+  </div>
+</section>

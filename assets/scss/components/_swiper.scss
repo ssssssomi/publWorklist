@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+/* =========================================================
+  Swiper / Carousel
+========================================================= */
+
+:root {
+  --pub-swiper-h: 18rem;
+  --pub-swiper-radius: var(--pub-radius-lg, 1.6rem);
+  --pub-swiper-bg: var(--pub-glass, rgba(255,255,255,0.72));
+  --pub-swiper-btn-size: 4.0rem;
+}
+
+/* wrapper */
+.pub-swiper {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--pub-swiper-radius);
+  background: var(--pub-swiper-bg);
+  border: 0.1rem solid var(--pub-stroke);
+  box-shadow: var(--pub-shadow-soft);
+}
+
+/* track */
+.pub-swiper__track {
+  display: flex;
+  transition: transform 300ms ease;
+}
+
+/* slide */
+.pub-swiper__slide {
+  min-width: 100%;
+  height: var(--pub-swiper-h);
+  display: grid;
+  place-items: center;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--pub-text);
+  background: linear-gradient(
+    135deg,
+    var(--pub-accent-soft, rgba(30,98,255,0.16)),
+    var(--pub-accent-weak, rgba(30,98,255,0.10))
+  );
+}
+
+/* buttons */
+.pub-swiper__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--pub-swiper-btn-size);
+  height: var(--pub-swiper-btn-size);
+  border-radius: 50%;
+  border: 0.1rem solid var(--pub-stroke);
+  background: var(--pub-glass-strong);
+  color: var(--pub-text);
+  font-size: 2.0rem;
+  cursor: pointer;
+  box-shadow: var(--pub-shadow-soft);
+}
+
+.pub-swiper__btn--prev { left: 1.2rem; }
+.pub-swiper__btn--next { right: 1.2rem; }
+
+.pub-swiper__btn:focus-visible {
+  outline: 0.2rem solid var(--pub-focus);
+  outline-offset: 0.2rem;
+}
+
+/* pagination */
+.pub-swiper__pager {
+  position: absolute;
+  left: 50%;
+  bottom: 1.2rem;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.6rem;
+}
+
+.pub-swiper__pager button {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  border: none;
+  background: var(--pub-text-mute);
+  cursor: pointer;
+}
+
+.pub-swiper__pager button.is-active {
+  background: var(--pub-accent);
+}
+
+/* responsive */
+@media (max-width: 480px) {
+  :root {
+    --pub-swiper-h: 14rem;
+  }
+}

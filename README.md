@@ -70,6 +70,22 @@ WORKLIST/
 * DOM 의존 최소화
 * 접근성 관련 스크립트 우선 고려
 
+✔ 전체 한 번에
+<script>
+  uiScript.init();
+</script>
+
+✔ 페이지별 선택 초기화
+<script>
+  uiScript.popup.init();
+  uiScript.swiper.init();
+</script>
+
+✔ 특정 기능만
+<script>
+  uiScript.header.init();
+</script>
+
 ---
 
 ## ♿ 웹접근성 (a11y) 기준

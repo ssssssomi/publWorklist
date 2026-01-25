@@ -1,0 +1,107 @@
+<!-- component/box.html -->
+<section class="pub-box">
+  <h2 class="pub-tit">Box</h2>
+  <p class="pub-txt">
+    Box는 레이아웃과 정보 묶음을 위한 기본 컨테이너입니다.
+    카드와 달리 <strong>클릭/이동 목적이 아닌 경우</strong>에 사용합니다.
+  </p>
+</section>
+
+<!-- =========================
+  1. Basic box
+========================= -->
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">1. Basic box</h3>
+
+  <div class="pub-ui-box">
+    <p class="pub-ui-box__txt">
+      가장 기본적인 박스입니다. 영역 구분, 설명 묶음 등에 사용합니다.
+    </p>
+  </div>
+</section>
+
+<!-- =========================
+  2. Box with header
+========================= -->
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">2. Box with header</h3>
+
+  <section class="pub-ui-box">
+    <header class="pub-ui-box__head">
+      <h4 class="pub-ui-box__title">박스 제목</h4>
+    </header>
+
+    <div class="pub-ui-box__body">
+      <p class="pub-ui-box__txt">
+        제목 + 본문 구조의 박스입니다. 설정 영역, 정보 블록에 적합합니다.
+      </p>
+    </div>
+  </section>
+</section>
+
+<!-- =========================
+  3. Info / Notice box
+========================= -->
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">3. Info / Notice box</h3>
+
+  <div class="pub-ui-box" data-variant="info" role="note">
+    <strong class="pub-ui-box__label">안내</strong>
+    <p class="pub-ui-box__txt">
+      회원 정보는 마이페이지에서 수정할 수 있습니다.
+    </p>
+  </div>
+</section>
+
+<!-- =========================
+  4. Warning / Error box
+========================= -->
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">4. Warning / Error box</h3>
+
+  <div class="pub-ui-box" data-variant="warning" role="alert">
+    <strong class="pub-ui-box__label">주의</strong>
+    <p class="pub-ui-box__txt">
+      입력하신 정보 중 누락된 항목이 있습니다.
+    </p>
+  </div>
+
+  <div class="pub-ui-box mt-x2" data-variant="danger" role="alert">
+    <strong class="pub-ui-box__label">오류</strong>
+    <p class="pub-ui-box__txt">
+      서버 오류로 요청을 처리하지 못했습니다.
+    </p>
+  </div>
+</section>
+
+<!-- =========================
+  5. Emphasis box
+========================= -->
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">5. Emphasis box</h3>
+
+  <div class="pub-ui-box" data-variant="emphasis">
+    <p class="pub-ui-box__txt">
+      이 영역은 중요한 정보를 강조할 때 사용합니다.
+    </p>
+  </div>
+</section>
+
+<!-- =========================
+  6. Box group (stack)
+========================= -->
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">6. Box group</h3>
+
+  <div class="pub-ui-box-group">
+    <div class="pub-ui-box">
+      <p class="pub-ui-box__txt">첫 번째 박스</p>
+    </div>
+    <div class="pub-ui-box">
+      <p class="pub-ui-box__txt">두 번째 박스</p>
+    </div>
+    <div class="pub-ui-box">
+      <p class="pub-ui-box__txt">세 번째 박스</p>
+    </div>
+  </div>
+</section>

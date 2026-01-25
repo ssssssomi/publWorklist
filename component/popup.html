@@ -1,0 +1,91 @@
+<!-- component/popup.html -->
+<section class="pub-box">
+  <h2 class="pub-tit">Popup & Modal</h2>
+  <p class="pub-txt">버튼 data-id와 동일한 data-id를 가진 .pub-popup을 열고 닫습니다.</p>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">1. Alert Popup</h3>
+  <button type="button" class="pub-btn pub-btn--primary" data-id="alertPopup">
+    Alert 열기
+  </button>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">2. Confirm Popup</h3>
+  <button type="button" class="pub-btn pub-btn--outline" data-id="confirmPopup">
+    Confirm 열기
+  </button>
+</section>
+
+<section class="pub-box mt-x3">
+  <h3 class="pub-subtit">3. Modal (Content)</h3>
+  <button type="button" class="pub-btn pub-btn--secondary" data-id="contentModal">
+    Modal 열기
+  </button>
+</section>
+
+<!-- ✅ Backdrop (필수) -->
+<div class="pub-popup-dim" data-popup-dim hidden></div>
+
+<!-- ======================
+  Popup : Alert
+====================== -->
+<div class="pub-popup" data-id="alertPopup" role="dialog" aria-modal="true" aria-labelledby="alertTitle" hidden>
+  <div class="pub-popup--wrap" role="document">
+    <div class="pub-popup--head">
+      <strong id="alertTitle">알림</strong>
+      <button type="button" class="pub-popup--close" aria-label="닫기" data-close>✕</button>
+    </div>
+
+    <div class="pub-popup--body">
+      저장이 완료되었습니다.
+    </div>
+
+    <div class="pub-popup--foot">
+      <button type="button" class="pub-btn pub-btn--primary" data-close>확인</button>
+    </div>
+  </div>
+</div>
+
+<!-- ======================
+  Popup : Confirm
+====================== -->
+<div class="pub-popup" data-id="confirmPopup" role="dialog" aria-modal="true" aria-labelledby="confirmTitle" hidden>
+  <div class="pub-popup--wrap" role="document">
+    <div class="pub-popup--head">
+      <strong id="confirmTitle">삭제 확인</strong>
+      <button type="button" class="pub-popup--close" aria-label="닫기" data-close>✕</button>
+    </div>
+
+    <div class="pub-popup--body">
+      삭제하시겠습니까?
+    </div>
+
+    <div class="pub-popup--foot">
+      <button type="button" class="pub-btn pub-btn--secondary" data-close>취소</button>
+      <button type="button" class="pub-btn pub-btn--danger">삭제</button>
+    </div>
+  </div>
+</div>
+
+<!-- ======================
+  Popup : Content
+====================== -->
+<div class="pub-popup pub-popup--lg" data-id="contentModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+  <div class="pub-popup--wrap" role="document">
+    <div class="pub-popup--head">
+      <strong id="modalTitle">약관 안내</strong>
+      <button type="button" class="pub-popup--close" aria-label="닫기" data-close>✕</button>
+    </div>
+
+    <div class="pub-popup--body">
+      <p class="typo-body">긴 콘텐츠 영역입니다.</p>
+      <p class="typo-body mt-x2">필요 시 스크롤 처리됩니다.</p>
+    </div>
+
+    <div class="pub-popup--foot">
+      <button type="button" class="pub-btn pub-btn--primary" data-close>확인</button>
+    </div>
+  </div>
+</div>
