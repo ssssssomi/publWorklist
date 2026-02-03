@@ -192,9 +192,7 @@ hr {
   border-bottom: 0.1rem solid var(--pub-stroke);
   box-shadow: var(--pub-shadow-soft);
 }
-
-/* inner */
-.pub-header__inner {
+.pub-header--inner {
   max-width: 128rem;
   margin: 0 auto;
   padding: 0 1.6rem;
@@ -204,51 +202,41 @@ hr {
   align-items: center;
   gap: 1.6rem;
 }
-
-/* logo */
-.pub-header__logo {
+.pub-header--logo {
   margin: 0;
   font-size: 1.8rem;
   font-weight: 900;
 }
-
-.pub-header__logo a {
+.pub-header--logo a {
   text-decoration: none;
   color: var(--pub-text);
 }
-
-.pub-header__logo a:focus-visible {
+.pub-header--logo a:focus-visible {
   outline: 0.2rem solid var(--pub-focus);
   outline-offset: 0.2rem;
   border-radius: 0.4rem;
 }
-
-/* nav */
-.pub-header__nav {
+.pub-header--nav {
   justify-self: center;
 }
-
-.pub-header__menu {
+.pub-header--menu {
   list-style: none;
   display: flex;
   gap: 1.6rem;
   margin: 0;
   padding: 0;
 }
-
-.pub-header__menu a {
+.pub-header--menu a {
   font-size: 1.4rem;
   font-weight: 800;
   color: var(--pub-text-dim);
   text-decoration: none;
   position: relative;
 }
-
-.pub-header__menu a[aria-current=page] {
+.pub-header--menu a[aria-current=page] {
   color: var(--pub-text);
 }
-
-.pub-header__menu a[aria-current=page]::after {
+.pub-header--menu a[aria-current=page]::after {
   content: "";
   position: absolute;
   left: 0;
@@ -258,15 +246,12 @@ hr {
   background: var(--pub-accent);
   border-radius: 1rem;
 }
-
-.pub-header__menu a:focus-visible {
+.pub-header--menu a:focus-visible {
   outline: 0.2rem solid var(--pub-focus);
   outline-offset: 0.2rem;
   border-radius: 0.4rem;
 }
-
-/* util */
-.pub-header__util {
+.pub-header--util {
   display: flex;
   gap: 0.8rem;
 }
