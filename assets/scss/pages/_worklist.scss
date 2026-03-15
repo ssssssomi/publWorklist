@@ -45,6 +45,7 @@ body[data-page="worklist"][data-theme="light"] {
   /* Toss-like: white + gray + blue */
   --bg: #f6f7f9;
   --surface: #ffffff;
+  --title: #1c1c1ceb;
   --text: #191f28;
   --muted: #6b7684;
 
@@ -69,6 +70,7 @@ body[data-page="worklist"][data-theme="light"] {
 body[data-page="worklist"][data-theme="dark"] {
   --bg: #141821;
   --surface: #141821;
+  --title: #ffffff;
   --text: #eef1f6;
   --muted: #a7afc0;
 
@@ -168,6 +170,7 @@ body[data-page="worklist"] {
   margin: 0;
   font-size: 2.2rem;
   font-weight: 800;
+  color: var(--title);
   letter-spacing: -0.02em;
 }
 

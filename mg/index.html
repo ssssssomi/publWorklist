@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>통합홈페이지 샘플</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <a href="#container" class="skip-link">본문 바로가기</a>
+
+  <div id="wrap">
+    <!-- 상단 유틸 -->
+    <div class="top-util">
+      <div class="inner">
+        <ul class="util-menu">
+          <li><a href="#">금고위치(금리)안내</a></li>
+          <li><a href="#">고객센터</a></li>
+          <li><a href="#" lang="en">ENG</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 헤더 -->
+    <header class="header" id="header">
+      <div class="inner header-inner">
+        <h1 class="logo">
+          <a href="#" aria-label="메인으로 이동">로고</a>
+        </h1>
+
+        <nav class="gnb" aria-label="주메뉴">
+          <ul class="gnb-list">
+            <li class="gnb-item">
+              <button
+                type="button"
+                class="gnb-link"
+                aria-expanded="false"
+                aria-controls="megaMenu1"
+              >
+                메뉴1
+              </button>
+
+              <div
+                class="mega-menu"
+                id="megaMenu1"
+                role="group"
+                aria-label="메뉴1 하위 메뉴"
+              >
+                <div class="mega-menu-inner">
+                  <div class="mega-col">
+                    <strong class="mega-title">메뉴1-1</strong>
+                    <ul class="mega-submenu">
+                      <li><a href="#">서브메뉴1-1-1</a></li>
+                      <li><a href="#">서브메뉴1-1-2</a></li>
+                      <li><a href="#">서브메뉴1-1-3</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="mega-col">
+                    <strong class="mega-title">메뉴1-2</strong>
+                    <ul class="mega-submenu">
+                      <li><a href="#">서브메뉴1-2-1</a></li>
+                      <li><a href="#">서브메뉴1-2-2</a></li>
+                      <li><a href="#">서브메뉴1-2-3</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="mega-col">
+                    <strong class="mega-title">메뉴1-3</strong>
+                    <ul class="mega-submenu">
+                      <li><a href="#">서브메뉴1-3-1</a></li>
+                      <li><a href="#">서브메뉴1-3-2</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="mega-col">
+                    <strong class="mega-title">메뉴1-4</strong>
+                    <ul class="mega-submenu">
+                      <li><a href="#">서브메뉴1-4-1</a></li>
+                      <li><a href="#">서브메뉴1-4-2</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="gnb-item">
+              <button
+                type="button"
+                class="gnb-link"
+                aria-expanded="false"
+                aria-controls="megaMenu2"
+              >
+                메뉴2
+              </button>
+
+              <div
+                class="mega-menu"
+                id="megaMenu2"
+                role="group"
+                aria-label="메뉴2 하위 메뉴"
+              >
+                <div class="mega-menu-inner">
+                  <div class="mega-col">
+                    <strong class="mega-title">메뉴2-1</strong>
+                    <ul class="mega-submenu">
+                      <li><a href="#">서브메뉴2-1-1</a></li>
+                      <li><a href="#">서브메뉴2-1-2</a></li>
+                      <li><a href="#">서브메뉴2-1-3</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="mega-col">
+                    <strong class="mega-title">메뉴2-2</strong>
+                    <ul class="mega-submenu">
+                      <li><a href="#">서브메뉴2-2-1</a></li>
+                      <li><a href="#">서브메뉴2-2-2</a></li>
+                      <li><a href="#">서브메뉴2-2-3</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="mega-col">
+                    <strong class="mega-title">메뉴2-3</strong>
+                    <ul class="mega-submenu">
+                      <li><a href="#">서브메뉴2-3-1</a></li>
+                      <li><a href="#">서브메뉴2-3-2</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="mega-col">
+                    <strong class="mega-title">메뉴2-4</strong>
+                    <ul class="mega-submenu">
+                      <li><a href="#">서브메뉴2-4-1</a></li>
+                      <li><a href="#">서브메뉴2-4-2</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="gnb-item">
+              <button
+                type="button"
+                class="gnb-link"
+                aria-expanded="false"
+                aria-controls="megaMenu3"
+              >
+                메뉴3
+              </button>
+
+              <div
+                class="mega-menu"
+                id="megaMenu3"
+                role="group"
+                aria-label="메뉴3 하위 메뉴"
+              >
+                <div class="mega-menu-inner">
+                  <div class="mega-col">
+                    <strong class="mega-title">메뉴3-1</strong>
+                    <ul class="mega-submenu">
+                      <li><a href="#">서브메뉴3-1-1</a></li>
+                      <li><a href="#">서브메뉴3-1-2</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="mega-col">
+                    <strong class="mega-title">메뉴3-2</strong>
+                    <ul class="mega-submenu">
+                      <li><a href="#">서브메뉴3-2-1</a></li>
+                      <li><a href="#">서브메뉴3-2-2</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="mega-col">
+                    <strong class="mega-title">메뉴3-3</strong>
+                    <ul class="mega-submenu">
+                      <li><a href="#">서브메뉴3-3-1</a></li>
+                      <li><a href="#">서브메뉴3-3-2</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="gnb-item">
+              <button
+                type="button"
+                class="gnb-link"
+                aria-expanded="false"
+                aria-controls="megaMenu4"
+              >
+                메뉴4
+              </button>
+
+              <div
+                class="mega-menu"
+                id="megaMenu4"
+                role="group"
+                aria-label="메뉴4 하위 메뉴"
+              >
+                <div class="mega-menu-inner">
+                  <div class="mega-col">
+                    <strong class="mega-title">메뉴4-1</strong>
+                    <ul class="mega-submenu">
+                      <li><a href="#">서브메뉴4-1-1</a></li>
+                      <li><a href="#">서브메뉴4-1-2</a></li>
+                      <li><a href="#">서브메뉴4-1-3</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="mega-col">
+                    <strong class="mega-title">메뉴4-2</strong>
+                    <ul class="mega-submenu">
+                      <li><a href="#">서브메뉴4-2-1</a></li>
+                      <li><a href="#">서브메뉴4-2-2</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="gnb-item">
+              <button
+                type="button"
+                class="gnb-link"
+                aria-expanded="false"
+                aria-controls="megaMenu5"
+              >
+                메뉴5
+              </button>
+
+              <div
+                class="mega-menu"
+                id="megaMenu5"
+                role="group"
+                aria-label="메뉴5 하위 메뉴"
+              >
+                <div class="mega-menu-inner">
+                  <div class="mega-col">
+                    <strong class="mega-title">메뉴5-1</strong>
+                    <ul class="mega-submenu">
+                      <li><a href="#">서브메뉴5-1-1</a></li>
+                      <li><a href="#">서브메뉴5-1-2</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="mega-col">
+                    <strong class="mega-title">메뉴5-2</strong>
+                    <ul class="mega-submenu">
+                      <li><a href="#">서브메뉴5-2-1</a></li>
+                      <li><a href="#">서브메뉴5-2-2</a></li>
+                      <li><a href="#">서브메뉴5-2-3</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="mega-col">
+                    <strong class="mega-title">메뉴5-3</strong>
+                    <ul class="mega-submenu">
+                      <li><a href="#">서브메뉴5-3-1</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- 본문 -->
+    <main id="container">
+      <section class="visual" aria-label="메인 비주얼">
+        <h2 class="blind">메인 비주얼 슬라이드</h2>
+
+        <div class="visual-slider">
+          <div class="slides" id="mainSlides" aria-live="polite">
+            <!-- 복제: 마지막 슬라이드 -->
+            <div
+              class="slide"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="3 / 3"
+              aria-hidden="true"
+            >
+              <img
+                src="https://picsum.photos/1440/700?random=13"
+                alt=""
+              />
+              <div class="slide-content">
+                <p class="slide-sub">서브 문구 03</p>
+                <h3 class="slide-title">이미지 슬라이드 3</h3>
+                <p class="slide-desc">배너형 메인 비주얼 샘플입니다.</p>
+              </div>
+            </div>
+
+            <!-- 실제 1 -->
+            <div
+              class="slide"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="1 / 3"
+            >
+              <img
+                src="https://picsum.photos/1440/700?random=11"
+                alt="메인 홍보 이미지 1"
+              />
+              <div class="slide-content">
+                <p class="slide-sub">서브 문구 01</p>
+                <h3 class="slide-title">이미지 슬라이드 1</h3>
+                <p class="slide-desc">여기에 설명 문구를 넣어주세요.</p>
+              </div>
+            </div>
+
+            <!-- 실제 2 -->
+            <div
+              class="slide"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="2 / 3"
+            >
+              <img
+                src="https://picsum.photos/1440/700?random=12"
+                alt="메인 홍보 이미지 2"
+              />
+              <div class="slide-content">
+                <p class="slide-sub">서브 문구 02</p>
+                <h3 class="slide-title">이미지 슬라이드 2</h3>
+                <p class="slide-desc">나중에 이미지와 텍스트만 교체하면 됩니다.</p>
+              </div>
+            </div>
+
+            <!-- 실제 3 -->
+            <div
+              class="slide"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="3 / 3"
+            >
+              <img
+                src="https://picsum.photos/1440/700?random=13"
+                alt="메인 홍보 이미지 3"
+              />
+              <div class="slide-content">
+                <p class="slide-sub">서브 문구 03</p>
+                <h3 class="slide-title">이미지 슬라이드 3</h3>
+                <p class="slide-desc">배너형 메인 비주얼 샘플입니다.</p>
+              </div>
+            </div>
+
+            <!-- 복제: 첫 슬라이드 -->
+            <div
+              class="slide"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="1 / 3"
+              aria-hidden="true"
+            >
+              <img
+                src="https://picsum.photos/1440/700?random=11"
+                alt=""
+              />
+              <div class="slide-content">
+                <p class="slide-sub">서브 문구 01</p>
+                <h3 class="slide-title">이미지 슬라이드 1</h3>
+                <p class="slide-desc">여기에 설명 문구를 넣어주세요.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="visual-controls" aria-label="슬라이드 제어">
+            <button type="button" class="btn-control btn-prev" aria-label="이전 슬라이드">
+              이전
+            </button>
+            <button type="button" class="btn-control btn-next" aria-label="다음 슬라이드">
+              다음
+            </button>
+            <button type="button" class="btn-control btn-pause" aria-label="자동재생 정지">
+              정지
+            </button>
+            <button type="button" class="btn-control btn-play" aria-label="자동재생 시작">
+              재생
+            </button>
+          </div>
+
+          <div class="visual-pagination" aria-label="슬라이드 페이지 이동">
+            <button
+              type="button"
+              class="dot is-active"
+              aria-label="1번 슬라이드 보기"
+              aria-current="true"
+            ></button>
+            <button
+              type="button"
+              class="dot"
+              aria-label="2번 슬라이드 보기"
+              aria-current="false"
+            ></button>
+            <button
+              type="button"
+              class="dot"
+              aria-label="3번 슬라이드 보기"
+              aria-current="false"
+            ></button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./js/edu-uiScript.js"></script>
+</body>
+</html>
