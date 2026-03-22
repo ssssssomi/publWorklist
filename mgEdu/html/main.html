@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>MG Edu</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body class="mg-edu" data-page="main">
+  <header class="edu-header" data-id="header"></header>
+
+  <main class="edu-body">
+          <section class="visual" aria-label="메인 비주얼">
+        <h2 class="blind">메인 비주얼 슬라이드</h2>
+
+        <div class="visual-slider">
+          <div class="slides" id="mainSlides" aria-live="polite">
+            <!-- 복제: 마지막 슬라이드 -->
+            <div
+              class="slide"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="3 / 3"
+              aria-hidden="true"
+            >
+              <img
+                src="https://picsum.photos/1440/700?random=13"
+                alt=""
+              />
+              <div class="slide-content">
+                <p class="slide-sub">서브 문구 03</p>
+                <h3 class="slide-title">이미지 슬라이드 3</h3>
+                <p class="slide-desc">배너형 메인 비주얼 샘플입니다.</p>
+              </div>
+            </div>
+
+            <!-- 실제 1 -->
+            <div
+              class="slide"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="1 / 3"
+            >
+              <img
+                src="https://picsum.photos/1440/700?random=11"
+                alt="메인 홍보 이미지 1"
+              />
+              <div class="slide-content">
+                <p class="slide-sub">서브 문구 01</p>
+                <h3 class="slide-title">이미지 슬라이드 1</h3>
+                <p class="slide-desc">여기에 설명 문구를 넣어주세요.</p>
+              </div>
+            </div>
+
+            <!-- 실제 2 -->
+            <div
+              class="slide"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="2 / 3"
+            >
+              <img
+                src="https://picsum.photos/1440/700?random=12"
+                alt="메인 홍보 이미지 2"
+              />
+              <div class="slide-content">
+                <p class="slide-sub">서브 문구 02</p>
+                <h3 class="slide-title">이미지 슬라이드 2</h3>
+                <p class="slide-desc">나중에 이미지와 텍스트만 교체하면 됩니다.</p>
+              </div>
+            </div>
+
+            <!-- 실제 3 -->
+            <div
+              class="slide"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="3 / 3"
+            >
+              <img
+                src="https://picsum.photos/1440/700?random=13"
+                alt="메인 홍보 이미지 3"
+              />
+              <div class="slide-content">
+                <p class="slide-sub">서브 문구 03</p>
+                <h3 class="slide-title">이미지 슬라이드 3</h3>
+                <p class="slide-desc">배너형 메인 비주얼 샘플입니다.</p>
+              </div>
+            </div>
+
+            <!-- 복제: 첫 슬라이드 -->
+            <div
+              class="slide"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="1 / 3"
+              aria-hidden="true"
+            >
+              <img
+                src="https://picsum.photos/1440/700?random=11"
+                alt=""
+              />
+              <div class="slide-content">
+                <p class="slide-sub">서브 문구 01</p>
+                <h3 class="slide-title">이미지 슬라이드 1</h3>
+                <p class="slide-desc">여기에 설명 문구를 넣어주세요.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="visual-controls" aria-label="슬라이드 제어">
+            <button type="button" class="btn-control btn-prev" aria-label="이전 슬라이드">
+              이전
+            </button>
+            <button type="button" class="btn-control btn-next" aria-label="다음 슬라이드">
+              다음
+            </button>
+            <button type="button" class="btn-control btn-pause" aria-label="자동재생 정지">
+              정지
+            </button>
+            <button type="button" class="btn-control btn-play" aria-label="자동재생 시작">
+              재생
+            </button>
+          </div>
+
+          <div class="visual-pagination" aria-label="슬라이드 페이지 이동">
+            <button
+              type="button"
+              class="dot is-active"
+              aria-label="1번 슬라이드 보기"
+              aria-current="true"
+            ></button>
+            <button
+              type="button"
+              class="dot"
+              aria-label="2번 슬라이드 보기"
+              aria-current="false"
+            ></button>
+            <button
+              type="button"
+              class="dot"
+              aria-label="3번 슬라이드 보기"
+              aria-current="false"
+            ></button>
+          </div>
+        </div>
+      </section>
+  </main>
+
+  <script src="../assets/js/eduScript.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      Global.include.init({
+        id: 'header',
+        src: '../inc/header.html'
+      });
+
+      Global.slider.init();
+    });
+  </script>
+</body>
+</html>

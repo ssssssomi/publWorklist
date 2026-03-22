@@ -159,6 +159,20 @@ strong {
 .gnb-item {
   position: static;
 }
+.gnb-item:hover .mega-menu,
+.gnb-item:focus-within .mega-menu {
+  display: block;
+}
+
+.gnb-item:hover .gnb-link,
+.gnb-item:focus-within .gnb-link {
+  color: #1677d8;
+}
+
+.gnb-item:hover .gnb-link::after,
+.gnb-item:focus-within .gnb-link::after {
+  width: 100%;
+}
 
 .gnb-link {
   position: relative;
@@ -222,6 +236,8 @@ strong {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 40px;
+
+  padding-left: 220px;
 }
 
 .mega-col {
