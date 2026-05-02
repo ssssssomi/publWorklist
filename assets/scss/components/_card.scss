@@ -33,12 +33,12 @@
   text-decoration: none;
 }
 
-.pub-card__head {
+.pub-card--head {
   display: grid;
   gap: 0.6rem;
 }
 
-.pub-card__eyebrow {
+.pub-card--eyebrow {
   margin: 0;
   font-size: 1.2rem;
   font-weight: 800;
@@ -46,7 +46,7 @@
   letter-spacing: -0.01em;
 }
 
-.pub-card__title {
+.pub-card--title {
   margin: 0;
   font-size: 1.6rem;
   font-weight: 900;
@@ -55,19 +55,19 @@
   color: var(--pub-text, rgba(0,0,0,0.92));
 }
 
-.pub-card__body {
+.pub-card--body {
   display: grid;
   gap: 0.8rem;
 }
 
-.pub-card__desc {
+.pub-card--desc {
   margin: 0;
   font-size: 1.4rem;
   line-height: 1.6;
   color: var(--pub-text-dim, rgba(0,0,0,0.70));
 }
 
-.pub-card__meta {
+.pub-card--meta {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
@@ -75,7 +75,7 @@
   justify-content: space-between;
 }
 
-.pub-card__time {
+.pub-card--time {
   font-size: 1.2rem;
   color: var(--pub-text-mute, rgba(0,0,0,0.55));
 }
@@ -112,7 +112,7 @@
   overflow: hidden;
 }
 
-.pub-card--media .pub-card__media {
+.pub-card--media .pub-card--media {
   height: 16rem;
   background: linear-gradient(
     135deg,
@@ -124,26 +124,26 @@
   place-items: center;
 }
 
-.pub-card--media .pub-card__mediaText {
+.pub-card--media .pub-card--mediaText {
   font-size: 1.2rem;
   font-weight: 800;
   color: var(--pub-text-dim);
 }
 
-.pub-card--media .pub-card__body,
-.pub-card--media .pub-card__meta {
+.pub-card--media .pub-card--body,
+.pub-card--media .pub-card--meta {
   padding: var(--pub-card-pad);
   padding-top: 0;
 }
 
-.pub-card--media .pub-card__body {
+.pub-card--media .pub-card--body {
   padding-top: var(--pub-card-pad);
 }
 
 /* -------------------------
   Actions (footer)
 ------------------------- */
-.pub-card__actions {
+.pub-card--actions {
   display: flex;
   justify-content: flex-end;
   gap: 1.0rem;

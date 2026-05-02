@@ -77,7 +77,7 @@
 }
 
 /* 아이콘 영역 */
-.pub-btn__ico {
+.pub-btn--ico {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -86,7 +86,7 @@
   flex: 0 0 auto;
 }
 
-.pub-btn__txt {
+.pub-btn--txt {
   display: inline-flex;
   align-items: center;
 }
@@ -170,7 +170,7 @@
   pointer-events: none;
 }
 
-.pub-btn__spinner {
+.pub-btn--spinner {
   width: 1.6rem;
   height: 1.6rem;
   border-radius: 50%;
@@ -179,9 +179,9 @@
   animation: pubSpin 700ms linear infinite;
 }
 
-.pub-btn--outline .pub-btn__spinner,
-.pub-btn--secondary .pub-btn__spinner,
-.pub-btn--ghost .pub-btn__spinner {
+.pub-btn--outline .pub-btn--spinner,
+.pub-btn--secondary .pub-btn--spinner,
+.pub-btn--ghost .pub-btn--spinner {
   border-color: rgba(0,0,0,0.18);
   border-top-color: rgba(0,0,0,0.62);
 }

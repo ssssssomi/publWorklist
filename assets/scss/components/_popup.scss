@@ -37,7 +37,7 @@
 }
 
 /* panel */
-.pub-modal__panel {
+.pub-modal--panel {
   width: 100%;
   max-width: var(--pub-modal-w);
   background: var(--pub-glass-strong);
@@ -48,18 +48,18 @@
 }
 
 /* size */
-.pub-modal--lg .pub-modal__panel {
+.pub-modal--lg .pub-modal--panel {
   max-width: var(--pub-modal-w-lg);
 }
 
 /* title / desc */
-.pub-modal__title {
+.pub-modal--title {
   margin: 0 0 0.8rem;
   font-size: 1.8rem;
   font-weight: 900;
 }
 
-.pub-modal__desc {
+.pub-modal--desc {
   margin: 0;
   font-size: 1.4rem;
   line-height: 1.6;
@@ -67,14 +67,14 @@
 }
 
 /* header */
-.pub-modal__head {
+.pub-modal--head {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1.2rem;
 }
 
-.pub-modal__close {
+.pub-modal--close {
   appearance: none;
   border: none;
   background: transparent;
@@ -83,20 +83,20 @@
   color: var(--pub-text);
 }
 
-.pub-modal__close:focus-visible {
+.pub-modal--close:focus-visible {
   outline: 0.2rem solid var(--pub-focus);
   outline-offset: 0.2rem;
   border-radius: 0.4rem;
 }
 
 /* body */
-.pub-modal__body {
+.pub-modal--body {
   max-height: 50vh;
   overflow-y: auto;
 }
 
 /* actions */
-.pub-modal__actions {
+.pub-modal--actions {
   display: flex;
   justify-content: flex-end;
   gap: 1.0rem;
@@ -105,7 +105,7 @@
 
 /* responsive */
 @media (max-width: 480px) {
-  .pub-modal__panel {
+  .pub-modal--panel {
     margin: 0 1.6rem;
     padding: 1.6rem;
   }

@@ -30,18 +30,18 @@
   color: var(--pub-text, rgba(0,0,0,0.92));
 }
 
-.pub-ui-box__head {
+.pub-ui-box--head {
   margin-bottom: 0.4rem;
 }
 
-.pub-ui-box__title {
+.pub-ui-box--title {
   margin: 0;
   font-size: 1.5rem;
   font-weight: 900;
   letter-spacing: -0.01em;
 }
 
-.pub-ui-box__txt {
+.pub-ui-box--txt {
   margin: 0;
   font-size: 1.4rem;
   line-height: 1.6;
@@ -73,7 +73,7 @@
 }
 
 /* label */
-.pub-ui-box__label {
+.pub-ui-box--label {
   font-size: 1.3rem;
   font-weight: 900;
   color: var(--pub-text);
